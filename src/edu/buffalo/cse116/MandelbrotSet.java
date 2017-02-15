@@ -9,7 +9,7 @@ public class MandelbrotSet{
 		for(int i = 0; i < xCord; i++){
 			for(int a = 0; i < yCord; a++){
 				double xPrime = (xCalc * xCalc) - (yCalc * yCalc) + xCalc;
-				double yPrime = 2 * xCalc * yCalc;
+				double yPrime = (2 * xCalc * yCalc) + yCalc;
 				xPrime = xCalc;
 				yPrime = yCalc;
 			}
