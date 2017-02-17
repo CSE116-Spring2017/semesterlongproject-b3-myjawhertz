@@ -1,22 +1,25 @@
-Meeting Minutes for _______________:
+Meeting Minutes for 02/17/2017:
 
 Meeting Attendance:
-  *
-  *
-  *
+  *Alec Otminski
+  *Ayesha ismail
+  *Stephen Fung
+  *junhong(Jayden) Jeong
 
 Tasks completed since last meeting:
-  *
-  *
+  *We've began the JUnit tests
+  *Started working on all three sets
 
 Tasks started, but not completed, since last meeting:
-  *
-  *
+  *JUnit tests have not been completed yet
+  *Methods in each set class are incomplete
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  *
-  *
+  *Ayesha will work on the Julia Set
+  *Stephen will work on the madelbrot Set
+  *Jayden will work on the Burning SHip Set
+  *Alec will work on the JUnit Tests & the fourth set when it's revealed
 
 Schedule for the next week's set of pair programming meetings:
-  *
-  *
+  *Sunday @ 6:30pm: Start writing methods for JUnit tests for each set
+  *Tuesday @ 4:00pm: Finish JUnit tests and fourth Fractal Set

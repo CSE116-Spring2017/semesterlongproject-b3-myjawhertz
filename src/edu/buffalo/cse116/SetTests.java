@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /** This class provides the JUnit tests that will be used
- * to make sure that the pixel ---> color translations
- * are correct for each unique set that's used.
+ * to make sure that each fractal set's translations and Escape-Time Calculations
+ * are working properly.
  * @author Alec Otminski
  *
  */
@@ -15,10 +15,10 @@ public class SetTests {
 	//Mandelbrot Set Tests
 	
 	@Test
-	public void testMandelbrotXCoordinateTranslation(){	//name of class: MandelbrotSet
+	public void testMandelbrotXCoordinateTranslation(){	//this tests is the X-Coordinate Translation works
 		int [][] emptySet = new int[512][512];
 		MandelbrotSet xCoordTest = new MandelbrotSet();
-		assertEquals("Product is 0.00302734", 0.00302734, xCoordTest.mandelbrotSet(0, 0));
+		assertEquals("Product is -2.15", -2.15, xCoordTest.mandelbrotSet(0, 0));
 	}
 	@Test
 	public void testMandelbrotYCoordinateTranslation(){
