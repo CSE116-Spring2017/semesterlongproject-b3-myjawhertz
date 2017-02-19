@@ -39,7 +39,7 @@ public class JuliaSet {
 	
 	public int [] [] canvaS(int[][] arr){
 		canvas = arr;
-		canvas = new int [512] [512];
+		//canvas = new int [512] [512];
 		JuliaSet(xtest, ytest);
 		return canvas;
 	}
