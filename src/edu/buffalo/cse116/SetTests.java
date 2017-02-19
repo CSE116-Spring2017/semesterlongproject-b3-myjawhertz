@@ -17,11 +17,12 @@ public class SetTests {
 	@Test
 	public void testMandelbrotXCoordinateTranslation(){	//this tests is the X-Coordinate Translation works
 		MandelbrotSet xCoordTest = new MandelbrotSet();
-		assertEquals("Product is -2.15", -2.15, xCoordTest.mandelbrotSet(0, 0), 0.00001);
+		assertEquals("X cordinate is -2.15", -2.15, xCoordTest.getXCord(0), 0.00001);
 	}
 	@Test
 	public void testMandelbrotYCoordinateTranslation(){
 		MandelbrotSet yCoordTest = new MandelbrotSet();
+		assertEquals("Y cordinate is -1.3", -1.3, yCoordTest.getYCord(0), 0.0001);
 	}
 	
 	@Test
@@ -32,7 +33,7 @@ public class SetTests {
 	@Test
 	public void testMandelbrotETExceedsED(){
 		MandelbrotSet etExceedsED = new MandelbrotSet();
-		assertEquals("Product is 255.", 255,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122), 0.0001);
+		assertEquals("Product is 255.", 1,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122), 0.0001);
 	}
 	@Test
 	public void testMandelbrotReturn(){
