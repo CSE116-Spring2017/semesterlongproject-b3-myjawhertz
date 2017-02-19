@@ -2,31 +2,15 @@ package edu.buffalo.cse116;
 
 public class MandelbrotSet{
 	
-//	private int xCord = 512;
-//	private int yCord = 512;
-//	private double passes = 0;
-//	private double xCalc = -2.15 + Math.abs((2.15 + .6) / 512);
-//	private double yCalc = -1.3 + Math.abs((1.3 + 1.3) / 512);
-//	public double mandelbrotSet(double xCalc, double yCalc){
-//		for(int i = 0; i < xCord; i++){
-//			for(int a = 0; i < yCord; a++){
-//				double xPrime = (xCalc * xCalc) - (yCalc * yCalc) + xCalc;
-//				double yPrime = (2 * xCalc * yCalc) + yCalc;
-//				xPrime = xCalc;
-//				yPrime = yCalc;
-//				passes++;
-//			}
-//		}
-//		return passes;
-//		
-//	}
-//	
-//	public int[][] xCoordTranslation(double[][] al){
-//		int i = al.length;
-//		for (int r = 0; r < i; r++){
-//				al[r] = (-2.15 + (2.75/512)*r);
-//		}
-//	}
+	public double getXCord(int xRow){
+		double xCord = -2.15 + (2.75 * xRow / 512);
+		return xCord;
+	}
+	
+	public double getYCord(int YRow){
+		double yCord = -1.3 + (2.6 * YRow / 512);
+		return yCord;
+	}
 	
 	
 	
@@ -45,7 +29,7 @@ public class MandelbrotSet{
 			
 			xCalc = xCalc + (2.6/512);
 			yCalc = yCalc + (2.75/512);
-			getXAndYCalc(xCalc,yCalc);
+			
 			xCalc = (tempX*tempX) - (tempY*tempY) + x;
 			yCalc = (2 * (tempX * tempY)) + y;
 			
@@ -57,10 +41,10 @@ public class MandelbrotSet{
 		return passes;
 	}
 	
-	public double[][] getXAndYCalc(double xCalc, double yCalc){
-		return double[xCalc][yCalc];
-		
-	}
+//	public double[][] getXAndYCalc(double xCalc, double yCalc){
+//		return double[xCalc][yCalc];
+//		
+//	}
 	
 	
 //	public double mandelbrotSet(double xCalc,double yCalc){
