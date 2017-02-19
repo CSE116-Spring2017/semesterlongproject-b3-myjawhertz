@@ -1,31 +1,29 @@
 package edu.buffalo.cse116;
 
 public class burningshipset {
-	public int[][] Burningshipset(){
+	public int[][] Burningshipset(double xCalc, double yCalc){
 		int[][] burningshipset = new int[512][512];
-		int rows = burningshipset.length;
-		int cols = burningshipset[0].length;
 		
-		
-		double xCalc = 0.0; //current point's x-coordinate;
-		double yCalc = 0.0;// current point's y-coordinate;
-		double x = (xCalc * xCalc) - (yCalc * yCalc) + 0;//add current point x
-		double y = Math.abs(2 * xCalc * yCalc) + 0; //add current point y
-		double dist = 0.0;
+	
+		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
 		
-		for(int i =0; i < rows; i++){
-			for(int n = 0; n < cols; n++){
-				while (dist <= 0 && passes < 0){
-					xCalc = x;
-					yCalc = y;
-					passes++;
-					dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
-				}
-				//Set the current point's escape-time equal to passes 
-			}
-		}
 		
+		while (dist <= 4 && passes < 255){
+			double x = xCalc;
+			double y = yCalc;
+			xCalc = xCalc + (3.5/512);
+			yCalc = yCalc + (2.0/512);
+					
+			double xprime = (xCalc * xCalc) - (yCalc * yCalc) + x;
+			double yprime = Math.abs(2 * xCalc * yCalc) + y;
+			xCalc = xprime;
+			yCalc = yprime;
+			passes++;
+			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
+		}
+		//Set the current point's escape-time equal to passes 
+	
 		
 		
 		
@@ -36,3 +34,4 @@ public class burningshipset {
 	}
 	
 }
+// none of the pixels in the burningshipset have an escape time of 0 or 1
