@@ -1,22 +1,49 @@
 package edu.buffalo.cse116;
 
 public class JuliaSet {
-	
-	public JuliaSet(){
+	int canvas [][] ;
+	double xtest;
+	double ytest;
+	public int  JuliaSet(double xCoord, double yCoord){
+		double xCalc = xCoord;
+		double yCalc = yCoord;
 		
+		double x2= xCalc * xCalc;
+		double y2 = yCalc*yCalc;
 		
-		int [] [] xY = new  int [512][512];
-		int width = xY.length; //row
-		int height = xY[0].length; //column
+		double dist = Math.sqrt(x2+y2);
 		
-		for( int i =0; i<width; i++){
-			for ( int j =0; j<height; j++){
-				// 
-			}
+//	  //  int [][] xY = new  int [512][512];
+//		int width = xY.length; //row
+//		int height = xY[0].length; //column
+//		
+		int passes = 0;
+		
+		while (dist <=2 && passes <255){
+		
+			xCalc = (xCalc*xCalc) - (yCalc * yCalc)+ (-0.72689);
+			double xx= xCalc*xCalc;
+			
+			yCalc= 2* xCalc * yCalc+ 0.188887;
+			double yy=  yCalc*yCalc;
+			
+			passes++;
+			
+			dist =Math.sqrt(xx+yy);
 		}
+		
+		///double escapetime = passes;
+		return passes;
 		
 	}
 	
+	public int [] [] canvaS(int[][] arr){
+		canvas = arr;
+		canvas = new int [512] [512];
+		JuliaSet(xtest, ytest);
+		return canvas;
+	}
 	
+
 
 }
