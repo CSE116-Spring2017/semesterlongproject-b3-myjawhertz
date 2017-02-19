@@ -37,41 +37,30 @@ public class MandelbrotSet{
 	public int mandelbrotSet(double xCalc,double yCalc){
 		double x = xCalc;
 		double y = yCalc;
-		
-		
-	
 		while(dist <= 2 && passes < 255){
-//		for(double i = xCalc; i < 0.6; i = i + ((2.15 + .6) / 512)){
-//			for(double j = yCalc; j < 1.3; j = j + ((1.3 + 1.3) / 512)){
-			
 			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
-			
-			
-				
+		
 			double tempX = xCalc;
 			double tempY = yCalc;
 			
 			xCalc = xCalc + (2.6/512);
 			yCalc = yCalc + (2.75/512);
-			
+			getXAndYCalc(xCalc,yCalc);
 			xCalc = (tempX*tempX) - (tempY*tempY) + x;
 			yCalc = (2 * (tempX * tempY)) + y;
 			
 			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
-			
-			
-//			xCalc = (i * i) - (j * j) - 2.15;
-//			yCalc = 2 * i * j - 1.3;
+
 			passes++;
 		}
-//			}
-//		}
-			
-	
-		
+
 		return passes;
 	}
 	
+	public double[][] getXAndYCalc(double xCalc, double yCalc){
+		return double[xCalc][yCalc];
+		
+	}
 	
 	
 //	public double mandelbrotSet(double xCalc,double yCalc){
