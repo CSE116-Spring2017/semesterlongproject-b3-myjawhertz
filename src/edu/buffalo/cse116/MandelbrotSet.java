@@ -51,8 +51,8 @@ public class MandelbrotSet{
 			double tempX = xCalc;
 			double tempY = yCalc;
 			
-			xCalc = yCalc + (2.6/512);
-			yCalc = xCalc + (2.75/512);
+			xCalc = xCalc + (2.6/512);
+			yCalc = yCalc + (2.75/512);
 			
 			xCalc = (tempX*tempX) - (tempY*tempY) + x;
 			yCalc = (2 * (tempX * tempY)) + y;
