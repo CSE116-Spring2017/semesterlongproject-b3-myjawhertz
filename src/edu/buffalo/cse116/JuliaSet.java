@@ -39,8 +39,9 @@ public class JuliaSet {
 	
 	public int [] [] canvaS(int[][] arr){
 		canvas = arr;
+		//Use the JUnit test class to create 2D array
 		//canvas = new int [512] [512];
-		JuliaSet(xtest, ytest);
+		JuliaSet(xtest, ytest); //Pass the xCalc and YCalc here
 		return canvas;
 	}
 	
