@@ -13,6 +13,12 @@ import org.junit.Test;
 
 public class SetTests {
 	//Mandelbrot Set Tests
+	@Test
+	public void test0() {
+		MandelbrotSet ms = new MandelbrotSet();
+		assertEquals(1, ms.mandelbrotSet(0.5946289062500001, 1.2949218750000122), .0001);
+	}
+	
 	
 	@Test
 	public void testMandelbrotXCoordinateTranslation(){	//this tests is the X-Coordinate Translation works
@@ -24,8 +30,8 @@ public class SetTests {
 	public void testMandelbrotYCoordinateTranslation(){
 		int [][] emptySet = new int[512][512];
 		MandelbrotSet yCoordTest = new MandelbrotSet();
-		
 	}
+	
 	@Test
 	public void testMandelbrotETNeverExceedsED(){
 		int [][] emptySet = new int[512][512];
