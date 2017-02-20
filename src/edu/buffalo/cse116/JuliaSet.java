@@ -55,6 +55,7 @@ public class JuliaSet {
 	public double yCoord(int col){
 		double yCoorPixel = -1.0+(2 *col/512);
 		return yCoorPixel;
+		
 		}
 		
 	}
