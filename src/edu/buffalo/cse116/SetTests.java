@@ -28,12 +28,12 @@ public class SetTests {
 	@Test
 	public void testMandelbrotETNeverExceedsED(){
 		MandelbrotSet neverExceedsED = new MandelbrotSet();
-		assertEquals("Product is 255.", 255, neverExceedsED.mandelbrotSet(0.3207031250000001, -0.07109374999999386), 0.0001);
+		assertEquals("Excape time is 255.", 255, neverExceedsED.mandelbrotSet(0.3207031250000001, -0.07109374999999386), 0.0001);
 	}
 	@Test
 	public void testMandelbrotETExceedsED(){
 		MandelbrotSet etExceedsED = new MandelbrotSet();
-		assertEquals("Product is 1.", 1,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122), 0.0001);
+		assertEquals("Excape time is 1.", 1,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122), 0.0001);
 	}
 	@Test
 	public void testMandelbrotReturn(){
@@ -45,23 +45,23 @@ public class SetTests {
 	@Test
 	public void testJuliaXCoordinateTranslation(){	//name of class: JuliaSet
 		JuliaSet xCoordTest = new JuliaSet();
-		assertEquals("X cordinate is -1.7", -1.7, xCoordTest.METHODNAME(0), 0.00001);
+		assertEquals("X cordinate is -1.7", -1.7, xCoordTest.xCoord(0), 0.00001);
 		
 	}
 	@Test
 	public void testJuliaYCoordinateTranslation(){
 		JuliaSet yCoordTest = new JuliaSet();
-		assertEquals("Y cordinate is -1.0", -1.0, yCoordTest.METHODNAME(0), 0.0001);
+		assertEquals("Y cordinate is -1.0", -1.0, yCoordTest.yCoord(0), 0.0001);
 	}
 	@Test
 	public void testJuliaETNeverExceedsED(){
 		JuliaSet neverExceedsED = new JuliaSet();
-		assertEquals("Product is 255.", 255, neverExceedsED.JuliaSet(1.0492187499999897, -0.234375), 0.0001);
+		assertEquals("Excape time 255.", 255, neverExceedsED.JuliaSet(1.0492187499999897, -0.234375), 0.0001);
 	}
 	@Test
 	public void testJuliaETExceedsED(){
 		JuliaSet etExceedsED = new JuliaSet();
-		assertEquals("Product is 1.", 1,etExceedsED.JuliaSet(1.6933593749999853, 0.9765625), 0.0001);
+		assertEquals("Excape time 1.", 1,etExceedsED.JuliaSet(1.6933593749999853, 0.9765625), 0.0001);
 	}
 	@Test
 	public void testJuliaReturn(){
@@ -83,7 +83,7 @@ public class SetTests {
 	@Test
 	public void testBurningShipETNeverExceedsED(){
 		burningshipset neverExceedsED = new burningshipset();
-		assertEquals("Product is 255.", 255, neverExceedsED.Burningshipset(0.3207031250000001, -0.07109374999999386), 0.0001);
+		assertEquals("Excape time 255.", 255, neverExceedsED.Burningshipset(0.3207031250000001, -0.07109374999999386), 0.0001);
 	}
 	@Test
 	public void testBurningShipETIsNot0or1(){	//unique test for Burning Ship Set
@@ -99,23 +99,26 @@ public class SetTests {
 	@Test
 	public void testMultibrotXCoordinateTranslation() {
 		multibrotSet xCoordTest = new multibrotSet();
+		assertEquals("X cordinate is -1", -1, xCoordTest.XCoordTranslation(0), 0.00001);
 	}
 	@Test
 	public void testMultibrotYCoordinateTranslation() {
 		multibrotSet yCoordTest = new multibrotSet();
+		assertEquals("X cordinate is -1.3", -1.3, yCoordTest.YCoordTranslation(0), 0.00001);
 	}
 	@Test
 	public void testMultibrotETNeverExceedsED() {
 		multibrotSet neverExceedsED = new multibrotSet();
-		assertEquals("Product is 255.", 255,neverExceedsED.mbSetETCalculation(0.5859375, 0.24375000000000108), 0.0001);
+		assertEquals("Excape time 255.", 255,neverExceedsED.mbSetETCalculation(0.5859375, 0.24375000000000108), 0.0001);
 	}
 	@Test
 	public void testMultibrotETExceedsED() {
 		multibrotSet etExceedsED = new multibrotSet();
-		assertEquals("Product is 1.", 1,etExceedsED.mbSetETCalculation(0.9921875, 1.05625), 0.0001);
+		assertEquals("Excape time 1.", 1,etExceedsED.mbSetETCalculation(0.9921875, 1.05625), 0.0001);
 	}
 	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
+		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.return2DArray());
 	}
 }
