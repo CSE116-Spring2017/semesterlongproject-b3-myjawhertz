@@ -3,10 +3,11 @@ package edu.buffalo.cse116;
 public class burningshipset {
 	//class for burningshipset
 	public int Burningshipset(double xCalc, double yCalc){		
-		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
+		double dist = 0.0;
 		int passes = 0;
 		
-		while (dist <= 4 && passes < 255){
+		while (dist <= 2 && passes < 255){
+			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 			double x = xCalc;//current point of x
 			double y = yCalc;//current point of y
 						
