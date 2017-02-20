@@ -45,6 +45,38 @@ public class JuliaSet {
 		return canvas;
 	}
 	
+	
+	public double xCoord(int row){
+		double xCoorPixel = row;
+		//row = 
+		if (row<256){
+			xCoorPixel = -(row/256);
+			//return= xCoorPixel;
+		}
+		else if( row == 256){
+		xCoorPixel = 0;	
+		}
+		else{
+			xCoorPixel = row/256;
+		}
+		return xCoorPixel;
+	}
+	
+	public double yCoord(int col){
+		double yCoorPixel = col;
+		if(col<256){
+			yCoorPixel = -(col/256);
+		}
+		else if(col ==256){
+			yCoorPixel =0;
+		}
+		else{
+				yCoorPixel = col/256;
+			}
+		
+		return yCoorPixel;
+		}
+		
+	}
 
 
-}
