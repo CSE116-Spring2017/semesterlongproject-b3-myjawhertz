@@ -100,15 +100,21 @@ public class SetTests {
 	public void testMultibrotXCoordinateTranslation() {
 		multibrotSet xCoordTest = new multibrotSet();
 	}
+	@Test
 	public void testMultibrotYCoordinateTranslation() {
 		multibrotSet yCoordTest = new multibrotSet();
 	}
+	@Test
 	public void testMultibrotETNeverExceedsED() {
 		multibrotSet neverExceedsED = new multibrotSet();
+		assertEquals("Product is 255.", 255,neverExceedsED.mbSetETCalculation(0.5859375, 0.24375000000000108), 0.0001);
 	}
+	@Test
 	public void testMultibrotETExceedsED() {
 		multibrotSet etExceedsED = new multibrotSet();
+		assertEquals("Product is 1.", 1,etExceedsED.mbSetETCalculation(0.9921875, 1.05625), 0.0001);
 	}
+	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
 	}
