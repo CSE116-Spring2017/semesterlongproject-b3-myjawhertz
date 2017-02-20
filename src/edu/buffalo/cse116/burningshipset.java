@@ -14,12 +14,12 @@ public class burningshipset {
 			xCalc = xCalc + (3.5/512);
 			yCalc = yCalc + (0.105/512);
 				
-			double xprime = (xCalc * xCalc) - (yCalc * yCalc) + x;//calculating x-coordinate
-			double yprime = Math.abs(2 * xCalc * yCalc) + y;//calculating y-coordinate
+			double xprime = (x * x) - (y * y) + x;//calculating x-coordinate
+			double yprime = Math.abs(2 * x * y) + y;//calculating y-coordinate
 			xCalc = xprime;//updated value of x into xCalc
 			yCalc = yprime;//updated value of y into yCalc
-			passes++;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
+			passes++;
 		}
 		return passes;
 	}
