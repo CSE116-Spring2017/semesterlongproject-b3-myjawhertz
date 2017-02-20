@@ -94,7 +94,7 @@ public class SetTests {
 		burningshipset returns2DArray = new burningshipset();
 	}
 	
-	//Multibrot Set Testsss
+	//Multibrot Set Tests
 	
 	@Test
 	public void testMultibrotXCoordinateTranslation() {
