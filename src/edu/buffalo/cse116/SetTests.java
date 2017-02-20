@@ -93,4 +93,23 @@ public class SetTests {
 	public void testBurningShipReturn(){
 		burningshipset returns2DArray = new burningshipset();
 	}
+	
+	//Multibrot Set Tests
+	
+	@Test
+	public void testMultibrotXCoordinateTranslation() {
+		multibrotSet xCoordTest = new multibrotSet();
+	}
+	public void testMultibrotYCoordinateTranslation() {
+		multibrotSet yCoordTest = new multibrotSet();
+	}
+	public void testMultibrotETNeverExceedsED() {
+		multibrotSet neverExceedsED = new multibrotSet();
+	}
+	public void testMultibrotETExceedsED() {
+		multibrotSet etExceedsED = new multibrotSet();
+	}
+	public void testMultibrotReturn() {
+		multibrotSet returns2DArray = new multibrotSet();
+	}
 }
