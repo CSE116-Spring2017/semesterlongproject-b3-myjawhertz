@@ -61,6 +61,7 @@ public class JuliaSet {
 		}
 		return xCoorPixel;
 	}
+	
 	public double yCoord(int col){
 		double yCoorPixel = col;
 		if(col<256){
