@@ -1,10 +1,8 @@
 package edu.buffalo.cse116;
 
 public class burningshipset {
-	
-	public int[][] Burningshipset(double xCalc, double yCalc){
-		int[][] burningshipset = new int[512][512];
-		
+	//class for burningshipset
+	public int Burningshipset(double xCalc, double yCalc){		
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
 		
@@ -22,16 +20,16 @@ public class burningshipset {
 			passes++;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
 		}
-		return burningshipset;
+		return passes;
 	}
-	//method testing translation of x-cord
+	//method testing translation of x-coord
 	public double xcor(int rows){
 		double xcord = -1.8;
 		double sum	= 3.5 * (rows/512);
 		xcord = xcord + sum;
 		return xcord;
 	}
-	//method testing translation of y-cord
+	//method testing translation of y-coord
 	public double ycor(int cols){
 		double ycord = -0.08;
 		double sum = 0.105 * (cols/512);
@@ -39,9 +37,4 @@ public class burningshipset {
 		return ycord;
 	}
 }
-
-
-
-
-	
 // none of the pixels in the burningshipset have an escape time of 0 or 1
