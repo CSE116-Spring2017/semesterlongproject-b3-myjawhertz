@@ -17,12 +17,12 @@ public class SetTests {
 	@Test
 	public void testMandelbrotXCoordinateTranslation(){	//this tests is the X-Coordinate Translation works
 		MandelbrotSet xCoordTest = new MandelbrotSet();
-		assertEquals("Product is -2.15", -2.15, xCoordTest.mandelbrotSet(0, 0), 0.0001);
+		assertEquals("X cordinate is -2.15", -2.15, xCoordTest.getXCord(0), 0.00001);
 	}
 	@Test
 	public void testMandelbrotYCoordinateTranslation(){
 		MandelbrotSet yCoordTest = new MandelbrotSet();
-		assertEquals("Product is -1.3", -1.3, yCoordTest.mandelbrotSet(0, 0), 0.0001);
+		assertEquals("Y cordinate is -1.3", -1.3, yCoordTest.getYCord(0), 0.0001);
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class SetTests {
 	@Test
 	public void testMandelbrotETExceedsED(){
 		MandelbrotSet etExceedsED = new MandelbrotSet();
-		assertEquals("Product is 1.", 1 ,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122), 0.0001);
+		assertEquals("Product is 255.", 1,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122), 0.0001);
 	}
 	@Test
 	public void testMandelbrotReturn(){
@@ -88,32 +88,5 @@ public class SetTests {
 	@Test
 	public void testBurningShipReturn(){
 		burningshipset returns2DArray = new burningshipset();
-	}
-	
-	//Multibrot Set Tests
-	
-	@Test
-	public void testMultibrotXCoordinateTranslation(){	//this tests is the X-Coordinate Translation works
-		MandelbrotSet xCoordTest = new multibrotSet();
-		assertEquals("Product is -1.00", -1.00, xCoordTest.mandelbrotSet(0, 0), 0.0001);
-	}
-	@Test
-	public void testMultibrotYCoordinateTranslation(){
-		MandelbrotSet yCoordTest = new multibrotSet();
-		assertEquals("Product is -1.3", -1.3, yCoordTest.mandelbrotSet(0, 0), 0.0001);
-	}
-	@Test
-	public void testMultibrotETNeverExceedsED(){
-		MandelbrotSet neverExceedsED = new multibrotSet();
-		assertEquals("Product is 255.", 255, neverExceedsED.mandelbrotSet(0.5859375, 0.24375000000000108), 0.0001);
-	}
-	@Test
-	public void testMultibrotETExceedsED(){
-		MandelbrotSet etExceedsED = new multibrotSet();
-		assertEquals("Product is 1.", 1 ,etExceedsED.mandelbrotSet(0.9921875, 1.05625), 0.0001);
-	}
-	@Test
-	public void testMultibrotReturn(){
-		MandelbrotSet returns2DArray = new multibrotSet();
 	}
 }
