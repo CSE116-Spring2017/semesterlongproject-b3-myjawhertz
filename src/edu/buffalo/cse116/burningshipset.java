@@ -5,19 +5,16 @@ public class burningshipset {
 	public int Burningshipset(double xCalc, double yCalc){		
 		double dist = 0.0;
 		int passes = 0;
-		
+		double x = xCalc;//current point of x
+		double y = yCalc;//current point of y
 		while (dist <= 2 && passes < 255){
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
-			double x = xCalc;//current point of x
-			double y = yCalc;//current point of y
-						
+			double ihate = xCalc;
+			double thiscourse = yCalc;
 			xCalc = xCalc + (3.5/512);
 			yCalc = yCalc + (0.105/512);
-				
-			double xprime = (x * x) - (y * y) + x;//calculating x-coordinate
-			double yprime = Math.abs(2 * x * y) + y;//calculating y-coordinate
-			xCalc = xprime;//updated value of x into xCalc
-			yCalc = yprime;//updated value of y into yCalc
+			xCalc = (ihate * ihate) - (thiscourse * thiscourse) + x;//calculating x-coordinate
+			yCalc = Math.abs(2 * ihate * thiscourse) + y;//calculating y-coordinate
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
 			passes++;
 		}

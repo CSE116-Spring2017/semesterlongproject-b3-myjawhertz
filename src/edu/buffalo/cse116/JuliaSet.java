@@ -2,6 +2,7 @@ package edu.buffalo.cse116;
 
 public class JuliaSet {
 	int canvas [][] ;
+	int arr [] [];
 	double xtest;
 	double ytest;
 	public int  JuliaSet(double xCoord, double yCoord){
@@ -36,10 +37,9 @@ public class JuliaSet {
 		
 	}
 	
-	public int [] [] canvaS(int[][] arr){
-		//canvas = arr;
+	public int [] [] canvaS(){
+
 		arr= new int [512] [512];
-		//JuliaSet(xtest, ytest); //Pass the xCalc and YCalc here
 		return arr;
 		
 		
