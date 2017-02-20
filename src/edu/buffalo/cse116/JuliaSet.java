@@ -42,6 +42,7 @@ public class JuliaSet {
 		//JuliaSet(xtest, ytest); //Pass the xCalc and YCalc here
 		return arr;
 		
+		
 	}
 	
 	
