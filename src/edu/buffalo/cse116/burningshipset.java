@@ -9,13 +9,10 @@ public class burningshipset {
 		double y = yCalc;//current point of y
 		while (dist <= 2 && passes < 255){
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
-			
 			double ihate = xCalc;
 			double thiscourse = yCalc;
-			
 			xCalc = xCalc + (3.5/512);
 			yCalc = yCalc + (0.105/512);
-			
 			xCalc = (ihate * ihate) - (thiscourse * thiscourse) + x;//calculating x-coordinate
 			yCalc = Math.abs(2 * ihate * thiscourse) + y;//calculating y-coordinate
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
