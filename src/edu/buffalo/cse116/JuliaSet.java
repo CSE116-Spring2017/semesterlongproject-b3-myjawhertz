@@ -37,10 +37,10 @@ public class JuliaSet {
 	}
 	
 	public int [] [] canvaS(int[][] arr){
-		canvas = arr;
+		//canvas = arr;
 		arr= new int [512] [512];
 		//JuliaSet(xtest, ytest); //Pass the xCalc and YCalc here
-		return canvas;
+		return arr;
 	}
 	
 	
