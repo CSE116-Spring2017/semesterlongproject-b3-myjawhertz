@@ -2,6 +2,8 @@ package edu.buffalo.cse116;
 
 public class multibrotSet {
 	
+	private int[][] array = new int[512][512];
+	
 	public double XCoordTranslation(int x){
 		double xCalc = -1 + ((2 * x) / 512);
 		return xCalc;
@@ -23,5 +25,9 @@ public class multibrotSet {
 			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
 		}
 		return passes;
+	}
+	
+	public int[][] return2DArray(){
+		return array;
 	}
 }
