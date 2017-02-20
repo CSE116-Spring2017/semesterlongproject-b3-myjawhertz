@@ -2,7 +2,7 @@ package edu.buffalo.cse116;
 
 public class burningshipset {
 	//class for burningshipset
-	public int[][] Burningshipset(double xCalc, double yCalc){
+	public int Burningshipset(double xCalc, double yCalc){
 		int[][] burningshipset = new int[512][512];
 		
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
