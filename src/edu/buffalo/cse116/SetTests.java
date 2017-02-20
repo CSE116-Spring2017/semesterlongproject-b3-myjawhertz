@@ -40,7 +40,7 @@ public class SetTests {
 		MandelbrotSet returns2DArray = new MandelbrotSet();
 	}
 	
-	//Julia Set Tests
+	//Julia Set Testss
 	
 	@Test
 	public void testJuliaXCoordinateTranslation(){	//name of class: JuliaSet
