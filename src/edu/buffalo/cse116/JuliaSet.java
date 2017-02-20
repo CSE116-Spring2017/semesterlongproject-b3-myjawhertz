@@ -32,7 +32,6 @@ public class JuliaSet {
 			dist =Math.sqrt(xx+yy);
 		}
 		
-		///double escapetime = passes;
 		return passes;
 		
 	}
@@ -47,33 +46,14 @@ public class JuliaSet {
 	
 	
 	public double xCoord(int row){
-		double xCoorPixel = row;
-		//row = 
-		if (row<256){
-			xCoorPixel = -(row/256);
-			//return= xCoorPixel;
-		}
-		else if( row == 256){
-		xCoorPixel = 0;	
-		}
-		else{
-			xCoorPixel = row/256;
-		}
+		//double xCoorPixel = row;
+		 
+		double xCoorPixel = -1.7+(3.4*row/512);
 		return xCoorPixel;
 	}
 	
 	public double yCoord(int col){
-		double yCoorPixel = col;
-		if(col<256){
-			yCoorPixel = -(col/256);
-		}
-		else if(col ==256){
-			yCoorPixel =0;
-		}
-		else{
-				yCoorPixel = col/256;
-			}
-		
+		double yCoorPixel = -1.0+(2 *col/512);
 		return yCoorPixel;
 		}
 		
