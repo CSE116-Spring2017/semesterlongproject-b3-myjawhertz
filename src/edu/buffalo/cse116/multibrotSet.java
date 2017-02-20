@@ -1,28 +1,26 @@
 package edu.buffalo.cse116;
 
 public class multibrotSet {
-	private double dist ;
+	
+	public double XCoordTranslation(int x){
+		double xCalc = -1 + ((2 * x) / 512);
+		return xCalc;
+	}
+	
+	public double YCoordTranslation(int y){
+		double yCalc = -1.3 + ((2.6 * y) / 512);
+		return yCalc;
+	}
+	
+	private double dist;
 	private int passes = 0;
-	
-	
-	public int multibrotSet(double xCalc,double yCalc){
-		double x = xCalc;
-		double y = yCalc;
-		
-		while(dist <= 2 && passes < 255){
-			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));	
-			double tempX = xCalc;
-			double tempY = yCalc;
-			
-			xCalc = xCalc + (2/512);
-			yCalc = yCalc + (2.6/512);
-			
-			xCalc = (tempX*tempX*tempX) - (3*tempX*tempY*tempY) + x;
-			yCalc = (3*tempX*tempX*tempY) - (tempY*tempY*tempY) + y;
-			
+	public int mbSetETCalculation(double xCalc, double yCalc) {
+		while (dist <= 2 && passes < 255) {
 			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
-
-			passes++;
+			xCalc = (xCalc * xCalc * xCalc) - (3 * xCalc * (yCalc * yCalc));
+			yCalc = (3 * (xCalc * xCalc) * yCalc) - (yCalc * yCalc * yCalc);
+			passes = passes + 1;
+			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
 		}
 		return passes;
 	}
