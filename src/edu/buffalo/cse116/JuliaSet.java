@@ -41,6 +41,7 @@ public class JuliaSet {
 		arr= new int [512] [512];
 		//JuliaSet(xtest, ytest); //Pass the xCalc and YCalc here
 		return arr;
+		
 	}
 	
 	
