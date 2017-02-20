@@ -5,10 +5,8 @@ public class burningshipset {
 	public int[][] Burningshipset(double xCalc, double yCalc){
 		int[][] burningshipset = new int[512][512];
 		
-	
 		double dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
 		int passes = 0;
-		
 		
 		while (dist <= 4 && passes < 255){
 			double x = xCalc;
@@ -24,9 +22,7 @@ public class burningshipset {
 			passes++;
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
 		}
-		//Set the current point's escape-time equal to passes 
 		return burningshipset;
-		
 	}
 	public double xcor(int rows){
 		double xcord = -1.8;  
