@@ -40,6 +40,19 @@ public class JuliaSet {
 	public int [] [] canvaS(){
 
 		arr= new int [512] [512];
+		int row = arr.length;
+		int col = arr[0].length;
+		for (int i =0; i<row; i++){
+			//row
+			
+			for(int j=0; j<col;j++){
+			int retVal =JuliaSet(i,j);
+			arr[row][col]= arr [i][j];
+				//row[i];
+				
+			}
+			
+		}
 		return arr;
 		
 		
