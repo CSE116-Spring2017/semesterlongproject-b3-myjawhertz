@@ -1,6 +1,7 @@
 package edu.buffalo.cse116;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -38,6 +39,7 @@ public class SetTests {
 	@Test
 	public void testMandelbrotReturn(){
 		MandelbrotSet returns2DArray = new MandelbrotSet();
+		assertEquals("2D 512 by 512 array of int", new int[512][512], returns2DArray.)
 	}
 	
 	//Julia Set Testss
@@ -66,6 +68,7 @@ public class SetTests {
 	@Test
 	public void testJuliaReturn(){
 		JuliaSet returns2DArray = new JuliaSet();
+		assertEquals("2D 512 by 512 array of int", new int[512][512], returns2DArray.canvaS());
 	}
 	
 	//Burning Ship Set Tests
@@ -87,11 +90,17 @@ public class SetTests {
 	}
 	@Test
 	public void testBurningShipETIsNot0or1(){	//unique test for Burning Ship Set
-		burningshipset etIsNot0or1 = new burningshipset();
+		for (int r = 0; r < 513; r++){
+			for (int c = 0; c < 513; c++){
+				burningshipset etIsNot0or1 = new burningshipset();
+				assertTrue("Escape time is never 0 or 1: true", true);
+			}
+		}
 	}
 	@Test
 	public void testBurningShipReturn(){
 		burningshipset returns2DArray = new burningshipset();
+		assertEquals("2D 512 by 512 array of int", new int[512][512], returns2DArray.)
 	}
 	
 	//Multibrot Set Tests
@@ -119,6 +128,6 @@ public class SetTests {
 	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
-		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.return2DArray());
+		assertEquals("2D 512 x 512 array of int", new int[512][512], returns2DArray.return2DArray());
 	}
 }
