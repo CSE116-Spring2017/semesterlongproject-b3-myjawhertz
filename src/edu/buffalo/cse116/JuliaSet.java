@@ -14,10 +14,6 @@ public class JuliaSet {
 		
 		double dist = Math.sqrt(x2+y2);
 		
-//	  //  int [][] xY = new  int [512][512];
-//		int width = xY.length; //row
-//		int height = xY[0].length; //column
-//		
 		int passes = 0;
 		
 		while (dist <=2 && passes <255){
