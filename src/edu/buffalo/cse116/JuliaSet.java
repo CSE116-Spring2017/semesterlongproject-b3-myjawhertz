@@ -21,6 +21,7 @@ public class JuliaSet {
 			xCalc = (xCalc*xCalc) - (yCalc * yCalc)+ (-0.72689);
 			double xx= xCalc*xCalc;
 			
+			
 			yCalc= 2* xCalc * yCalc+ 0.188887;
 			double yy=  yCalc*yCalc;
 			
