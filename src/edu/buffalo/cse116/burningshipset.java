@@ -2,7 +2,7 @@ package edu.buffalo.cse116;
 
 public class burningshipset {
 	//class for burningshipset
-	private int passes;
+	private int passes = 0;
 	public int[][] Burningshipset(double xCalc, double yCalc){		
 		double dist = 0.0;
 		double x = xCalc;//current point of x
@@ -17,8 +17,10 @@ public class burningshipset {
 			yCalc = Math.abs(2 * xxx * yyy) + y;//calculating y-coordinate
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
 			passadding();
+			
 		}
-		return Burningshipset(0, 0) ;
+		return null;
+		//return  Burningshipset(x,y);
 	} 
 	//method testing translation of x-coord
 	public double xcor(int rows){
@@ -42,5 +44,12 @@ public class burningshipset {
 		passes++;
 		return passes;
 	}
-}
+	public int[][] returnarray(){
+		int[][] returnarray = new int[512][512];
+		return returnarray;
+	}
+}	
+
+	
+		
 // none of the pixels in the burningshipset have an escape time of 0 or 1
