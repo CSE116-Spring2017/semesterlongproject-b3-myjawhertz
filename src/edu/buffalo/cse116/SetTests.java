@@ -28,16 +28,17 @@ public class SetTests {
 	@Test
 	public void testMandelbrotETNeverExceedsED(){
 		MandelbrotSet neverExceedsED = new MandelbrotSet();
-		assertEquals("Excape time is 255.", 255, neverExceedsED.mandelbrotSet(0.3207031250000001, -0.07109374999999386), 0.0001);
+		assertEquals("Excape time is 255.", 255, neverExceedsED.mandelbrotSet(0.3207031250000001, -0.07109374999999386));
 	}
 	@Test
 	public void testMandelbrotETExceedsED(){
 		MandelbrotSet etExceedsED = new MandelbrotSet();
-		assertEquals("Excape time is 1.", 1,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122), 0.0001);
+		assertEquals("Excape time is 1.", 1,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122));
 	}
 	@Test
 	public void testMandelbrotReturn(){
 		MandelbrotSet returns2DArray = new MandelbrotSet();
+		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.returnArray());
 	}
 	
 	//Julia Set Testss
@@ -83,11 +84,12 @@ public class SetTests {
 	@Test
 	public void testBurningShipETNeverExceedsED(){
 		burningshipset neverExceedsED = new burningshipset();
-		assertEquals("Excape time 255.", 255, neverExceedsED.Burningshipset(-1.7443359374999874, -0.017451171875000338), 0.0001);
+		assertEquals("Excape time 255.", 255, neverExceedsED.passtester(-1.7443359374999874, -0.017451171875000338), 0.0001);
 	}
 	@Test
 	public void testBurningShipETIsNot0or1(){	//unique test for Burning Ship Set
 		burningshipset etIsNot0or1 = new burningshipset();
+	//	assertEquals("Escape time is never 0 or 1", )
 	}
 	@Test
 	public void testBurningShipReturn(){
