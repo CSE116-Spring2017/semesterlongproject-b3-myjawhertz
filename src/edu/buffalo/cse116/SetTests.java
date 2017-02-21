@@ -73,12 +73,12 @@ public class SetTests {
 	@Test
 	public void testBurningShipXCoordinateTranslation(){	//name of class: burningshipset
 		burningshipset xCoordTest = new burningshipset();
-		
+		assertEquals("X cordinate is -1.8", -1.8, xCoordTest.xcor(0), 0.00001);
 	}
 	@Test
 	public void testBurningShipYCoordinateTranslation(){
 		burningshipset yCoordTest = new burningshipset();
-		
+		assertEquals("X cordinate is -0.08", -0.08, yCoordTest.ycor(0), 0.00001);
 	}
 	@Test
 	public void testBurningShipETNeverExceedsED(){
