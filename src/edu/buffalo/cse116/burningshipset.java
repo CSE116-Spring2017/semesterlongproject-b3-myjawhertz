@@ -48,8 +48,5 @@ public class burningshipset {
 		int[][] returnarray = new int[512][512];
 		return returnarray;
 	}
-}	
-
-	
-		
+}
 // none of the pixels in the burningshipset have an escape time of 0 or 1
