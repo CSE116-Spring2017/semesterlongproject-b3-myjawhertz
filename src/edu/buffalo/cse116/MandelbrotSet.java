@@ -100,7 +100,7 @@ public class MandelbrotSet {
 	// double originalX = xCalc;
 	// double originalY = yCalc;
 	// double dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
-	// int passes = 0; 
+	// int passes = 0;  
 	// while(dist <= 4 && passes < 255){
 	// double x = xCalc;
 	// double y = yCalc;
