@@ -19,7 +19,8 @@ public class burningshipset {
 			passadding();
 			
 		}
-		return null;
+		return null; 
+		
 		//return  Burningshipset(x,y);
 	} 
 	//method testing translation of x-coord
