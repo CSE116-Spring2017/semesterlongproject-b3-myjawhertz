@@ -20,7 +20,6 @@ public class burningshipset {
 			
 		}
 		return null; 
-		
 		//return  Burningshipset(x,y);
 	} 
 	//method testing translation of x-coord
