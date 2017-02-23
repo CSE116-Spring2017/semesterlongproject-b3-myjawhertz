@@ -87,7 +87,7 @@ public class MandelbrotSet {
 //		
 //	}
 //	
-//	public double yCord(double j){
+//	public double yCord(double j){ 
 //		return j;
 //		
 //	}
