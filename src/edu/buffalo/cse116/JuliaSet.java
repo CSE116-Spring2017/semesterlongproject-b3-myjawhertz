@@ -36,6 +36,7 @@ public class JuliaSet {
 	public int [] [] canvaS(){
           //row col
 		arr= new int [512] [512];
+		//arr=arr2;
 		int row = arr.length;
 		int col = arr[0].length;
 		for (int i =0; i<row; i++){
@@ -44,10 +45,11 @@ public class JuliaSet {
 			for(int j=0; j<col;j++){
 			
 			arr[i][j]= JuliaSet(i,j);
-			
+			//System.out.println(arr);
 			}
 			
 		}
+		//System.out.println(arr);
 		return arr;
 		
 		
