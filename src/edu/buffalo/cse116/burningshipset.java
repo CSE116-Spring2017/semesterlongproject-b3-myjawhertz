@@ -39,7 +39,7 @@ public class burningshipset {
 	public int passtester(double x, double y){
 		Burningshipset(x,y);
 		return passes;
-	}
+	} 
 	public int passadding(){
 		passes++;
 		return passes;
@@ -48,5 +48,15 @@ public class burningshipset {
 		int[][] returnarray = new int[512][512];
 		return returnarray;
 	}
+	public int[][] test(){
+		int[][] emptyarr = new int[512][512];
+		for (int i = 0; i <512; i++){
+			for(int j = 0; j < 512; j++){
+				emptyarr[i][j] = passtester(xcor(i),ycor(j));
+			}
+		}
+		return emptyarr;
+	}
 }
+
 // none of the pixels in the burningshipset have an escape time of 0 or 1
