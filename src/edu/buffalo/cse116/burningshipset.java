@@ -50,11 +50,11 @@ public class burningshipset {
 	}
 	public int[][] test(){
 		int[][] emptyarr = new int[512][512];
-		for (int i = 0; i <512; i++){
-			for(int j = 0; j < 512; j++){
-				emptyarr[i][j] = passtester(xcor(i),ycor(j));
-			}
-		}
+//		for (int i = 0; i <512; i++){
+//			for(int j = 0; j < 512; j++){
+//				emptyarr[i][j] = passtester(xcor(i),ycor(j));
+//			}
+//		}
 		return emptyarr;
 	}
 }
