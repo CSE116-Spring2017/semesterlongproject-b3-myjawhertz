@@ -9,6 +9,7 @@ public class JuliaSet {
 	public JuliaSet(){
 		
 	}
+	
 	/**
 	 * The method below:
 	 * @param XCoord - takes in X-coordinate range from -1.7 to 1.7
