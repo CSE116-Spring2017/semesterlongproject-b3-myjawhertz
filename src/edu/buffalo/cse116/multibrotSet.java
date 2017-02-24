@@ -4,7 +4,7 @@ public class multibrotSet {
 	/**
 	 * This class provides the translations and escape-time algorithms for the
 	 * MultiBrot Set
-	 * @author Alec Otminski
+	 * @author Alec Otminski 
 	 */
 	
 	private int[][] array = new int[512][512];
