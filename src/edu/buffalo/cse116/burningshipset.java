@@ -64,14 +64,20 @@ public class burningshipset {
 	
 	//method to be used for test whether the escape-time become 0 or 1
 	//@return return to array type int with 512 rows and 512 cols
-	public int[][] test(){
-		int[][] emptyarr = new int[512][512];
-		for (int i = 0; i <512; i++){
-			for(int j = 0; j < 512; j++){
-				emptyarr[i][j] = passtester(xcor(i),ycor(j));
+	public boolean test() {
+		
+		int x = 0;
+		int y = 0;
+		for (x = 0; x < 512; x++) {
+			for (y = 0; y < 512; y++) {
+				passtester(xcor(x),ycor(y));
+				
+				if (passtester(xcor(x),ycor(y)) > 2) {
+					return true;
+				}
 			}
 		}
-		return emptyarr;
+		return false;
 	}
 }
 
