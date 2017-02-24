@@ -105,7 +105,7 @@ public class SetTests {
 		assertEquals("X cordinate is -1.8", -1.8, xCoordTest.xcor(0), 0.00001);
 	}
 
-	// Translate a pixel's row to the associated x-coordinate in the fractal
+	// Translate a pixel's column to the associated x-coordinate in the fractal
 	@Test
 	public void testBurningShipYCoordinateTranslation() {
 		burningshipset yCoordTest = new burningshipset();
@@ -124,10 +124,8 @@ public class SetTests {
 	// Calculates that none of the pixels in the Burning Ship set have an escape
 	// time of 0 or 1
 	@Test
-	public void testBurningShipETIsNot0or1() { // unique test for Burning Ship
-												// Set
+	public void testBurningShipETIsNot0or1() { 
 		burningshipset etIsNot0or1 = new burningshipset();
-
 		assertTrue("Escape time is never 0 or 1", etIsNot0or1.test());
 	}
 
@@ -148,7 +146,7 @@ public class SetTests {
 		assertEquals("X cordinate is -1", -1, xCoordTest.XCoordTranslation(0), 0.00001);
 	}
 
-	// Translate a pixel's row to the associated x-coordinate in the fractal
+	// Translate a pixel's column to the associated x-coordinate in the fractal
 	@Test
 	public void testMultibrotYCoordinateTranslation() {
 		multibrotSet yCoordTest = new multibrotSet();
