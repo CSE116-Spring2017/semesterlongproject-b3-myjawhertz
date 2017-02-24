@@ -2,30 +2,48 @@ package edu.buffalo.cse116;
 
 public class MandelbrotSet {
 
+	/**
+	 * translate from 0-512 row to xCord
+	 * 
+	 * @param xRow - row from 0 - 512
+	 * @return y coordinate
+	 **/
 	public double getXCord(int xRow) {
 		double xCord = -2.15 + (2.75 * xRow / 512);
 		return xCord;
 	}
 
-	public double getYCord(int YRow) {
-		double yCord = -1.3 + (2.6 * YRow / 512);
+	/**
+	 * translate from 0-512 row to yCord
+	 * @param yCol - column from 0 - 512
+	 * @return y coordinate
+	 **/
+	public double getYCord(int yCol) {
+		double yCord = -1.3 + (2.6 * yCol / 512);
 		return yCord;
 	}
 
 	private double dist;
 	private int passes = 0;
 
+	/**
+	 * calculates passes
+	 * 
+	 * @param xCalc - X-coordinate range from -2.15 to 0.6
+	 * @param yCalc - Y-coordinate range from -1.3 to 1.3
+	 * @return number of passes for the inserted xCalc and yCalc
+	 **/
 	public int mandelbrotSet(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
 		while (dist <= 2 && passes < 255) {
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 
-			double tempX = xCalc;
+			double tempX = xCalc;	
 			double tempY = yCalc;
 
-			xCalc = xCalc + (2.6 / 512);
-			yCalc = yCalc + (2.75 / 512);
+//			xCalc = xCalc + (2.6 / 512);
+//			yCalc = yCalc + (2.75 / 512);
 
 			xCalc = (tempX * tempX) - (tempY * tempY) + x;
 			yCalc = (2 * (tempX * tempY)) + y;
@@ -37,61 +55,60 @@ public class MandelbrotSet {
 
 		return passes;
 	}
-	
-//	private double dist;
-//	private int passes = 0;
-//	
-//	public int[][] mandelbrotSet(double xCalc, double yCalc) {
-//		double x = xCalc;
-//		double y = yCalc;
-//		int[][] arrayWithEscapeTime = new int[512][512];
-//		dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-//		while (dist <= 2 && passes < 255) {
-//			
-//			
-//			for(double i = -2.15; i <= .6; i = i + ((2.75 * i) / 512)){
-//				for (double j = -1.3; j <= 1.3; j = j + ((2.6 * j) / 512)){
-//			
-////			double tempX = i;
-////			double tempY = j;
-////
-////			xCalc = xCalc + (2.6 / 512);
-////			yCalc = yCalc + (2.75 / 512);
-////
-////			xCalc = (i * i) - (j * j) + x;
-////			yCalc = (2 * (i * j)) + y;
-////
-////			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-//
-////			passesCount(i,j);
-////			passes++;
-////			xCord(i);
-////			yCord(j);
-//			}
-//			}
-//			
-//		}
-//
-//		return arrayWithEscapeTime;
-//	}
-	
-//	public int passesCount(double i, double j){
-//		mandelbrotSet(i,j);
-//		return passes;
-//	}
-	
-//	public double xCord(double i){
-//		i = -2.15 * i / 512;
-//		mandelbrotSet(i,0);
-//		return i;
-//		
-//	}
-//	
-//	public double yCord(double j){
-//		return j;
-//		
-//	}
-	
+
+	// private double dist;
+	// private int passes = 0;
+	//
+	// public int[][] mandelbrotSet(double xCalc, double yCalc) {
+	// double x = xCalc;
+	// double y = yCalc;
+	// int[][] arrayWithEscapeTime = new int[512][512];
+	// dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+	// while (dist <= 2 && passes < 255) {
+	//
+	//
+	// for(double i = -2.15; i <= .6; i = i + ((2.75 * i) / 512)){
+	// for (double j = -1.3; j <= 1.3; j = j + ((2.6 * j) / 512)){
+	//
+	//// double tempX = i;
+	//// double tempY = j;
+	////
+	//// xCalc = xCalc + (2.6 / 512);
+	//// yCalc = yCalc + (2.75 / 512);
+	////
+	//// xCalc = (i * i) - (j * j) + x;
+	//// yCalc = (2 * (i * j)) + y;
+	////
+	//// dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+	//
+	//// passesCount(i,j);
+	//// passes++;
+	//// xCord(i);
+	//// yCord(j);
+	// }
+	// }
+	//
+	// }
+	//
+	// return arrayWithEscapeTime;
+	// }
+
+	// public int passesCount(double i, double j){
+	// mandelbrotSet(i,j);
+	// return passes;
+	// }
+
+	// public double xCord(double i){
+	// i = -2.15 * i / 512;
+	// mandelbrotSet(i,0);
+	// return i;
+	//
+	// }
+	//
+	// public double yCord(double j){
+	// return j;
+	//
+	// }
 
 	// public double[][] getXAndYCalc(double xCalc, double yCalc){
 	// return double[xCalc][yCalc];
@@ -104,7 +121,7 @@ public class MandelbrotSet {
 	// double originalX = xCalc;
 	// double originalY = yCalc;
 	// double dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
-	// int passes = 0;  
+	// int passes = 0;
 	// while(dist <= 4 && passes < 255){
 	// double x = xCalc;
 	// double y = yCalc;
@@ -150,7 +167,11 @@ public class MandelbrotSet {
 	// }
 	// return passes;
 	// }
-	public int[][] returnArray(){
+	/**
+	 * creates a empty array
+	 * @return empty array
+	 */
+	public int[][] returnArray() {
 		int[][] array = new int[512][512];
 		return array;
 	}
