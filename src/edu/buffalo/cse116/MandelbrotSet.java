@@ -150,6 +150,7 @@ public class MandelbrotSet {
 	// }
 	// return passes;
 	// }
+	
 	public int[][] returnArray(){
 		int[][] array = new int[512][512];
 		return array;

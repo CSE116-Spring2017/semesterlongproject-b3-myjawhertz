@@ -1,6 +1,6 @@
 package edu.buffalo.cse116;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -90,12 +90,14 @@ public class SetTests {
 	@Test
 	public void testBurningShipETIsNot0or1(){	//unique test for Burning Ship Set
 		burningshipset etIsNot0or1 = new burningshipset();
-	//	assertEquals("Escape time is never 0 or 1", )
+		
+		assertTrue("Escape time is never 0 or 1", etIsNot0or1.test());
+		
 	}
 	@Test
 	public void testBurningShipReturn(){
 		burningshipset returns2DArray = new burningshipset();
-		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.test());
+		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.returnarray());
 	}
 	
 	//Multibrot Set Tests
