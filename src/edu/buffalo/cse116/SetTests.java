@@ -14,27 +14,31 @@ import org.junit.Test;
 public class SetTests {
 	//Mandelbrot Set Tests
 	
+	//Translate a pixel's row to the associated x-coordinate in the fractal
 	@Test
-	public void testMandelbrotXCoordinateTranslation(){	//this tests is the X-Coordinate Translation works
+	public void testMandelbrotXCoordinateTranslation(){	
 		MandelbrotSet xCoordTest = new MandelbrotSet();
 		assertEquals("X cordinate is -2.15", -2.15, xCoordTest.getXCord(0), 0.00001);
 	}
+	//Translate a pixel's column to the associated y-coordinate in the fractal 
 	@Test
 	public void testMandelbrotYCoordinateTranslation(){
 		MandelbrotSet yCoordTest = new MandelbrotSet();
 		assertEquals("Y cordinate is -1.3", -1.3, yCoordTest.getYCord(0), 0.0001);
 	}
-	
+	//Calculates the escape time for a coordinate whose distance from the origin never exceeds the escape distance
 	@Test
 	public void testMandelbrotETNeverExceedsED(){
 		MandelbrotSet neverExceedsED = new MandelbrotSet();
 		assertEquals("Excape time is 255.", 255, neverExceedsED.mandelbrotSet(0.3207031250000001, -0.07109374999999386));
 	}
+	//Calculates the escape time for a coordinate whose distance from the origin exceeds the escape distance after a single loop pass 
 	@Test
 	public void testMandelbrotETExceedsED(){
 		MandelbrotSet etExceedsED = new MandelbrotSet();
 		assertEquals("Excape time is 1.", 1,etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122));
 	}
+	//The method called to calculate the fractal returns a 2-d array with 512 rows and 512 columns
 	@Test
 	public void testMandelbrotReturn(){
 		MandelbrotSet returns2DArray = new MandelbrotSet();
