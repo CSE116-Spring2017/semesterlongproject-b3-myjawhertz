@@ -37,13 +37,13 @@ public class MandelbrotSet {
 		double x = xCalc;
 		double y = yCalc;
 		while (dist <= 2 && passes < 255) {
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 
-			double tempX = xCalc;
+			double tempX = xCalc;	
 			double tempY = yCalc;
 
-			xCalc = xCalc + (2.6 / 512);
-			yCalc = yCalc + (2.75 / 512);
+//			xCalc = xCalc + (2.6 / 512);
+//			yCalc = yCalc + (2.75 / 512);
 
 			xCalc = (tempX * tempX) - (tempY * tempY) + x;
 			yCalc = (2 * (tempX * tempY)) + y;
