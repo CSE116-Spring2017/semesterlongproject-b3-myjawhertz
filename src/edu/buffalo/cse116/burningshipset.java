@@ -3,8 +3,8 @@ package edu.buffalo.cse116;
 //class for burningshipset
 public class burningshipset {
 	
-	//@para
-	//@para
+	//@para value to be calculated for current x point
+	//@para value to be calculated for currnet y point
 	private int passes = 0;
 	public int[][] Burningshipset(double xCalc, double yCalc){		
 		double dist = 0.0;
@@ -12,19 +12,19 @@ public class burningshipset {
 		double y = yCalc;//current point of y
 		while (dist <= 2 && passes < 255){
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc));
-			double xxx = xCalc;
-			double yyy = yCalc;
+			double xxx = xCalc; //x value before update
+			double yyy = yCalc;	//y value before update
 			xCalc = xCalc + (3.5/512);
 			yCalc = yCalc + (0.105/512);
-			xCalc = (xxx * xxx) - (yyy * yyy) + x;//calculating x-coordinate
-			yCalc = Math.abs(2 * xxx * yyy) + y;//calculating y-coordinate
+			xCalc = (xxx * xxx) - (yyy * yyy) + x;//calculating x-coordinate and updating
+			yCalc = Math.abs(2 * xxx * yyy) + y;//calculating y-coordinate and updating
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
 			passadding();
 			
 		}
 		return null; 
 	} 
-	//method testing translation of x-coord
+	//method calculating translation of x-coord
 	//@para x value before calculation
 	//@return calculated xcoord value
 	public double xcor(int rows){
@@ -33,7 +33,7 @@ public class burningshipset {
 		xcord = xcord + sum;
 		return xcord;
 	}
-	//method testing translation of y-coord
+	//method calculating translation of y-coord
 	//@para y value before calculation
 	//@return calculated ycoord vale
 	public double ycor(int cols){
@@ -42,22 +42,28 @@ public class burningshipset {
 		ycord = ycord + sum;
 		return ycord;
 	}
-	//@para x value to 
-	//@para y
+	//@para x value to be used for test
+	//@para y value to be used for test
 	public int passtester(double x, double y){
 		Burningshipset(x,y);
 		return passes;
-	} 
+	}
+	
+	//adding value of 1 to passes
 	//@return return to the total number of passes
-	public int passadding(){
+		public int passadding(){
 		passes++;
 		return passes;
 	}
+		
 	//@return return to array with 512 rows and 512 cols
 	public int[][] returnarray(){
 		int[][] returnarray = new int[512][512];
 		return returnarray;
 	}
+	
+	//method to be used for test whether the escape-time become 0 or 1
+	//@return return to array type int with 512 rows and 512 cols
 	public int[][] test(){
 		int[][] emptyarr = new int[512][512];
 		for (int i = 0; i <512; i++){
