@@ -5,6 +5,17 @@ public class JuliaSet {
 	int arr [] [];
 	double xtest;
 	double ytest;
+	
+	public JuliaSet(){
+		
+	}
+	/**
+	 * The method below:
+	 * @param XCoord - takes in X-coordinate range from -1.7 to 1.7
+	 * @param YCoord takes in Y-Coordinate range from -1.0 to 1.0
+	 * @return the number of passes for XCoord YCoord
+	 * 
+	 **/
 	public int  JuliaSet(double xCoord, double yCoord){
 		double xCalc = xCoord;
 		double yCalc = yCoord;
@@ -33,34 +44,31 @@ public class JuliaSet {
 		return passes;
 		
 	}
+	/**
+	 * The method below @return new empty 2D array 512 by 512
+	 */
 	public int [] [] canvaS(){
-          //row col
-		arr= new int [512] [512];
-		//arr=arr2;
-		//int row = arr.length;
-		//int col = arr[0].length;
-		//for (int i =0; i<row; i++){
-			//row
-			
-			//for(int j=0; j<col;j++){
-			
-			//arr[i][j]= JuliaSet(i,j);
-			
-		//	}
-			
-		//}
-		
+         
+		arr= new int [512] [512];	
 		return arr;
 		
 		
 	}
 	
-	
+	/**
+	 * The method below:
+	 * @param row takes in XCoord on 512 by 512 and
+	 * @return in pixel
+	 */
 	public double xCoord(int row){ 
 		double xCoorPixel = -1.7+(3.4*row/512);
 		return xCoorPixel;
 	}
-	
+	/**
+	 * The method below:
+	 * @param col takes in Y-Coordinate on 512 by 512 2D array
+	 * @return in Pixel
+	 */
 	public double yCoord(int col){
 		double yCoorPixel = -1.0+(2 *col/512);
 		return yCoorPixel;
