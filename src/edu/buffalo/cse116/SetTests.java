@@ -92,7 +92,8 @@ public class SetTests {
 	@Test
 	public void testJuliaReturn() {
 		JuliaSet returns2DArray = new JuliaSet();
-		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.canvaS());
+		int [][]arr = new [512][512];
+		assertEquals("2D 512 by 512 array", arr.length, returns2DArray.canvaS()));
 	}
 
 	// Burning Ship Set Tests

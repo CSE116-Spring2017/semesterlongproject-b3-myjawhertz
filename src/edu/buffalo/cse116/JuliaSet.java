@@ -51,8 +51,14 @@ public class JuliaSet {
 	public int [] [] canvaS(){
          
 		arr= new int [512] [512];	
-		return arr;
+		return arr.length;
 		
+		
+		
+	}
+	public int checkArray(){
+		canvaS();
+		return 
 		
 	}
 	
