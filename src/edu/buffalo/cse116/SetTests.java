@@ -13,7 +13,9 @@ import org.junit.Test;
  */
 
 public class SetTests {
-	// Mandelbrot Set Tests
+	/**
+	 * Mandelbrot Set Tests
+	 */
 
 	// Translate a pixel's row to the associated x-coordinate in the fractal
 	@Test
@@ -54,7 +56,9 @@ public class SetTests {
 		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.returnArray());
 	}
 
-	// Julia Set Testss
+	/**
+	 * Julia Set Tests
+	 */
 
 	// Translate a pixel's row to the associated x-coordinate in the fractal
 	@Test
@@ -96,7 +100,9 @@ public class SetTests {
 		assertEquals("2D 512 by 512 array", arr.length, returns2DArray.canvaS()));
 	}
 
-	// Burning Ship Set Tests
+	/**
+	 * Burning Ship Set Tests
+	 */
 
 	// Translate a pixel's row to the associated x-coordinate in the fractal
 	@Test
@@ -138,7 +144,9 @@ public class SetTests {
 		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.returnarray());
 	}
 
-	// Multibrot Set Tests
+	/**
+	 * Multibrot Set Tests
+	 */
 
 	// Translate a pixel's row to the associated x-coordinate in the fractal
 	@Test
