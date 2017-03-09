@@ -8,6 +8,7 @@ import javax.swing.*;
 
 
 import edu.buffalo.*;
+import edu.buffalo.fractal.FractalPanel;
 
 public class UI implements Observer {
 	
