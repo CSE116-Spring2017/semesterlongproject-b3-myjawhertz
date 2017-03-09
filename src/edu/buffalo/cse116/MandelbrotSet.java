@@ -23,9 +23,6 @@ public class MandelbrotSet {
 		return yCord;
 	}
 
-//	private double dist;
-//	private int passes = 0;
-
 	/**
 	 * calculates passes
 	 * 
