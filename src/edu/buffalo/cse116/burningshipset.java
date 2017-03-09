@@ -58,7 +58,7 @@ public class burningshipset {
 				array[a][b] = passtester(xcor(a),ycor(b));
 				System.out.print(array[a][b]);
 			}
-		} 
+		}  
 		return array;
 	}
 	
