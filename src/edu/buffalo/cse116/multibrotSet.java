@@ -7,7 +7,8 @@ public class multibrotSet {
 	 * @author Alec Otminski 
 	 */
 	
-	private int[][] array = new int[512][512];
+	
+	
 	/**
 	 * Translates x-coordinates from 0-512 ----> -1 to 1
 	 * @param x original x-coordinate in 512 x 512 array
@@ -32,9 +33,10 @@ public class multibrotSet {
 	 * @param yCalc - a translated y-Coordinate in the MultiBrot Set
 	 * @return the Escape Time for the set == number of passes done
 	 */
-	private double dist;
-	private int passes = 0;
+	
 	public int mbSetETCalculation(double xCalc, double yCalc) {
+		double dist = 0;
+		int passes = 0;
 		while (dist <= 2 && passes < 255) {
 			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
 			xCalc = (xCalc * xCalc * xCalc) - (3 * xCalc * (yCalc * yCalc));
@@ -46,6 +48,14 @@ public class multibrotSet {
 	}
 	
 	public int[][] return2DArray(){
+		int[][] array = new int[512][512];
+		for (int r = 0; r < 512; r++){		//for each row in the array
+			for (int c = 0; c < 512; c++) {		//for each column in the array
+				array[r][c] = mbSetETCalculation(XCoordTranslation(r),YCoordTranslation(c));
+				System.out.println(array[r][c]);
+			}
+		}
 		return array;
 	}
+	
 }
