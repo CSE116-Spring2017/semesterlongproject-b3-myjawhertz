@@ -19,7 +19,7 @@ public class burningshipset {
 			xCalc = (xxx * xxx) - (yyy * yyy) + x;//calculating x-coordinate and updating
 			yCalc = Math.abs(2 * xxx * yyy) + y;//calculating y-coordinate and updating
 			dist = Math.sqrt((xCalc * xCalc) + (yCalc * yCalc)); 
-			passadding();
+			passes += 1;
 			
 		}
 		return null; 
@@ -28,18 +28,14 @@ public class burningshipset {
 	//@para x value before calculation
 	//@return calculated xcoord value
 	public double xcor(int rows){
-		double xcord = -1.8;
-		double sum	= 3.5 * (rows/512);
-		xcord = xcord + sum;
+		double xcord = -1.8 + 3.5 * (rows/512);
 		return xcord;
 	}
 	//method calculating translation of y-coord
 	//@para y value before calculation
 	//@return calculated ycoord vale
 	public double ycor(int cols){
-		double ycord = -0.08;
-		double sum = 0.105 * (cols/512);
-		ycord = ycord + sum;
+		double ycord = -0.08 +  0.105 * (cols/512);
 		return ycord;
 	}
 	//@para x value to be used for test
@@ -49,29 +45,31 @@ public class burningshipset {
 		return passes;
 	}
 	
-	//adding value of 1 to passes
-	//@return return to the total number of passes
-		public int passadding(){
-		passes++;
-		return passes;
-	}
-		
 	//@return return to array with 512 rows and 512 cols
 	public int[][] returnarray(){
-		int[][] returnarray = new int[512][512];
-		return returnarray;
+		int[][] returnEmptyArray = new int[512][512];
+		return returnEmptyArray;
+	}
+	
+	public int[][] array(){
+		int[][] array = new int[512][512];
+		for(int a = 0; a < 512; a++){
+			for(int b = 0; b < 5125; b++){
+				array[a][b] = passtester(xcor,ycor);
+				System.out.print(array[a][b]);
+			}
+		}
+		return array;
 	}
 	
 	//method to be used for test whether the escape-time become 0 or 1
 	//@return return to array type int with 512 rows and 512 cols
 	public boolean test() {
-		
 		int x = 0;
 		int y = 0;
 		for (x = 0; x < 512; x++) {
 			for (y = 0; y < 512; y++) {
 				passtester(xcor(x),ycor(y));
-				
 				if (passtester(xcor(x),ycor(y)) > 2) {
 					return true;
 				}
