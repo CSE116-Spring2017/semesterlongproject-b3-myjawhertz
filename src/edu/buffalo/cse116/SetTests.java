@@ -53,7 +53,7 @@ public class SetTests {
 	@Test
 	public void testMandelbrotReturn() {
 		MandelbrotSet returns2DArray = new MandelbrotSet();
-		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.returnArray());
+		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.returnArrayWithPasses());
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class SetTests {
 	@Test
 	public void testJuliaReturn() {
 		JuliaSet returns2DArray = new JuliaSet();
-		int [][]arr = new [512][512];
-		assertEquals("2D 512 by 512 array", arr.length, returns2DArray.canvaS()));
+		int [][]arr = new int[512][512];
+		assertEquals("2D 512 by 512 array", arr.length, returns2DArray.canvaS());
 	}
 
 	/**
