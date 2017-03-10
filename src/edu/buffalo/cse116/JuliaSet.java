@@ -76,5 +76,24 @@ public int[][] returnArrayWithPasses() {
 	}
 	return array;
 }
+public int juliasetPass10(double xCalc, double yCalc) {
+	
+	double dist = 0;
+	int passes = 0;
+	while (dist <= 3 && passes < 255) {
+		double tempX = xCalc;
+		double tempY = yCalc;
+		
 
+		xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+		yCalc = (2 * tempX * tempY) + 0.188887;
+
+		dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+		passes++;
+
+	}
+
+	return passes;
+
+}
 }
