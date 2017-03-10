@@ -22,7 +22,10 @@ public class UI implements Observer {
 	JPanel _3rdRowPanel;
 	JPanel _4thRowPanel;
 	
+	
+	
 	JPanel _buttonGrid;
+	private int[][] temp;
 	private JButton changeToMandelbrot;
 	private JButton changeToJulia;
 	private JButton changeToBurningShip;
@@ -180,34 +183,39 @@ public class UI implements Observer {
 		_buttonGrid.add(fp);
 		fp.setOpaque(true);
 		fp.setSize(512,512);
-		fp.updateImage(mandelbrot.returnArrayWithPasses());
+//		fp.setIndexColorModel(cm.createBluesColorModel(8));
+//		fp.updateImage(mandelbrot.returnArrayWithPasses());
 //		fp.updateImage(juliaSet.returnArrayWithPasses());
 //		fp.updateImage(burningShip.returnArrayWithPasses());
 //		fp.updateImage(multibrotSet.return2DArray());
-//		fp.setIndexColorModel(cm.createBluesColorModel(8));
+		
 		
 	
 		changeToMandelbrot.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
+				temp = mandelbrot.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
 			}
 		});
 		changeToJulia.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(juliaSet.returnArrayWithPasses());
+				temp = juliaSet.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
 			}
 		});
 		changeToBurningShip.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(burningShip.returnArrayWithPasses());
+				temp = burningShip.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
 			}
 		});
 		changetoMultibrot.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(multibrotSet.return2DArray());
+				temp = multibrotSet.return2DArray();
 				JOptionPane.getRootFrame();
 			}
 		});
@@ -219,24 +227,28 @@ public class UI implements Observer {
 		_colorOne.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createBluesColorModel(8));
+				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
 		});
 		_colorTwo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createGrayColorModel(8));
+				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
 		});
 		_colorThree.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createRainbowColorModel(8));
+				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
 		});
 		_colorFour.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createBluesColorModel(8));
+				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
 		});
