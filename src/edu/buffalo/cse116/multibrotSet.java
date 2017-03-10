@@ -15,7 +15,7 @@ public class multibrotSet {
 	 * @return new xCalc value for this set
 	 */
 	public double XCoordTranslation(int x){
-		double xCalc = -1 + ((2 * x) / 512);
+		double xCalc = -1 + (2 * x / 512);
 		return xCalc;
 	}
 	/**
@@ -24,7 +24,7 @@ public class multibrotSet {
 	 * @return new yCalc value for this set
 	 */
 	public double YCoordTranslation(int y){
-		double yCalc = -1.3 + ((2.6 * y) / 512);
+		double yCalc = -1.3 + (2.6 * y / 512);
 		return yCalc;
 	}
 	/**
@@ -35,13 +35,17 @@ public class multibrotSet {
 	 */
 	
 	public int mbSetETCalculation(double xCalc, double yCalc) {
-		double dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));;
+		double x = xCalc;
+		double y = yCalc;
+		double dist = 0;
 		int passes = 0;
 		while (dist <= 2 && passes < 255) {
-			xCalc = (xCalc * xCalc * xCalc) - (3 * xCalc * (yCalc * yCalc)) + xCalc;
-			yCalc = (3 * (xCalc * xCalc) * yCalc) - (yCalc * yCalc * yCalc) + yCalc;
-			passes = passes + 1;
-			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
+			double tempX = xCalc;	
+			double tempY = yCalc;
+			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
+			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
+			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+			passes++;
 		}
 		return passes;
 	}
