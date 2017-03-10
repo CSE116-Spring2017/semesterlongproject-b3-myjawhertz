@@ -49,6 +49,10 @@ public class MandelbrotSet {
 
 		return passes;
 	}
+	public int[][] return2DArray(){
+		int[][] array = new int[512][512];
+		return array;
+	}
 
 	/**
 	 * creates a 2D array with passes for each point

@@ -124,7 +124,7 @@ public class SetTests {
 	@Test
 	public void testBurningShipETNeverExceedsED() {
 		burningshipset neverExceedsED = new burningshipset();
-		assertEquals("Excape time 255.", 255, neverExceedsED.passtester(-1.7443359374999874, -0.017451171875000338),
+		assertEquals("Excape time 255.", 255, neverExceedsED.Burningshipset(-1.7443359374999874, -0.017451171875000338),
 				0.0001);
 	}
 
