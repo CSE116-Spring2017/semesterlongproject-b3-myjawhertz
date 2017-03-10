@@ -64,7 +64,7 @@ public class SetTests {
 	@Test
 	public void testJuliaXCoordinateTranslation() { // name of class: JuliaSet
 		JuliaSet xCoordTest = new JuliaSet();
-		assertEquals("X cordinate is -1.7", -1.7, xCoordTest.xCoord(0), 0.00001);
+		assertEquals("X cordinate is -1.7", -1.7, xCoordTest.getXCord(0), 0.00001);
 
 	}
 
@@ -72,7 +72,7 @@ public class SetTests {
 	@Test
 	public void testJuliaYCoordinateTranslation() {
 		JuliaSet yCoordTest = new JuliaSet();
-		assertEquals("Y cordinate is -1.0", -1.0, yCoordTest.yCoord(0), 0.0001);
+		assertEquals("Y cordinate is -1.0", -1.0, yCoordTest.getYCord(0), 0.0001);
 	}
 
 	// Calculates the escape time for a coordinate whose distance from the
@@ -97,7 +97,7 @@ public class SetTests {
 	public void testJuliaReturn() {
 		JuliaSet returns2DArray = new JuliaSet();
 		int [][]arr = new int[512][512];
-		assertEquals("2D 512 by 512 array", arr.length, returns2DArray.canvaS());
+		assertEquals("2D 512 by 512 array", new int [512][512], returns2DArray.returnArrayWithPasses());
 	}
 
 	/**
