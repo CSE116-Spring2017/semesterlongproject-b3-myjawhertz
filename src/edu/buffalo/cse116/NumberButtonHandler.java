@@ -23,6 +23,8 @@ public class NumberButtonHandler implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		_model.closeProgram();
+		_model.changeToJulia();
+		//_model.closeProgram();
+		
 	}	
 }

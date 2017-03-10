@@ -13,6 +13,7 @@ public class Model implements Observable {
 	private int _buttonNumber;
 	private int _borderThickness;
 	
+	
 	public Model() {
 		
 		_observers = new ArrayList<Observer>();
@@ -31,7 +32,7 @@ public class Model implements Observable {
 	}
 
 	public void changeToJulia() {
-		
+		JuliaSet juli= new JuliaSet();
 		notifyObservers();
 	}
 	
