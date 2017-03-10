@@ -46,7 +46,7 @@ public class multibrotSet {
 			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 			passes++;
-		}  
+		}
 		return passes;
 	}
 	
