@@ -84,7 +84,7 @@ public class ColorModel {
     IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
     return retVal;
   }
-  
+   
   public static IndexColorModel createCrazyGoodColor(int numColors) {
 	    byte[] reds = new byte[numColors];
 	    byte[] greens = new byte[numColors];
