@@ -264,7 +264,7 @@ public class UI implements Observer {
 				String textFromBox = jt.getText();
 				jt.setText("");
 			}
-		});
+		}); 
 		
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
