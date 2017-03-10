@@ -21,6 +21,7 @@ public class UI implements Observer {
 	JPanel _2ndRowPanel;
 	JPanel _3rdRowPanel;
 	JPanel _4thRowPanel;
+	JPanel _5thRowPanel;
 	
 	
 	
@@ -66,6 +67,8 @@ public class UI implements Observer {
 		_3rdRowPanel.setLayout(new GridLayout(1,7));
 		_4thRowPanel = new JPanel();
 		_4thRowPanel.setLayout(new GridLayout(4,1));
+		_5thRowPanel = new JPanel();
+		_5thRowPanel.setLayout(mgr);
 		
 		
 		
