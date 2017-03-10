@@ -13,9 +13,9 @@ public class multibrotSet {
 	 * @return new xCalc value for this set
 	 */
 	public double XCoordTranslation(int x){
-		System.out.println("Original x-value is:" + x);
+//		System.out.println("Original x-value is:" + x);
 		double xCalc = -1 + (2.0 * x / 512);
-		System.out.println("New x-value for " + x + " is: " + xCalc);
+//		System.out.println("New x-value for " + x + " is: " + xCalc);
 		return xCalc; 
 	}
 	/**
@@ -24,9 +24,9 @@ public class multibrotSet {
 	 * @return new yCalc value for this set
 	 */
 	public double YCoordTranslation(int y){
-		System.out.println("Original y-value is: " + y);
+//		System.out.println("Original y-value is: " + y);
 		double yCalc = -1.3 + (2.6 * y / 512);
-		System.out.println("New y-value for " + y + " is: " + yCalc);
+//		System.out.println("New y-value for " + y + " is: " + yCalc);
 		return yCalc;
 	}
 	
