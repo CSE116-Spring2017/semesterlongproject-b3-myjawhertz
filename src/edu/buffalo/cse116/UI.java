@@ -28,10 +28,10 @@ public class UI implements Observer {
 	private JButton changeToBurningShip;
 	private JButton changetoMultibrot;
 	private JButton close;
-	private JButton _colorOne;
-	private JButton _colorTwo;
-	private JButton _colorThree;
-	private JButton _colorFour;
+	private JButton _colorOne = new JButton("color 1");
+	private JButton _colorTwo = new JButton("color 2");
+	private JButton _colorThree = new JButton("color 3");
+	private JButton _colorFour = new JButton("color 4");
 	
 	
 	public UI(Model m) {
@@ -62,7 +62,7 @@ public class UI implements Observer {
 		_3rdRowPanel = new JPanel();
 		_3rdRowPanel.setLayout(new GridLayout(1,7));
 		_4thRowPanel = new JPanel();
-		_4thRowPanel.setLayout(new GridLayout(1,4));
+		_4thRowPanel.setLayout(new GridLayout(4,1));
 		
 		
 		
@@ -80,8 +80,14 @@ public class UI implements Observer {
 		
 		_mainPanel.add(_buttonGrid);
 		_mainPanel.add(_2ndRowPanel);
-		_mainPanel.add(_3rdRowPanel);
+		
 		_mainPanel.add(_4thRowPanel);
+		_mainPanel.add(_3rdRowPanel);
+		
+		_4thRowPanel.add(_colorOne);
+		_4thRowPanel.add(_colorTwo);
+		_4thRowPanel.add(_colorThree);
+		_4thRowPanel.add(_colorFour);
 		
 		close = new JButton("File - Close program");
 //		close.addActionListener(new NumberButtonHandler(_model));
@@ -208,6 +214,30 @@ public class UI implements Observer {
 		close.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.exit(0);
+			}
+		});
+		_colorOne.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.setIndexColorModel(cm.createBluesColorModel(8));
+				JOptionPane.getRootFrame();
+			}
+		});
+		_colorTwo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.setIndexColorModel(cm.createGrayColorModel(8));
+				JOptionPane.getRootFrame();
+			}
+		});
+		_colorThree.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.setIndexColorModel(cm.createRainbowColorModel(8));
+				JOptionPane.getRootFrame();
+			}
+		});
+		_colorFour.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.setIndexColorModel(cm.createBluesColorModel(8));
+				JOptionPane.getRootFrame();
 			}
 		});
 		
