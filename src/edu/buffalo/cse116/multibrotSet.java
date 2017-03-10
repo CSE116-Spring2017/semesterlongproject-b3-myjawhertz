@@ -25,13 +25,13 @@ public class multibrotSet {
 		double yCalc = -1.3 + (2.6 * y / 512);
 		return yCalc;
 	}
+	
 	/**
 	 * This method does the Escape-Time Calculations for the MultiBrot Set
 	 * @param xCalc - a translated x-Coordinate in the MultiBrot Set
 	 * @param yCalc - a translated y-Coordinate in the MultiBrot Set
 	 * @return the Escape Time for the set == number of passes done
 	 */
-	
 	public int mbSetETCalculation(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
@@ -69,7 +69,7 @@ public class multibrotSet {
 		for (int r = 0; r < 512; r++){		//for each row in the array
 			for (int c = 0; c < 512; c++) {		//for each column in the array
 				array[r][c] = mbSetETCalculation(XCoordTranslation(r),YCoordTranslation(c));
-//				System.out.println(array[r][c]);
+//				System.out.println(array[r][c]);	<---this line is for debugging purposes
 			}
 		}
 		return array;
