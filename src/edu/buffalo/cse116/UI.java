@@ -55,7 +55,7 @@ public class UI implements Observer {
 	}
 	
 	public void initialize() {
-		
+		 
 		_window = new JFrame();
 		
 		// Give the main panel two sections (two rows, one column)
