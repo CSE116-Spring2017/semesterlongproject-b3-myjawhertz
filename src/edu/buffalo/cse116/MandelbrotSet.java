@@ -74,7 +74,7 @@ public class MandelbrotSet {
 		double y = yCalc;
 		double dist = i;
 		int passes = 0;
-		while (dist <= 2 && passes < 255) {
+		while (dist <= i && passes < 255) {
 			double tempX = xCalc;	
 			double tempY = yCalc;
 
@@ -90,11 +90,12 @@ public class MandelbrotSet {
 	}
 	
 	
-	public int[][] uerInputEscape(int i) {
+	public int[][] userInputEscape(String i) {
+		int a = Integer.parseInt(i);
 		int[][] array = new int[512][512];
 		for(int x = 0; x < 512; x++){
 			for(int y = 0; y < 512; y++){
-				array[x][y] = userInputPasses(getXCord(x), getYCord(y), i);	
+				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);	
 //				System.out.println(array[x][y]);
 			}
 		}

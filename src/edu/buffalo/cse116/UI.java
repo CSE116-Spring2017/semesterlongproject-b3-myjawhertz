@@ -37,6 +37,14 @@ public class UI implements Observer {
 	private JButton _colorThree = new JButton("Rainbow");
 	private JButton _colorFour = new JButton("Crazy Good Color");
 	private JButton enter = new JButton("Enter");
+	private String textFromBox;
+	private int setTemp;
+	private FractalPanel fp;
+	private MandelbrotSet m;
+	private JuliaSet j;
+	private burningshipset b;
+	private multibrotSet multi;
+	
 	
 	
 	public UI(Model m) {
@@ -54,6 +62,29 @@ public class UI implements Observer {
 		// Bring the UI to a ready state.
 		update();
 	}
+	
+	public void set(){
+		
+		if(setTemp == 1){
+			fp.updateImage(mandelbrot.returnArrayWithPasses());
+		}
+		if(setTemp == 2){
+			fp.updateImage(juliaSet.returnArrayWithPasses());
+		}
+		if(setTemp == 3){
+			fp.updateImage(burningShip.returnArrayWithPasses());
+		}
+		if(setTemp == 4){
+			fp.updateImage(multibrotSet.return2DArray());
+		}
+	}
+	public MandelbrotSet returnMandelbrot(){
+		return m;
+	}
+	public JuliaSet returnJuliaSet(){
+		
+	}
+	
 	
 	public void initialize() {
 		 
@@ -77,18 +108,24 @@ public class UI implements Observer {
 		_buttonGrid = new JPanel();
 		
 		
-		MandelbrotSet mandelbrot = new MandelbrotSet();
-		JuliaSet juliaSet = new JuliaSet();
-		burningshipset burningShip = new burningshipset();
-		multibrotSet multibrotSet = new multibrotSet();
+		m = new MandelbrotSet();
+		j = new JuliaSet();
+		b = new burningshipset();
+		multi = new multibrotSet();
 		ColorModel cm = new ColorModel();
-		FractalPanel fp = new FractalPanel();
+		 fp = new FractalPanel();
 		
+		int Mandel = 1;
+		int Jul = 2;
+		int Burn = 3;
+		int Multi = 4;
 		
 		_mainPanel.add(_buttonGrid);
+		
 		_mainPanel.add(_2ndRowPanel);
 		_mainPanel.add(_4thRowPanel);
 		_mainPanel.add(_3rdRowPanel);
+		_mainPanel.add(_5thRowPanel);
 		
 		_4thRowPanel.add(_colorOne);
 		_4thRowPanel.add(_colorTwo);
@@ -97,7 +134,7 @@ public class UI implements Observer {
 		jt.setPreferredSize(new Dimension(200,24));
 		_5thRowPanel.add(jt);
 		_5thRowPanel.add(enter);
-		_mainPanel.add(_5thRowPanel);
+		
 		close = new JButton("File - Close program");
 //		close.addActionListener(new NumberButtonHandler(_model));
 		
@@ -196,12 +233,14 @@ public class UI implements Observer {
 //		fp.updateImage(multibrotSet.return2DArray());
 		
 		
+		
 	
 		changeToMandelbrot.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				temp = mandelbrot.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
+				setTemp = 1;
 			}
 		});
 		changeToJulia.addActionListener(new ActionListener(){
@@ -209,6 +248,7 @@ public class UI implements Observer {
 				fp.updateImage(juliaSet.returnArrayWithPasses());
 				temp = juliaSet.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
+				setTemp = 2;
 			}
 		});
 		changeToBurningShip.addActionListener(new ActionListener(){
@@ -216,6 +256,7 @@ public class UI implements Observer {
 				fp.updateImage(burningShip.returnArrayWithPasses());
 				temp = burningShip.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
+				setTemp = 3;
 			}
 		});
 		changetoMultibrot.addActionListener(new ActionListener(){
@@ -223,6 +264,7 @@ public class UI implements Observer {
 				fp.updateImage(multibrotSet.return2DArray());
 				temp = multibrotSet.return2DArray();
 				JOptionPane.getRootFrame();
+				setTemp = 4;
 			}
 		});
 		close.addActionListener(new ActionListener(){
@@ -261,8 +303,11 @@ public class UI implements Observer {
 		
 		enter.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				String textFromBox = jt.getText();
+				textFromBox = jt.getText();
 				jt.setText("");
+				fp.updateImage(set.userInputEscape(textFromBox));
+				
+				
 			}
 		}); 
 		
