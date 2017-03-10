@@ -67,5 +67,20 @@ public class burningshipset {
 		}
 		return array;
 	}
-	
+	public boolean OnlyOneOrZero() {
+		int[][] array = new int[512][512];
+		for(int x = 0; x < 512; x++){
+			for(int y = 0; y < 512; y++){
+				if(array[x][y] <= 2){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+			
+		}
+		return false;
+		
+	}
 }
