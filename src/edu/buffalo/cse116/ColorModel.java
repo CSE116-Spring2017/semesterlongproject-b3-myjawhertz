@@ -93,7 +93,7 @@ public class ColorModel {
 	      reds[i] = (byte) ((Math.log10(i) / Math.log10(reds.length)) * 256);
 	      greens[i] = (byte) ((Math.log10(i) / Math.log10(greens.length)) * 256);
 	      blues[i] = (byte) ((Math.log10(i) / Math.log10(blues.length)) * 256);
-	    }
+	    } 
 	    IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
 	    return retVal;
 	  }
