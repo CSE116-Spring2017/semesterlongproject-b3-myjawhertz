@@ -199,25 +199,25 @@ public class SetTests {
 	@Test
 	public void testMandelbrotsetCalEsTime(){
 		MandelbrotSet mandelbrotset = new MandelbrotSet();
-		assertEquals(10, mandelbrotset.(0.46007827788650374, -0.3383561643835661), 0.0001);
+		assertEquals(10, mandelbrotset.nameOfMethod(0.46007827788650374, -0.3383561643835661), 0.0001);
 	}
 	
 	@Test
 	public void testJuliasetCalEsTime(){
 		JuliaSet juliaset = new JuliaSet();
-		assertEquals(10, juliaset.(1.4538160469667272, -0.13502935420743645), 0.0001);
+		assertEquals(10, juliaset.nameOfMethod(1.4538160469667272, -0.13502935420743645), 0.0001);
 	}
 
 	@Test
 	public void testBurningshipsetCalEsTime(){
 		burningshipset burningshipset = new burningshipset();
-		assertEquals(10, burningshipset.(-1.6999999999999802, 0.0030136986301371603), 0.0001);
+		assertEquals(10, burningshipset.burningshipsetPass10(-1.6999999999999802, 0.0030136986301371603), 0.0001);
 	}
 
 	@Test
 	public void testMultibrotsetCalEsTime(){
 		multibrotSet multibrotset = new multibrotSet();
-		assertEquals(10, multibrotset.(0.7025440313111545, -0.5520547945205528), 0.0001);
-	}
+		assertEquals(10, multibrotset.nameOfMethod(0.7025440313111545, -0.5520547945205528), 0.0001);
+	} 
 
 }
