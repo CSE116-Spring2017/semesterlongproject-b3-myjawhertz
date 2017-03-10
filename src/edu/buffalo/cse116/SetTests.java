@@ -184,9 +184,39 @@ public class SetTests {
 
 	// The method called to calculate the fractal returns a 2-d array with 512
 	// rows and 512 columns
+	
 	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
 		assertEquals("2D 512 by 512 array", new int[512][512], returns2DArray.return2DArray());
 	}
+	
+	/**
+	 * Phase 2 Rubric
+	 * */
+	
+	@Test
+	public void testMandelbrotsetCalEsTime(){
+		MandelbrotSet mandelbrotset = new MandelbrotSet();
+		assertEquals(10, mandelbrotset.(0.46007827788650374, -0.3383561643835661), 0.0001);
+	}
+	
+	@Test
+	public void testJuliasetCalEsTime(){
+		JuliaSet juliaset = new JuliaSet();
+		assertEquals(10, juliaset.(1.4538160469667272, -0.13502935420743645), 0.0001);
+	}
+
+	@Test
+	public void testBurningshipsetCalEsTime(){
+		burningshipset burningshipset = new burningshipset();
+		assertEquals(10, burningshipset.(-1.6999999999999802, 0.0030136986301371603), 0.0001);
+	}
+
+	@Test
+	public void testMultibrotsetCalEsTime(){
+		multibrotSet multibrotset = new multibrotSet();
+		assertEquals(10, multibrotset.(0.7025440313111545, -0.5520547945205528), 0.0001);
+	}
+
 }
