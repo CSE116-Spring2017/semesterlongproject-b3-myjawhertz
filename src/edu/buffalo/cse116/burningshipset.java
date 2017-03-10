@@ -51,7 +51,7 @@ public class burningshipset {
 		return returnEmptyArray;
 	}
 	
-	public int[][] array(){
+	public int[][] returnArrayWithPasses(){
 		int[][] array = new int[512][512];
 		for(int a = 0; a < 512; a++){
 			for(int b = 0; b < 5125; b++){
