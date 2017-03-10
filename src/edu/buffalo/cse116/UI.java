@@ -89,6 +89,7 @@ public class UI implements Observer {
 		
 		_mainPanel.add(_4thRowPanel);
 		_mainPanel.add(_3rdRowPanel);
+		_mainPanel.add(_5thRowPanel);
 		
 		_4thRowPanel.add(_colorOne);
 		_4thRowPanel.add(_colorTwo);
