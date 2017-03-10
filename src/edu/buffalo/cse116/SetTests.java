@@ -100,6 +100,7 @@ public class SetTests {
 		int [][]arr = new int[512][512];
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.emptyArray().length);
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.emptyArray()[0].length);
+		
 	}
 
 	/**
