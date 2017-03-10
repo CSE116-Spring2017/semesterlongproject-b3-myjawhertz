@@ -69,5 +69,24 @@ public class MandelbrotSet {
 		return array;
 	}
 	
+	public int mandelbrotsetPass10(double xCalc, double yCalc) {
+		double x = xCalc;
+		double y = yCalc;
+		double dist = 0;
+		int passes = 0;
+		while (dist <= 3 && passes < 255) {
+			double tempX = xCalc;	
+			double tempY = yCalc;
+
+			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+			yCalc = (2 * (tempX * tempY)) + y;
+
+			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+
+			passes++;
+		}
+
+		return passes;
+	}
 }
 
