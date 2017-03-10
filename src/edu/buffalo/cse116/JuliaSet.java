@@ -1,7 +1,7 @@
 package edu.buffalo.cse116;
 
 public class JuliaSet {
-
+  int [][] emptyArray;
 	/**
 	 * The method below @return new empty 2D array 512 by 512
 	 */
@@ -62,12 +62,16 @@ public int JuliaSet(double xCalc, double yCalc) {
 
 	}
 
+public int[][] emptyArray(){
+	emptyArray= new int [512][512];
+	return emptyArray;
+}
 public int[][] returnArrayWithPasses() {
 	int[][] array = new int[512][512];
 	for(int x = 0; x < 512; x++){
 		for(int y = 0; y < 512; y++){
 			array[x][y] = JuliaSet(getXCord(x),getYCord(y));	
-			System.out.println(array[x][y]);
+			//System.out.println(array[x][y]);
 		}
 	}
 	return array;
