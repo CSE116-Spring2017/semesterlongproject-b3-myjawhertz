@@ -259,7 +259,12 @@ public class UI implements Observer {
 			}
 		});
 		
-
+		enter.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				String textFromBox = jt.getText();
+				jt.setText("");
+			}
+		});
 		
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
