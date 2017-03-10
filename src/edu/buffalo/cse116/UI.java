@@ -20,12 +20,18 @@ public class UI implements Observer {
 	JPanel _mainPanel;
 	JPanel _2ndRowPanel;
 	JPanel _3rdRowPanel;
+	JPanel _4thRowPanel;
 	
 	JPanel _buttonGrid;
 	private JButton changeToMandelbrot;
 	private JButton changeToJulia;
 	private JButton changeToBurningShip;
 	private JButton changetoMultibrot;
+	private JButton close;
+	private JButton _colorOne;
+	private JButton _colorTwo;
+	private JButton _colorThree;
+	private JButton _colorFour;
 	
 	
 	public UI(Model m) {
@@ -55,6 +61,8 @@ public class UI implements Observer {
 		_2ndRowPanel.setLayout(new GridLayout(4,1));
 		_3rdRowPanel = new JPanel();
 		_3rdRowPanel.setLayout(new GridLayout(1,7));
+		_4thRowPanel = new JPanel();
+		_4thRowPanel.setLayout(new GridLayout(1,4));
 		
 		
 		
@@ -73,10 +81,13 @@ public class UI implements Observer {
 		_mainPanel.add(_buttonGrid);
 		_mainPanel.add(_2ndRowPanel);
 		_mainPanel.add(_3rdRowPanel);
+		_mainPanel.add(_4thRowPanel);
 		
-		JButton close = new JButton("File - Close program");
-		close.addActionListener(new NumberButtonHandler(_model));
+		close = new JButton("File - Close program");
+//		close.addActionListener(new NumberButtonHandler(_model));
+		
 		_3rdRowPanel.add(close);
+		
 		
 		changeToMandelbrot = new JButton("Change to Mandelbrot Set");
 //		changetoMultibrot.addActionListener(new NumberButtonHandler(_model));
@@ -163,7 +174,7 @@ public class UI implements Observer {
 		_buttonGrid.add(fp);
 		fp.setOpaque(true);
 		fp.setSize(512,512);
-//		fp.updateImage(mandelbrot.returnArrayWithPasses());
+		fp.updateImage(mandelbrot.returnArrayWithPasses());
 //		fp.updateImage(juliaSet.returnArrayWithPasses());
 //		fp.updateImage(burningShip.returnArrayWithPasses());
 //		fp.updateImage(multibrotSet.return2DArray());
@@ -192,6 +203,11 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(multibrotSet.return2DArray());
 				JOptionPane.getRootFrame();
+			}
+		});
+		close.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.exit(0);
 			}
 		});
 		
