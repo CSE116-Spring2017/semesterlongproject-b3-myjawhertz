@@ -21,6 +21,7 @@ public class UI implements Observer {
 	JPanel _3rdRowPanel;
 	
 	JPanel _buttonGrid;
+	private JButton changeToJulia;
 	
 	
 	public UI(Model m) {
@@ -57,6 +58,14 @@ public class UI implements Observer {
 		_buttonGrid = new JPanel();
 		
 		
+		MandelbrotSet mandelbrot = new MandelbrotSet();
+		JuliaSet juliaSet = new JuliaSet();
+		burningshipset burningShip = new burningshipset();
+		multibrotSet multibrotSet = new multibrotSet();
+		ColorModel cm = new ColorModel();
+		FractalPanel fp = new FractalPanel();
+		
+		
 		_mainPanel.add(_buttonGrid);
 		_mainPanel.add(_2ndRowPanel);
 		_mainPanel.add(_3rdRowPanel);
@@ -69,10 +78,18 @@ public class UI implements Observer {
 		changeToMandelbort.addActionListener(new NumberButtonHandler(_model));
 		_2ndRowPanel.add(changeToMandelbort);
 		
-		JButton changeToJulia = new JButton("Change to Jula Set");
-		changeToJulia.addActionListener(new NumberButtonHandler(_model));
-		_2ndRowPanel.add(changeToJulia);
+//		JButton changeToJulia = new JButton("Change to Jula Set");
+//		changeToJulia.addActionListener(new ActionListener(){
+//			public void actionPerformed(ActionEvent e){
+//				fp.updateImage(juliaSet.returnArrayWithPasses());
+//				JOptionPane.getRootFrame();
+//			}
+//		});
 		
+		// jtext with scanner
+		//changeToJulia.addActionListener(new NumberButtonHandler(_model));
+		JButton changeToJulia = new JButton("Change to Jula Set");
+				
 		JButton changeToBurningship = new JButton("Change to Burningship Set");
 		changeToBurningship.addActionListener(new NumberButtonHandler(_model));
 		_2ndRowPanel.add(changeToBurningship);
@@ -131,6 +148,7 @@ public class UI implements Observer {
 //			num++;
 //		}
 		
+		
 		MandelbrotSet mandelbrot = new MandelbrotSet();
 		JuliaSet juliaSet = new JuliaSet();
 		burningshipset burningShip = new burningshipset();
@@ -145,6 +163,18 @@ public class UI implements Observer {
 //		fp.updateImage(burningShip.returnArrayWithPasses());
 		fp.updateImage(multibrotSet.return2DArray());
 //		fp.setIndexColorModel(cm.createBluesColorModel(8));
+		
+	
+		changeToJulia.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.updateImage(juliaSet.returnArrayWithPasses());
+				
+				
+				JOptionPane.getRootFrame();
+			}
+		});
+		_2ndRowPanel.add(changeToJulia);
+
 		
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
