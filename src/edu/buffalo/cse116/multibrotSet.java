@@ -7,8 +7,6 @@ public class multibrotSet {
 	 * @author Alec Otminski 
 	 */
 	
-	
-	
 	/**
 	 * Translates x-coordinates from 0-512 ----> -1 to 1
 	 * @param x original x-coordinate in 512 x 512 array
