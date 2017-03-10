@@ -35,12 +35,11 @@ public class multibrotSet {
 	 */
 	
 	public int mbSetETCalculation(double xCalc, double yCalc) {
-		double dist = 0;
+		double dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));;
 		int passes = 0;
 		while (dist <= 2 && passes < 255) {
-			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
-			xCalc = (xCalc * xCalc * xCalc) - (3 * xCalc * (yCalc * yCalc));
-			yCalc = (3 * (xCalc * xCalc) * yCalc) - (yCalc * yCalc * yCalc);
+			xCalc = (xCalc * xCalc * xCalc) - (3 * xCalc * (yCalc * yCalc)) + xCalc;
+			yCalc = (3 * (xCalc * xCalc) * yCalc) - (yCalc * yCalc * yCalc) + yCalc;
 			passes = passes + 1;
 			dist = Math.sqrt(Math.pow(xCalc,2) + Math.pow(yCalc,2));
 		}
