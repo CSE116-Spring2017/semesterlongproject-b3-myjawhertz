@@ -247,7 +247,7 @@ public class UI implements Observer {
 		});
 		_colorFour.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				fp.setIndexColorModel(cm.createBluesColorModel(8));
+				fp.setIndexColorModel(cm.createCrazyGoodColor(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
