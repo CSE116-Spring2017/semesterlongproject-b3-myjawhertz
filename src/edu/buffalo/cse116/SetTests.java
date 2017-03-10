@@ -218,7 +218,7 @@ public class SetTests {
 	@Test
 	public void testMultibrotsetCalEsTime(){
 		multibrotSet multibrotset = new multibrotSet();
-		assertEquals(10, multibrotset.nameOfMethod(0.7025440313111545, -0.5520547945205528), 0.0001);
+		assertEquals(10, multibrotset.multibrotsetPass10(0.7025440313111545, -0.5520547945205528), 0.0001);
 	} 
 
 }
