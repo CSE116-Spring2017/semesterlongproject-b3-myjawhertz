@@ -34,7 +34,7 @@ public class UI implements Observer {
 	private JButton _colorOne = new JButton("Blue");
 	private JButton _colorTwo = new JButton("Gray");
 	private JButton _colorThree = new JButton("Rainbow");
-	private JButton _colorFour = new JButton("color 4");
+	private JButton _colorFour = new JButton("Crazy Good Color");
 	
 	
 	public UI(Model m) {
