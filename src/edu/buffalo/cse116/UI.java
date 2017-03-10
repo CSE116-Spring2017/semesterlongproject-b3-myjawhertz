@@ -68,7 +68,7 @@ public class UI implements Observer {
 		_4thRowPanel = new JPanel();
 		_4thRowPanel.setLayout(new GridLayout(4,1));
 		_5thRowPanel = new JPanel();
-		_5thRowPanel.setLayout(mgr);
+		_5thRowPanel.setLayout(new GridLayout(1,1));
 		
 		
 		
