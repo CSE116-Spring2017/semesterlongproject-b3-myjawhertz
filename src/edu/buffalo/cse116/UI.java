@@ -95,7 +95,7 @@ public class UI implements Observer {
 		// Final steps to display the window
 		_window.setContentPane(_mainPanel);
 		_window.setVisible(true);
-		
+		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
 		
