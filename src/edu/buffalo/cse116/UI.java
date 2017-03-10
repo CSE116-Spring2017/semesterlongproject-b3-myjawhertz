@@ -31,9 +31,9 @@ public class UI implements Observer {
 	private JButton changeToBurningShip;
 	private JButton changetoMultibrot;
 	private JButton close;
-	private JButton _colorOne = new JButton("color 1");
-	private JButton _colorTwo = new JButton("color 2");
-	private JButton _colorThree = new JButton("color 3");
+	private JButton _colorOne = new JButton("Blue");
+	private JButton _colorTwo = new JButton("Gray");
+	private JButton _colorThree = new JButton("Rainbow");
 	private JButton _colorFour = new JButton("color 4");
 	
 	
