@@ -118,8 +118,8 @@ public class UI implements Observer {
 		_buttonGrid.add(fp);
 		fp.setOpaque(true);
 		fp.setSize(512,512);
-		fp.updateImage(mandelbrot.returnArrayWithPasses());
-//		fp.updateImage(juliaSet.returnArrayWithPasses());
+//		fp.updateImage(mandelbrot.returnArrayWithPasses());
+		fp.updateImage(juliaSet.returnArrayWithPasses());
 //		fp.updateImage(burningShip.returnArrayWithPasses());
 //		fp.updateImage(multibrotSet.returnArrayWithPasses());
 //		fp.setIndexColorModel(cm.createBluesColorModel(8));

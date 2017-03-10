@@ -59,7 +59,7 @@ public class MandelbrotSet {
 		for(int x = 0; x < 512; x++){
 			for(int y = 0; y < 512; y++){
 				array[x][y] = mandelbrotSet(getXCord(x), getYCord(y));	
-				System.out.println(array[x][y]);
+//				System.out.println(array[x][y]);
 			}
 		}
 		return array;
