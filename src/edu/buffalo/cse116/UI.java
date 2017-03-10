@@ -17,6 +17,8 @@ public class UI implements Observer {
 	// UI elements
 	JFrame _window;
 	JPanel _mainPanel;
+	JPanel _2ndRowPanel;
+	JPanel _3rdRowPanel;
 	
 	JPanel _buttonGrid;
 	
@@ -43,21 +45,41 @@ public class UI implements Observer {
 		
 		// Give the main panel two sections (two rows, one column)
 		_mainPanel = new JPanel();
-		_mainPanel.setLayout(new GridLayout(1, 1));
+		_mainPanel.setLayout(new GridLayout(1, 3));
+		_2ndRowPanel = new JPanel();
+		_2ndRowPanel.setLayout(new GridLayout(4,1));
+		_3rdRowPanel = new JPanel();
+		_3rdRowPanel.setLayout(new GridLayout(1,7));
+		
+		
 		
 		// Set up the JPanel and GridLayout where the grid of buttons will go
 		_buttonGrid = new JPanel();
 		
 		
 		_mainPanel.add(_buttonGrid);
+		_mainPanel.add(_2ndRowPanel);
+		_mainPanel.add(_3rdRowPanel);
 		
 		JButton close = new JButton("File - Close program");
 		close.addActionListener(new NumberButtonHandler(_model));
-		_mainPanel.add(close);
+		_3rdRowPanel.add(close);
+		
+		JButton changeToMandelbort = new JButton("Change to Mandelbrot Set");
+		changeToMandelbort.addActionListener(new NumberButtonHandler(_model));
+		_2ndRowPanel.add(changeToMandelbort);
 		
 		JButton changeToJulia = new JButton("Change to Jula Set");
 		changeToJulia.addActionListener(new NumberButtonHandler(_model));
-		_mainPanel.add(changeToJulia);
+		_2ndRowPanel.add(changeToJulia);
+		
+		JButton changeToBurningship = new JButton("Change to Burningship Set");
+		changeToBurningship.addActionListener(new NumberButtonHandler(_model));
+		_2ndRowPanel.add(changeToBurningship);
+		
+		JButton changeToMultibrot = new JButton("Change to Multibrot Set");
+		changeToMultibrot.addActionListener(new NumberButtonHandler(_model));
+		_2ndRowPanel.add(changeToMultibrot);
 		
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
 		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
