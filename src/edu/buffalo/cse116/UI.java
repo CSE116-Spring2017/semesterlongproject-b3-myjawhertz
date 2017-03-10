@@ -141,9 +141,9 @@ public class UI implements Observer {
 		fp.setOpaque(true);
 		fp.setSize(512,512);
 //		fp.updateImage(mandelbrot.returnArrayWithPasses());
-		fp.updateImage(juliaSet.returnArrayWithPasses());
+//		fp.updateImage(juliaSet.returnArrayWithPasses());
 //		fp.updateImage(burningShip.returnArrayWithPasses());
-//		fp.updateImage(multibrotSet.returnArrayWithPasses());
+		fp.updateImage(multibrotSet.return2DArray());
 //		fp.setIndexColorModel(cm.createBluesColorModel(8));
 		
 		// This is necessary to actually see the changes that have been made
