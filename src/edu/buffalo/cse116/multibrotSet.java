@@ -16,7 +16,7 @@ public class multibrotSet {
 		System.out.println("Original x-value is:" + x);
 		double xCalc = -1 + (2.0 * x / 512);
 		System.out.println("New x-value for " + x + " is: " + xCalc);
-		return xCalc;
+		return xCalc; 
 	}
 	/**
 	 * Translates y-coordinates from 0-512 ----> -1.3 to 1.3 
