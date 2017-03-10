@@ -22,7 +22,7 @@ public class UI implements Observer {
 	JPanel _3rdRowPanel;
 	JPanel _4thRowPanel;
 	JPanel _5thRowPanel;
-	
+	JTextField jt = new JTextField("Enter the distance you want for the fractals here.", 30);
 	
 	
 	JPanel _buttonGrid;
@@ -94,6 +94,8 @@ public class UI implements Observer {
 		_4thRowPanel.add(_colorTwo);
 		_4thRowPanel.add(_colorThree);
 		_4thRowPanel.add(_colorFour);
+		
+		_5thRowPanel.add(jt);
 		
 		close = new JButton("File - Close program");
 //		close.addActionListener(new NumberButtonHandler(_model));
