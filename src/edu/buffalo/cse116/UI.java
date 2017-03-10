@@ -10,6 +10,7 @@ import javax.swing.*;
 import edu.buffalo.*;
 import edu.buffalo.fractal.FractalPanel;
 
+
 public class UI implements Observer {
 	
 	Model _model;
@@ -21,7 +22,10 @@ public class UI implements Observer {
 	JPanel _3rdRowPanel;
 	
 	JPanel _buttonGrid;
+	private JButton changeToMandelbrot;
 	private JButton changeToJulia;
+	private JButton changeToBurningShip;
+	private JButton changetoMultibrot;
 	
 	
 	public UI(Model m) {
@@ -74,9 +78,9 @@ public class UI implements Observer {
 		close.addActionListener(new NumberButtonHandler(_model));
 		_3rdRowPanel.add(close);
 		
-		JButton changeToMandelbort = new JButton("Change to Mandelbrot Set");
-		changeToMandelbort.addActionListener(new NumberButtonHandler(_model));
-		_2ndRowPanel.add(changeToMandelbort);
+		changeToMandelbrot = new JButton("Change to Mandelbrot Set");
+//		changetoMultibrot.addActionListener(new NumberButtonHandler(_model));
+		_2ndRowPanel.add(changeToMandelbrot);
 		
 //		JButton changeToJulia = new JButton("Change to Jula Set");
 //		changeToJulia.addActionListener(new ActionListener(){
@@ -88,15 +92,16 @@ public class UI implements Observer {
 		
 		// jtext with scanner
 		//changeToJulia.addActionListener(new NumberButtonHandler(_model));
-		JButton changeToJulia = new JButton("Change to Jula Set");
+		changeToJulia = new JButton("Change to Jula Set");
+		_2ndRowPanel.add(changeToJulia);
 				
-		JButton changeToBurningship = new JButton("Change to Burningship Set");
-		changeToBurningship.addActionListener(new NumberButtonHandler(_model));
-		_2ndRowPanel.add(changeToBurningship);
+		changeToBurningShip = new JButton("Change to Burningship Set");
+//		changeToBurningShip.addActionListener(new NumberButtonHandler(_model));
+		_2ndRowPanel.add(changeToBurningShip);
 		
-		JButton changeToMultibrot = new JButton("Change to Multibrot Set");
-		changeToMultibrot.addActionListener(new NumberButtonHandler(_model));
-		_2ndRowPanel.add(changeToMultibrot);
+		 changetoMultibrot = new JButton("Change to Multibrot Set");
+//		changetoMultibrot.addActionListener(new NumberButtonHandler(_model));
+		_2ndRowPanel.add(changetoMultibrot);
 		
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
 		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
@@ -161,19 +166,35 @@ public class UI implements Observer {
 //		fp.updateImage(mandelbrot.returnArrayWithPasses());
 //		fp.updateImage(juliaSet.returnArrayWithPasses());
 //		fp.updateImage(burningShip.returnArrayWithPasses());
-		fp.updateImage(multibrotSet.return2DArray());
+//		fp.updateImage(multibrotSet.return2DArray());
 //		fp.setIndexColorModel(cm.createBluesColorModel(8));
 		
 	
-		changeToJulia.addActionListener(new ActionListener(){
+		changeToMandelbrot.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				fp.updateImage(juliaSet.returnArrayWithPasses());
-				
-				
+				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				JOptionPane.getRootFrame();
 			}
 		});
-		_2ndRowPanel.add(changeToJulia);
+		changeToJulia.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.updateImage(juliaSet.returnArrayWithPasses());
+				JOptionPane.getRootFrame();
+			}
+		});
+		changeToBurningShip.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.updateImage(burningShip.returnArrayWithPasses());
+				JOptionPane.getRootFrame();
+			}
+		});
+		changetoMultibrot.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				fp.updateImage(multibrotSet.return2DArray());
+				JOptionPane.getRootFrame();
+			}
+		});
+		
 
 		
 		// This is necessary to actually see the changes that have been made
