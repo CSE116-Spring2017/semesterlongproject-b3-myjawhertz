@@ -110,7 +110,7 @@ public int userInputPasses(double xCalc, double yCalc, double i) {
 
 		dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 		passes++;
-
+ 
 	}
 
 	return passes;

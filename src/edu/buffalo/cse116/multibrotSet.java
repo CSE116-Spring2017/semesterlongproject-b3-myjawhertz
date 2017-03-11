@@ -94,7 +94,7 @@ public class multibrotSet {
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 			passes++;
 		}
-		return passes;
+		return passes; 
 	}
 	public int[][] userInputEscape(String i){
 		int a = Integer.parseInt(i);

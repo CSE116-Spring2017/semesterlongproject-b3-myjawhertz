@@ -115,7 +115,7 @@ public class UI implements Observer {
 		_5thRowPanel.setLayout(new GridLayout(2,1));
 		
 		
-		
+		 
 		// Set up the JPanel and GridLayout where the grid of buttons will go
 		_buttonGrid = new JPanel();
 		
