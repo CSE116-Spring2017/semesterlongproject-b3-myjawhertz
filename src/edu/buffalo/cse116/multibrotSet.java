@@ -81,4 +81,30 @@ public class multibrotSet {
 		}
 		return array;
 	}
+	public int userInputPasses(double xCalc, double yCalc, double i) {
+		double x = xCalc;
+		double y = yCalc;
+		double dist = i;
+		int passes = 0;
+		while (dist <= i && passes < 255) {
+			double tempX = xCalc;	
+			double tempY = yCalc;
+			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
+			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
+			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+			passes++;
+		}
+		return passes;
+	}
+	public int[][] userInputEscape(String i){
+		int a = Integer.parseInt(i);
+		int[][] array = new int[512][512];
+		for (int r = 0; r < 512; r++){		//for each row in the array
+			for (int c = 0; c < 512; c++) {		//for each column in the array
+				array[r][c] = userInputPasses(XCoordTranslation(r),YCoordTranslation(c), a);
+//				System.out.println(array[r][c]);	//this line is for debugging purposes
+			}
+		}
+		return array;
+	}
 }

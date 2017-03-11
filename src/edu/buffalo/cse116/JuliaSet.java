@@ -96,4 +96,34 @@ public int juliasetPass10(double xCalc, double yCalc) {
 	return passes;
 
 }
+public int userInputPasses(double xCalc, double yCalc, double i) {
+	
+	double dist = i;
+	int passes = 0;
+	while (dist <= i && passes < 255) {
+		double tempX = xCalc;
+		double tempY = yCalc;
+		
+
+		xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+		yCalc = (2 * tempX * tempY) + 0.188887;
+
+		dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+		passes++;
+
+	}
+
+	return passes;
+}
+public int[][] userInputEscape(String i) {
+	int a = Integer.parseInt(i);
+	int[][] array = new int[512][512];
+	for(int x = 0; x < 512; x++){
+		for(int y = 0; y < 512; y++){
+			array[x][y] = userInputPasses(getXCord(x),getYCord(y),a);	
+			//System.out.println(array[x][y]);
+		}
+	}
+	return array;
+}
 }

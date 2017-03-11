@@ -3,6 +3,7 @@ package edu.buffalo.cse116;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Set;
 
 import javax.swing.*;
 
@@ -36,7 +37,7 @@ public class UI implements Observer {
 	private JButton _colorTwo = new JButton("Gray");
 	private JButton _colorThree = new JButton("Rainbow");
 	private JButton _colorFour = new JButton("Crazy Good Color");
-	private JButton enter = new JButton("Enter");
+	private JButton enter = new JButton("Recaculate fractal with given escape distance");
 	private String textFromBox;
 	private int setTemp;
 	private FractalPanel fp;
@@ -63,27 +64,38 @@ public class UI implements Observer {
 		update();
 	}
 	
-	public void set(){
-		
-		if(setTemp == 1){
-			fp.updateImage(mandelbrot.returnArrayWithPasses());
-		}
-		if(setTemp == 2){
-			fp.updateImage(juliaSet.returnArrayWithPasses());
-		}
-		if(setTemp == 3){
-			fp.updateImage(burningShip.returnArrayWithPasses());
-		}
-		if(setTemp == 4){
-			fp.updateImage(multibrotSet.return2DArray());
-		}
-	}
-	public MandelbrotSet returnMandelbrot(){
-		return m;
-	}
-	public JuliaSet returnJuliaSet(){
-		
-	}
+	
+//	public MandelbrotSet returnMandelbrot(){
+//		if(setTemp == 0){
+//		return m;
+//		}
+//		returnBurningShip();
+//		returnJuliaSet();
+//		returnMandelbrot();
+//		return null;
+//		
+//	}
+//	public JuliaSet returnJuliaSet(){
+//		if(setTemp == 1){
+//		return j;	
+//		}
+//		returnBurningShip();
+//		return null;
+//	}
+//	public burningshipset returnBurningShip(){
+//		if(setTemp == 2){
+//		return b;
+//		}
+//		returnMultibrotSet();
+//		return null;
+//	}
+//	public multibrotSet returnMultibrotSet(){
+//		if(setTemp == 3){
+//		return multi;
+//		}
+//		returnMandelbrot();
+//		return null;
+//}
 	
 	
 	public void initialize() {
@@ -92,7 +104,7 @@ public class UI implements Observer {
 		
 		// Give the main panel two sections (two rows, one column)
 		_mainPanel = new JPanel();
-		_mainPanel.setLayout(new GridLayout(1, 3));
+		_mainPanel.setLayout(new GridBagLayout());
 		_2ndRowPanel = new JPanel();
 		_2ndRowPanel.setLayout(new GridLayout(4,1));
 		_3rdRowPanel = new JPanel();
@@ -131,7 +143,7 @@ public class UI implements Observer {
 		_4thRowPanel.add(_colorTwo);
 		_4thRowPanel.add(_colorThree);
 		_4thRowPanel.add(_colorFour);
-		jt.setPreferredSize(new Dimension(200,24));
+		jt.setPreferredSize(new Dimension(1,1));
 		_5thRowPanel.add(jt);
 		_5thRowPanel.add(enter);
 		
@@ -305,9 +317,24 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e){
 				textFromBox = jt.getText();
 				jt.setText("");
-				fp.updateImage(set.userInputEscape(textFromBox));
-				
-				
+				int a = Integer.parseInt(textFromBox);
+				if(a <= 0){
+					System.exit(0);
+				}
+				if(a > 0){
+				if(setTemp == 1){
+					fp.updateImage(m.userInputEscape(textFromBox));
+				}
+				if(setTemp == 2){
+					fp.updateImage(j.userInputEscape(textFromBox));
+				}
+				if(setTemp == 3){
+				fp.updateImage(b.userInputEscape(textFromBox));
+				}
+				if(setTemp == 4){
+				fp.updateImage(multi.userInputEscape(textFromBox));
+				}
+				}
 			}
 		}); 
 		

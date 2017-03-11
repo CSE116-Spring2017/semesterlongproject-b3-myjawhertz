@@ -67,6 +67,29 @@ public class burningshipset {
 		}
 		return array;
 	}
+	
+	public int userInputPasses(double xCalc, double yCalc, double i) {
+		double x = xCalc;
+		double y = yCalc;
+		double dist = i;
+		int passes = 0;
+		while (dist <= i && passes < 255) {
+			double tempX = xCalc;	
+			double tempY = yCalc;
+
+			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+			yCalc = Math.abs(2*tempX*tempY) + y;
+
+			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+
+			passes++;
+		}
+
+		return passes;
+	}
+	
+	
+	
 	public boolean OnlyOneOrZero() {
 		int[][] array = new int[512][512];
 		for(int x = 0; x < 512; x++){
@@ -83,6 +106,21 @@ public class burningshipset {
 		return false;
 		
 	}
+	
+	public int[][] userInputEscape(String i) {
+		int a = Integer.parseInt(i);
+		int[][] array = new int[512][512];
+		for(int x = 0; x < 512; x++){
+			for(int y = 0; y < 512; y++){
+				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);	
+//				System.out.println(array[x][y]);
+			}
+		}
+		return array;
+	}
+	
+	
+	
 	public int burningshipsetPass10(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
