@@ -138,31 +138,36 @@ public class UI implements Observer {
 		 ext = new JMenuItem("Exit");
 		file.add(ext);
 		
-		color = new JMenu("color");
+		fractal = new JMenu("Fractal");
+		 mb.add(fractal);
+		
+		color = new JMenu("Change color");
 		 mb.add(color);
-		 color1 = new JMenuItem("Color 1");
+		 color1 = new JMenuItem("Blue");
 		 color.add(color1);
-		 color2 = new JMenuItem("Color 2");
+		 color2 = new JMenuItem("Gray");
 		 color.add(color2);
-		 color3 = new JMenuItem("Color 3");
+		 color3 = new JMenuItem("Rainbow");
 		 color.add(color3);
-		 color4 = new JMenuItem("Color 4");
+		 color4 = new JMenuItem("Crazy good color");
 		 color.add(color4);
 		
-		 fractal = new JMenu("Fractal");
-		 mb.add(fractal);
+		 
+		 madelbrot = new JMenuItem("Mandelbrot");
+		 fractal.add(madelbrot);
 		 
 		 julia = new JMenuItem("Julia");
 		 fractal.add(julia);
 		 
-		 multibrot = new JMenuItem("Multibrot");
-		 fractal.add(multibrot);
-		 
 		 burningship = new JMenuItem("Burningship");
 		 fractal.add(burningship);
 		 
-		 madelbrot = new JMenuItem("Mandelbrot");
-		 fractal.add(madelbrot);
+		 multibrot = new JMenuItem("Multibrot");
+		 fractal.add(multibrot);
+		 
+		
+		 
+		
 		 
 		 
 		 // Set up the JPanel and GridLayout where the grid of buttons will go
