@@ -38,7 +38,7 @@ public class UI implements Observer {
 	private JButton _colorThree = new JButton("Rainbow");
 	private JButton _colorFour = new JButton("Crazy Good Color");
 	private JButton enter = new JButton("Recaculate fractal with given escape distance");
-	private String textFromBox;
+	private String textFromBox = "2";
 	private int setTemp;
 	private FractalPanel fp;
 	private MandelbrotSet m;
@@ -252,6 +252,7 @@ public class UI implements Observer {
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				temp = mandelbrot.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
+				fp.updateImage(m.userInputEscape(textFromBox));
 				setTemp = 1;
 			}
 		});
@@ -260,6 +261,7 @@ public class UI implements Observer {
 				fp.updateImage(juliaSet.returnArrayWithPasses());
 				temp = juliaSet.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
+				fp.updateImage(j.userInputEscape(textFromBox));
 				setTemp = 2;
 			}
 		});
@@ -267,6 +269,7 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(burningShip.returnArrayWithPasses());
 				temp = burningShip.returnArrayWithPasses();
+				fp.updateImage(b.userInputEscape(textFromBox));
 				JOptionPane.getRootFrame();
 				setTemp = 3;
 			}
@@ -275,6 +278,7 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(multibrotSet.return2DArray());
 				temp = multibrotSet.return2DArray();
+				fp.updateImage(multi.userInputEscape(textFromBox));
 				JOptionPane.getRootFrame();
 				setTemp = 4;
 			}
