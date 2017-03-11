@@ -1,0 +1,5 @@
+To start the program, you must run Driver.java as a java application.
+Once the program launches, you'll see four columns of buttons to the right of a black box.
+This black box is where the fractals will be displayed once the set is chosen.
+Use the buttons on the right to choose a fractal set, color scheme, set the distance used to calculate
+escape times, or close the program.
