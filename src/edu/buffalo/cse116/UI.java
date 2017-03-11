@@ -45,6 +45,19 @@ public class UI implements Observer {
 	private JuliaSet j;
 	private burningshipset b;
 	private multibrotSet multi;
+	private JMenuBar mb;
+	private JMenu file;
+	private JMenuItem ext;
+	private JMenu color;
+	private JMenuItem  color1;
+	private JMenuItem  color2;
+	private JMenuItem  color3;
+	private JMenuItem  color4;
+	private JMenu fractal;
+	private JMenuItem julia;
+	private JMenuItem multibrot;
+	private JMenuItem burningship;
+	private JMenuItem madelbrot;
 	
 	
 	
@@ -99,24 +112,60 @@ public class UI implements Observer {
 	
 	
 	public void initialize() {
+		
+		// panel 2, 4
 		 
 		_window = new JFrame();
 		
 		// Give the main panel two sections (two rows, one column)
 		_mainPanel = new JPanel();
 		_mainPanel.setLayout(new GridBagLayout());
-		_2ndRowPanel = new JPanel();
-		_2ndRowPanel.setLayout(new GridLayout(4,1));
+//-->		_2ndRowPanel = new JPanel();
+//-->		_2ndRowPanel.setLayout(new GridLayout(4,1));
 		_3rdRowPanel = new JPanel();
 		_3rdRowPanel.setLayout(new GridLayout(1,7));
-		_4thRowPanel = new JPanel();
-		_4thRowPanel.setLayout(new GridLayout(4,1));
+//--->		_4thRowPanel = new JPanel();
+//--->		_4thRowPanel.setLayout(new GridLayout(4,1));
 		_5thRowPanel = new JPanel();
 		_5thRowPanel.setLayout(new GridLayout(2,1));
 		
 		
+		 mb = new JMenuBar();
+		_window.setJMenuBar(mb);
+		
+		 file= new JMenu("File");
+		mb.add(file);
+		 ext = new JMenuItem("Exit");
+		file.add(ext);
+		
+		color = new JMenu("color");
+		 mb.add(color);
+		 color1 = new JMenuItem("Color 1");
+		 color.add(color1);
+		 color2 = new JMenuItem("Color 2");
+		 color.add(color2);
+		 color3 = new JMenuItem("Color 3");
+		 color.add(color3);
+		 color4 = new JMenuItem("Color 4");
+		 color.add(color4);
+		
+		 fractal = new JMenu("Fractal");
+		 mb.add(fractal);
 		 
-		// Set up the JPanel and GridLayout where the grid of buttons will go
+		 julia = new JMenuItem("Julia");
+		 fractal.add(julia);
+		 
+		 multibrot = new JMenuItem("Multibrot");
+		 fractal.add(multibrot);
+		 
+		 burningship = new JMenuItem("Burningship");
+		 fractal.add(burningship);
+		 
+		 madelbrot = new JMenuItem("Mandelbrot");
+		 fractal.add(madelbrot);
+		 
+		 
+		 // Set up the JPanel and GridLayout where the grid of buttons will go
 		_buttonGrid = new JPanel();
 		
 		
@@ -134,15 +183,15 @@ public class UI implements Observer {
 		
 		_mainPanel.add(_buttonGrid);
 		
-		_mainPanel.add(_2ndRowPanel);
-		_mainPanel.add(_4thRowPanel);
-		_mainPanel.add(_3rdRowPanel);
+//-->		_mainPanel.add(_2ndRowPanel);
+//-->		_mainPanel.add(_4thRowPanel);
+//--->		_mainPanel.add(_3rdRowPanel);
 		_mainPanel.add(_5thRowPanel);
 		
-		_4thRowPanel.add(_colorOne);
-		_4thRowPanel.add(_colorTwo);
-		_4thRowPanel.add(_colorThree);
-		_4thRowPanel.add(_colorFour);
+//--->		_4thRowPanel.add(_colorOne);
+//--->		_4thRowPanel.add(_colorTwo);
+//--->		_4thRowPanel.add(_colorThree);
+//--->		_4thRowPanel.add(_colorFour);
 		jt.setPreferredSize(new Dimension(1,1));
 		_5thRowPanel.add(jt);
 		_5thRowPanel.add(enter);
@@ -150,12 +199,12 @@ public class UI implements Observer {
 		close = new JButton("Close program");
 //		close.addActionListener(new NumberButtonHandler(_model));
 		
-		_3rdRowPanel.add(close);
+//-->		_3rdRowPanel.add(close);
 		
 		
-		changeToMandelbrot = new JButton("Change to Mandelbrot Set");
+//-->		changeToMandelbrot = new JButton("Change to Mandelbrot Set");
 //		changetoMultibrot.addActionListener(new NumberButtonHandler(_model));
-		_2ndRowPanel.add(changeToMandelbrot);
+//		_2ndRowPanel.add(changeToMandelbrot);
 		
 //		JButton changeToJulia = new JButton("Change to Jula Set");
 //		changeToJulia.addActionListener(new ActionListener(){
@@ -167,16 +216,16 @@ public class UI implements Observer {
 		
 		// jtext with scanner
 		//changeToJulia.addActionListener(new NumberButtonHandler(_model));
-		changeToJulia = new JButton("Change to Jula Set");
-		_2ndRowPanel.add(changeToJulia);
+//--->		changeToJulia = new JButton("Change to Jula Set");
+//--->		_2ndRowPanel.add(changeToJulia);
 				
-		changeToBurningShip = new JButton("Change to Burningship Set");
+//-->		changeToBurningShip = new JButton("Change to Burningship Set");
 //		changeToBurningShip.addActionListener(new NumberButtonHandler(_model));
-		_2ndRowPanel.add(changeToBurningShip);
+//-->		_2ndRowPanel.add(changeToBurningShip);
 		
-		 changetoMultibrot = new JButton("Change to Multibrot Set");
+//-->		 changetoMultibrot = new JButton("Change to Multibrot Set");
 //		changetoMultibrot.addActionListener(new NumberButtonHandler(_model));
-		_2ndRowPanel.add(changetoMultibrot);
+//-->		_2ndRowPanel.add(changetoMultibrot);
 		
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
 		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
@@ -247,7 +296,7 @@ public class UI implements Observer {
 		
 		
 	
-		changeToMandelbrot.addActionListener(new ActionListener(){
+		madelbrot.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				temp = mandelbrot.returnArrayWithPasses();
@@ -256,7 +305,16 @@ public class UI implements Observer {
 				setTemp = 1;
 			}
 		});
-		changeToJulia.addActionListener(new ActionListener(){
+//		changeToJulia.addActionListener(new ActionListener(){
+//			public void actionPerformed(ActionEvent e){
+//				fp.updateImage(juliaSet.returnArrayWithPasses());
+//				temp = juliaSet.returnArrayWithPasses();
+//				JOptionPane.getRootFrame();
+//				fp.updateImage(j.userInputEscape(textFromBox));
+//				setTemp = 2;
+//			}
+//		});
+		julia.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(juliaSet.returnArrayWithPasses());
 				temp = juliaSet.returnArrayWithPasses();
@@ -265,7 +323,7 @@ public class UI implements Observer {
 				setTemp = 2;
 			}
 		});
-		changeToBurningShip.addActionListener(new ActionListener(){
+		burningship.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(burningShip.returnArrayWithPasses());
 				temp = burningShip.returnArrayWithPasses();
@@ -274,7 +332,7 @@ public class UI implements Observer {
 				setTemp = 3;
 			}
 		});
-		changetoMultibrot.addActionListener(new ActionListener(){
+		multibrot.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(multibrotSet.return2DArray());
 				temp = multibrotSet.return2DArray();
@@ -283,33 +341,33 @@ public class UI implements Observer {
 				setTemp = 4;
 			}
 		});
-		close.addActionListener(new ActionListener(){
+		ext.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.exit(0);
 			}
 		});
-		_colorOne.addActionListener(new ActionListener(){
+		color1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createBluesColorModel(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
 		});
-		_colorTwo.addActionListener(new ActionListener(){
+		color2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createGrayColorModel(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
 		});
-		_colorThree.addActionListener(new ActionListener(){
+		color3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createRainbowColorModel(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 			}
 		});
-		_colorFour.addActionListener(new ActionListener(){
+		color4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.setIndexColorModel(cm.createCrazyGoodColor(8));
 				fp.updateImage(temp);
