@@ -1,5 +1,6 @@
 To start the program, you must run Driver.java as a java application.
-Once the program launches, you'll see four columns of buttons to the right of a black box.
+Once the program launches, you'll see a menu bad and 1 columns of button and an input box to the right of a black box.
 This black box is where the fractals will be displayed once the set is chosen.
-Use the buttons on the right to choose a fractal set, color scheme, set the distance used to calculate
-escape times, or close the program.
+Use the menu bar on the top to choose a fractal set under "Fractal", color scheme under "Color", and to close the program "File"-> Exit
+The input text allows the user to change the escape distance
+"Re-calculate fractal with given escape time" should be clicked once desired escape time is in the text field. 
