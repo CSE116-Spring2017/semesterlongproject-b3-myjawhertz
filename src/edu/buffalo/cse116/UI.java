@@ -147,7 +147,7 @@ public class UI implements Observer {
 		_5thRowPanel.add(jt);
 		_5thRowPanel.add(enter);
 		
-		close = new JButton("File - Close program");
+		close = new JButton("Close program");
 //		close.addActionListener(new NumberButtonHandler(_model));
 		
 		_3rdRowPanel.add(close);
