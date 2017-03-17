@@ -97,10 +97,10 @@ public class SetTests {
 	@Test
 	public void testJuliaReturn() {
 		JuliaSet returns2DArray = new JuliaSet();
-		int [][]arr = new int[512][512];
+		int[][] arr = new int[512][512];
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.emptyArray().length);
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.emptyArray()[0].length);
-		
+
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class SetTests {
 	// Calculates that none of the pixels in the Burning Ship set have an escape
 	// time of 0 or 1
 	@Test
-	public void testBurningShipETIsNot0or1() { 
+	public void testBurningShipETIsNot0or1() {
 		burningshipset etIsNot0or1 = new burningshipset();
 		assertTrue("Escape time is never 0 or 1", etIsNot0or1.OnlyOneOrZero());
 	}
@@ -185,40 +185,51 @@ public class SetTests {
 
 	// The method called to calculate the fractal returns a 2-d array with 512
 	// rows and 512 columns
-	
+
 	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.return2DArray().length);
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.return2DArray()[0].length);
 	}
-	
+
 	/**
 	 * Phase 2 Rubric
-	 * */
-	
+	 */
+	// When the escape distance is set to 3, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after a 10 passes of the loop
 	@Test
-	public void testMandelbrotsetCalEsTime(){
+	public void testMandelbrotsetCalEsTime() {
 		MandelbrotSet mandelbrotset = new MandelbrotSet();
 		assertEquals(10, mandelbrotset.mandelbrotsetPass10(0.46007827788650374, -0.3383561643835661), 0.0001);
 	}
-	
+
+	// When the escape distance is set to 3, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after a 10 passes of the loop
 	@Test
-	public void testJuliasetCalEsTime(){
+	public void testJuliasetCalEsTime() {
 		JuliaSet juliaset = new JuliaSet();
 		assertEquals(10, juliaset.juliasetPass10(1.4538160469667272, -0.13502935420743645), 0.0001);
 	}
 
+	// When the escape distance is set to 3, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after a 10 passes of the loop
 	@Test
-	public void testBurningshipsetCalEsTime(){
+	public void testBurningshipsetCalEsTime() {
 		burningshipset burningshipset = new burningshipset();
 		assertEquals(10, burningshipset.burningshipsetPass10(-1.6999999999999802, 0.0030136986301371603), 0.0001);
 	}
 
+	// When the escape distance is set to 3, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after a 10 passes of the loop
 	@Test
-	public void testMultibrotsetCalEsTime(){
+	public void testMultibrotsetCalEsTime() {
 		multibrotSet multibrotset = new multibrotSet();
 		assertEquals(10, multibrotset.multibrotsetPass10(0.7025440313111545, -0.5520547945205528), 0.0001);
-	} 
+	}
 
 }

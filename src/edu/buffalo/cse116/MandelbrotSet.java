@@ -5,7 +5,8 @@ public class MandelbrotSet {
 	/**
 	 * translate from 0-512 row to xCord
 	 * 
-	 * @param xRow - row from 0 - 512
+	 * @param xRow
+	 *            - row from 0 - 512
 	 * @return y coordinate
 	 **/
 	public double getXCord(int xRow) {
@@ -15,7 +16,9 @@ public class MandelbrotSet {
 
 	/**
 	 * translate from 0-512 row to yCord
-	 * @param yCol - column from 0 - 512
+	 * 
+	 * @param yCol
+	 *            - column from 0 - 512
 	 * @return y coordinate
 	 **/
 	public double getYCord(int yCol) {
@@ -26,8 +29,10 @@ public class MandelbrotSet {
 	/**
 	 * calculates passes
 	 * 
-	 * @param xCalc - X-coordinate range from -2.15 to 0.6
-	 * @param yCalc - Y-coordinate range from -1.3 to 1.3
+	 * @param xCalc
+	 *            - X-coordinate range from -2.15 to 0.6
+	 * @param yCalc
+	 *            - Y-coordinate range from -1.3 to 1.3
 	 * @return number of passes for the inserted xCalc and yCalc
 	 **/
 	public int mandelbrotSet(double xCalc, double yCalc) {
@@ -36,7 +41,7 @@ public class MandelbrotSet {
 		double dist = 0;
 		int passes = 0;
 		while (dist <= 2 && passes < 255) {
-			double tempX = xCalc;	
+			double tempX = xCalc;
 			double tempY = yCalc;
 
 			xCalc = (tempX * tempX) - (tempY * tempY) + x;
@@ -49,77 +54,93 @@ public class MandelbrotSet {
 
 		return passes;
 	}
-	public int[][] return2DArray(){
-		int[][] array = new int[512][512];
-		return array;
-	}
 
 	/**
 	 * creates a 2D array with passes for each point
+	 * 
 	 * @return 2D array with passes for each point
 	 */
 	public int[][] returnArrayWithPasses() {
 		int[][] array = new int[512][512];
-		for(int x = 0; x < 512; x++){
-			for(int y = 0; y < 512; y++){
-				array[x][y] = mandelbrotSet(getXCord(x), getYCord(y));	
-//				System.out.println(array[x][y]);
+		for (int x = 0; x < 512; x++) {
+			for (int y = 0; y < 512; y++) {
+				array[x][y] = mandelbrotSet(getXCord(x), getYCord(y));
+				// System.out.println(array[x][y]);
 			}
 		}
 		return array;
 	}
-	
+
+	/**
+	 * Returns a single pass
+	 * 
+	 * @param xCalc
+	 *            - X-coordinate range from -2.15 to 0.6
+	 * @param yCalc
+	 *            - Y-coordinate range from -1.3 to 1.3
+	 * @param i
+	 *            - distance
+	 * @return - the number of passes
+	 */
+
 	public int userInputPasses(double xCalc, double yCalc, double i) {
 		double x = xCalc;
 		double y = yCalc;
 		double dist = i;
 		int passes = 0;
 		while (dist <= i && passes < 255) {
-			double tempX = xCalc;	
+			double tempX = xCalc;
 			double tempY = yCalc;
-
 			xCalc = (tempX * tempX) - (tempY * tempY) + x;
 			yCalc = (2 * (tempX * tempY)) + y;
-
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-
 			passes++;
 		}
-
 		return passes;
 	}
-	
-	
+
+	/**
+	 * Return a 2D array of passes
+	 * 
+	 * @param i
+	 *            - distance
+	 * @return- the number of passes
+	 */
+
 	public int[][] userInputEscape(String i) {
 		int a = Integer.parseInt(i);
 		int[][] array = new int[512][512];
-		for(int x = 0; x < 512; x++){
-			for(int y = 0; y < 512; y++){
-				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);	
-//				System.out.println(array[x][y]);
+		for (int x = 0; x < 512; x++) {
+			for (int y = 0; y < 512; y++) {
+				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
+				// System.out.println(array[x][y]);
 			}
 		}
 		return array;
 	}
-	
+
+	/**
+	 * 
+	 * @param xCalc
+	 *            - Y-coordinate range from -2.15 to 0.6
+	 * @param yCalc
+	 *            - Y-coordinate range from -1.3 to 1.3
+	 * @return
+	 */
+
 	public int mandelbrotsetPass10(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
 		double dist = 0;
 		int passes = 0;
 		while (dist <= 3 && passes < 255) {
-			double tempX = xCalc;	
+			double tempX = xCalc;
 			double tempY = yCalc;
-
 			xCalc = (tempX * tempX) - (tempY * tempY) + x;
 			yCalc = (2 * (tempX * tempY)) + y;
-
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-
 			passes++;
 		}
-
 		return passes;
 	}
 }
-
