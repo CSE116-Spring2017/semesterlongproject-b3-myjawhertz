@@ -11,7 +11,13 @@ import javax.swing.*;
 import edu.buffalo.*;
 import edu.buffalo.fractal.FractalPanel;
 
-
+/**This is the main class for the GUI for the fractal program.
+ * It implements the Observer class and holds the calls to add the fractal display, menu bar items, and the button &
+ * text box needed to change the distance used for Escape-Time calculations.
+ * 
+ * @author Alec Otminski
+ *
+ */
 public class UI implements Observer {
 	
 	Model _model;
@@ -55,14 +61,18 @@ public class UI implements Observer {
 	private JMenuItem madelbrot;
 	
 	
-	
+	/**
+	 * Calls the methods to generate a new UI for the program when booting up.
+	 * @param m The model used for the UI that contains observers for the button and menu bar items
+	 */
 	public UI(Model m) {
 		
 		// Keep a permanent reference to the Model in order to notify it of user input
 		_model = m;
 		
-		/* The UI is taking care of itself here - it's making sure the model
-		 * will know to call it when it's time for visual updates. */
+		/** The UI is taking care of itself here - it's making sure the model
+		 * will know to call it when it's time for visual updates.
+		 */
 		_model.addObserver(this);
 		
 		// Perform some setup tasks that only need to be done once.
@@ -71,18 +81,18 @@ public class UI implements Observer {
 		// Bring the UI to a ready state.
 		update();
 	}
-	
+	/**
+	 * Creates the JPanels, buttons, Menu Items, links to Fractal Sets, and JFrame needed for the program.
+	 * This method is only to be called once during the start of the program.
+	 */
 	public void initialize() {
-		
 		 
 		_window = new JFrame();
 		
 		// The main panel
 		_mainPanel = new JPanel();
 		_mainPanel.setLayout(new GridBagLayout());
-
-		
-		//???? 
+ 
 		_3rdRowPanel = new JPanel();
 		_3rdRowPanel.setLayout(new GridLayout(1,7));
 
@@ -129,14 +139,8 @@ public class UI implements Observer {
 		 multibrot = new JMenuItem("Multibrot");
 		 fractal.add(multibrot);
 		 
-		
-		 
-		
-		 
-		 
 		 // The Panel that holds the image
 		_buttonGrid = new JPanel();
-		
 		
 		m = new MandelbrotSet();
 		j = new JuliaSet();
@@ -160,25 +164,20 @@ public class UI implements Observer {
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
 		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
 		 * relationship with UI. */
-
-		
 		
 		// Final steps to display the window
 		_window.setContentPane(_mainPanel);
 		_window.setVisible(true);
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		
-		
-		
-		
 	}
 
 	
-	/** Change information displayed on the UI based on what has changed in the Model.*/
+	/** 
+	 * Change information displayed on the UI based on what has changed in the Model.
+	 */
 	@Override
 	public void update() {
-		
 		
 		MandelbrotSet mandelbrot = new MandelbrotSet();
 		JuliaSet juliaSet = new JuliaSet();
@@ -190,9 +189,6 @@ public class UI implements Observer {
 		fp.setOpaque(true);
 		fp.setSize(512,512);
 		
-		
-		
-	
 		madelbrot.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
