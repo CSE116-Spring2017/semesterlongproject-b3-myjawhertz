@@ -113,7 +113,7 @@ public class multibrotSet {
 		return passes; 
 	}
 	
-	/**
+	/** 
 	 * Returns a 2D array of int with the Escape-Times for every single pixel for the
 	 * Multibrot Set.
 	 * @param i - User input for distance in Escape-Time calculations
