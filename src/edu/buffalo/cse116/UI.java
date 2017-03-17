@@ -179,12 +179,12 @@ public class UI implements Observer {
 	@Override
 	public void update() {
 		
-		MandelbrotSet mandelbrot = new MandelbrotSet();
-		JuliaSet juliaSet = new JuliaSet();
-		burningshipset burningShip = new burningshipset();
-		multibrotSet multibrotSet = new multibrotSet();
-		ColorModel cm = new ColorModel();
-		FractalPanel fp = new FractalPanel();
+		final MandelbrotSet mandelbrot = new MandelbrotSet();
+		final JuliaSet juliaSet = new JuliaSet();
+		final burningshipset burningShip = new burningshipset();
+		final multibrotSet multibrotSet = new multibrotSet();
+		final ColorModel cm = new ColorModel();
+		final FractalPanel fp = new FractalPanel();
 		_buttonGrid.add(fp);
 		fp.setOpaque(true);
 		fp.setSize(512,512);
