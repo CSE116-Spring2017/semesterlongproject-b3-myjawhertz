@@ -39,11 +39,11 @@ public class UI implements Observer {
 	private int setTemp;
 	
 	// Class Object
-	private FractalPanel fp;
-	private MandelbrotSet m;
-	private JuliaSet j;
-	private burningshipset b;
-	private multibrotSet multi;
+	 FractalPanel fp;
+	 MandelbrotSet m;
+	 JuliaSet j;
+	 burningshipset b;
+	 multibrotSet multi;
 	
 	//Menu Items
 	private JMenuBar mb;
