@@ -61,11 +61,19 @@ public int JuliaSet(double xCalc, double yCalc) {
 		return passes;
 
 	}
+	/*
+	 *  @return empty array 512 by 512
+	 */
 
-public int[][] emptyArray(){
-	emptyArray= new int [512][512];
-	return emptyArray;
-}
+	public int[][] emptyArray(){
+		emptyArray= new int [512][512];
+		return emptyArray;
+	}
+	/*
+	 * Generates array with passes
+	 * @return array with all the passes
+	 */
+
 public int[][] returnArrayWithPasses() {
 	int[][] array = new int[512][512];
 	for(int x = 0; x < 512; x++){
@@ -76,6 +84,11 @@ public int[][] returnArrayWithPasses() {
 	}
 	return array;
 }
+/*
+ * 
+ * Takes in xCalc and YCalc and calculates the passes
+ * @return passes
+ */
 public int juliasetPass10(double xCalc, double yCalc) {
 	
 	double dist = 0;
@@ -96,6 +109,12 @@ public int juliasetPass10(double xCalc, double yCalc) {
 	return passes;
 
 }
+
+/*
+ * Takes in user input for distance and returns passes
+ * @return passes
+ * 
+ */
 public int userInputPasses(double xCalc, double yCalc, double i) {
 	
 	double dist = i;
@@ -115,6 +134,13 @@ public int userInputPasses(double xCalc, double yCalc, double i) {
 
 	return passes;
 }
+
+/*
+ * 
+ * Takes in String turns it into int and re-calculates the fractal escapre distance
+ * @return array with passes
+ * 
+ */
 public int[][] userInputEscape(String i) {
 	int a = Integer.parseInt(i);
 	int[][] array = new int[512][512];
