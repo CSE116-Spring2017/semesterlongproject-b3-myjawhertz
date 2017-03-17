@@ -28,23 +28,18 @@ public class UI implements Observer {
 	
 	JPanel _buttonGrid;
 	private int[][] temp;
-	private JButton changeToMandelbrot;
-	private JButton changeToJulia;
-	private JButton changeToBurningShip;
-	private JButton changetoMultibrot;
-	private JButton close;
-	private JButton _colorOne = new JButton("Blue");
-	private JButton _colorTwo = new JButton("Gray");
-	private JButton _colorThree = new JButton("Rainbow");
-	private JButton _colorFour = new JButton("Crazy Good Color");
 	private JButton enter = new JButton("Recaculate fractal with given escape distance");
 	private String textFromBox = "2";
 	private int setTemp;
+	
+	// Class Object
 	private FractalPanel fp;
 	private MandelbrotSet m;
 	private JuliaSet j;
 	private burningshipset b;
 	private multibrotSet multi;
+	
+	//Menu Items
 	private JMenuBar mb;
 	private JMenu file;
 	private JMenuItem ext;
@@ -77,55 +72,22 @@ public class UI implements Observer {
 		update();
 	}
 	
-	
-//	public MandelbrotSet returnMandelbrot(){
-//		if(setTemp == 0){
-//		return m;
-//		}
-//		returnBurningShip();
-//		returnJuliaSet();
-//		returnMandelbrot();
-//		return null;
-//		
-//	}
-//	public JuliaSet returnJuliaSet(){
-//		if(setTemp == 1){
-//		return j;	
-//		}
-//		returnBurningShip();
-//		return null;
-//	}
-//	public burningshipset returnBurningShip(){
-//		if(setTemp == 2){
-//		return b;
-//		}
-//		returnMultibrotSet();
-//		return null;
-//	}
-//	public multibrotSet returnMultibrotSet(){
-//		if(setTemp == 3){
-//		return multi;
-//		}
-//		returnMandelbrot();
-//		return null;
-//}
-	
-	
 	public void initialize() {
 		
-		// panel 2, 4
 		 
 		_window = new JFrame();
 		
-		// Give the main panel two sections (two rows, one column)
+		// The main panel
 		_mainPanel = new JPanel();
 		_mainPanel.setLayout(new GridBagLayout());
-//-->		_2ndRowPanel = new JPanel();
-//-->		_2ndRowPanel.setLayout(new GridLayout(4,1));
+
+		
+		//???? 
 		_3rdRowPanel = new JPanel();
 		_3rdRowPanel.setLayout(new GridLayout(1,7));
-//--->		_4thRowPanel = new JPanel();
-//--->		_4thRowPanel.setLayout(new GridLayout(4,1));
+
+		
+		//The panel that contains the function to re-calculate the fractal(Button) and input box
 		_5thRowPanel = new JPanel();
 		_5thRowPanel.setLayout(new GridLayout(2,1));
 		
@@ -134,23 +96,25 @@ public class UI implements Observer {
 		_window.setJMenuBar(mb);
 		
 		 file= new JMenu("File");
-		mb.add(file);
+		 mb.add(file);
+		 
 		 ext = new JMenuItem("Exit");
-		file.add(ext);
+		 file.add(ext);
 		
-		fractal = new JMenu("Fractal");
+		 fractal = new JMenu("Fractal");
 		 mb.add(fractal);
 		
+	    
 		color = new JMenu("Change color");
-		 mb.add(color);
-		 color1 = new JMenuItem("Blue");
-		 color.add(color1);
-		 color2 = new JMenuItem("Gray");
-		 color.add(color2);
-		 color3 = new JMenuItem("Rainbow");
-		 color.add(color3);
-		 color4 = new JMenuItem("Crazy good color");
-		 color.add(color4);
+		mb.add(color);
+		color1 = new JMenuItem("Blue");
+		color.add(color1);
+		color2 = new JMenuItem("Gray");
+		color.add(color2);
+		color3 = new JMenuItem("Rainbow");
+		color.add(color3);
+		color4 = new JMenuItem("Crazy good color");
+		color.add(color4);
 		
 		 
 		 madelbrot = new JMenuItem("Mandelbrot");
@@ -170,7 +134,7 @@ public class UI implements Observer {
 		
 		 
 		 
-		 // Set up the JPanel and GridLayout where the grid of buttons will go
+		 // The Panel that holds the image
 		_buttonGrid = new JPanel();
 		
 		
@@ -187,61 +151,17 @@ public class UI implements Observer {
 		int Multi = 4;
 		
 		_mainPanel.add(_buttonGrid);
-		
-//-->		_mainPanel.add(_2ndRowPanel);
-//-->		_mainPanel.add(_4thRowPanel);
-//--->		_mainPanel.add(_3rdRowPanel);
 		_mainPanel.add(_5thRowPanel);
-		
-//--->		_4thRowPanel.add(_colorOne);
-//--->		_4thRowPanel.add(_colorTwo);
-//--->		_4thRowPanel.add(_colorThree);
-//--->		_4thRowPanel.add(_colorFour);
+
 		jt.setPreferredSize(new Dimension(1,1));
 		_5thRowPanel.add(jt);
 		_5thRowPanel.add(enter);
 		
-		close = new JButton("Close program");
-//		close.addActionListener(new NumberButtonHandler(_model));
-		
-//-->		_3rdRowPanel.add(close);
-		
-		
-//-->		changeToMandelbrot = new JButton("Change to Mandelbrot Set");
-//		changetoMultibrot.addActionListener(new NumberButtonHandler(_model));
-//		_2ndRowPanel.add(changeToMandelbrot);
-		
-//		JButton changeToJulia = new JButton("Change to Jula Set");
-//		changeToJulia.addActionListener(new ActionListener(){
-//			public void actionPerformed(ActionEvent e){
-//				fp.updateImage(juliaSet.returnArrayWithPasses());
-//				JOptionPane.getRootFrame();
-//			}
-//		});
-		
-		// jtext with scanner
-		//changeToJulia.addActionListener(new NumberButtonHandler(_model));
-//--->		changeToJulia = new JButton("Change to Jula Set");
-//--->		_2ndRowPanel.add(changeToJulia);
-				
-//-->		changeToBurningShip = new JButton("Change to Burningship Set");
-//		changeToBurningShip.addActionListener(new NumberButtonHandler(_model));
-//-->		_2ndRowPanel.add(changeToBurningShip);
-		
-//-->		 changetoMultibrot = new JButton("Change to Multibrot Set");
-//		changetoMultibrot.addActionListener(new NumberButtonHandler(_model));
-//-->		_2ndRowPanel.add(changetoMultibrot);
-		
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
 		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
 		 * relationship with UI. */
-//		thickness.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				_model.increaseBorderThickness();
-//			}
-//		});
-//		_mainPanel.add(thickness);
+
+		
 		
 		// Final steps to display the window
 		_window.setContentPane(_mainPanel);
@@ -259,29 +179,6 @@ public class UI implements Observer {
 	@Override
 	public void update() {
 		
-//		// Update the button grid
-//		_buttonGrid.removeAll();
-//		
-//		int num = _model.getNumber();
-//		for (int i = 0; i < ROWS * COLUMNS; i++) {
-//			JButton b = new JButton();
-//			b.setText("" + num);
-//			int t = _model.getBorderThickness();
-//			b.setBorder(BorderFactory.createMatteBorder(t, t, t, t, Color.BLUE));
-//			b.setPreferredSize(new Dimension((int) (BUTTON_SIZE * 1.6), BUTTON_SIZE));
-//			
-//			_buttonGrid.add(b);
-//			
-//			b.setOpaque(true);	// this is necessary to back the background color visible
-//			if (num % 3 == 0) { // if the button's number is divisible by three, make it red
-//				b.setBackground(Color.RED);
-//			} else {
-//				b.setBackground(Color.GREEN);
-//			}
-//			
-//			num++;
-//		}
-		
 		
 		MandelbrotSet mandelbrot = new MandelbrotSet();
 		JuliaSet juliaSet = new JuliaSet();
@@ -292,11 +189,6 @@ public class UI implements Observer {
 		_buttonGrid.add(fp);
 		fp.setOpaque(true);
 		fp.setSize(512,512);
-//		fp.setIndexColorModel(cm.createBluesColorModel(8));
-//		fp.updateImage(mandelbrot.returnArrayWithPasses());
-//		fp.updateImage(juliaSet.returnArrayWithPasses());
-//		fp.updateImage(burningShip.returnArrayWithPasses());
-//		fp.updateImage(multibrotSet.return2DArray());
 		
 		
 		
@@ -310,15 +202,7 @@ public class UI implements Observer {
 				setTemp = 1;
 			}
 		});
-//		changeToJulia.addActionListener(new ActionListener(){
-//			public void actionPerformed(ActionEvent e){
-//				fp.updateImage(juliaSet.returnArrayWithPasses());
-//				temp = juliaSet.returnArrayWithPasses();
-//				JOptionPane.getRootFrame();
-//				fp.updateImage(j.userInputEscape(textFromBox));
-//				setTemp = 2;
-//			}
-//		});
+
 		julia.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(juliaSet.returnArrayWithPasses());
@@ -386,8 +270,9 @@ public class UI implements Observer {
 				jt.setText("");
 				int a = Integer.parseInt(textFromBox);
 				if(a <= 0){
-					System.exit(0);
+					System.err.println("Illegal entry");
 				}
+
 				if(a > 0){
 				if(setTemp == 1){
 					fp.updateImage(m.userInputEscape(textFromBox));

@@ -1,6 +1,7 @@
 How to update Escape Times:
 
-When the program boots up, there will be a text input box on the right with a button below that.
+When the program boots up, there will be a text input box on the right with a button below.
 You can type in the new distance you want to use in the Escape Time Calculations
 into the text box. Then, press the button to update the fractal being displayed on the left
 with the new Escape Times. 
+If an illegal escape distance is entered, an error will be printed in the console
