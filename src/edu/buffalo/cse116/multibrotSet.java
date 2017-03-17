@@ -52,6 +52,13 @@ public class multibrotSet {
 		return passes;
 	}
 	
+	/**
+	 * This class insures that the Escape-Time calculations work when distance = 3.
+	 * This method is never called during the program, it's only called in the JUnit tests for the program.
+	 * @param xCalc - a translated x-Coordinate in the MultiBrot Set
+	 * @param yCalc - a translated y-Coordinate in the MultiBrot Set
+	 * @return the Escape Time for the set == number of passes done
+	 */
 	public int multibrotsetPass10(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
@@ -81,6 +88,15 @@ public class multibrotSet {
 		}
 		return array;
 	}
+	
+	/**
+	 * This method does the Escape-Time Calculations for the MultiBrot Set with a new distance
+	 * for each pixel which is set by the user. That new distance now becomes a parameter for this method.
+	 * @param xCalc - a translated x-Coordinate in the MultiBrot Set
+	 * @param yCalc - a translated y-Coordinate in the MultiBrot Set
+	 * @param i - the new distance to be used for Escape-Time calculations
+	 * @return the Escape Time for the set == number of passes done
+	 */
 	public int userInputPasses(double xCalc, double yCalc, double i) {
 		double x = xCalc;
 		double y = yCalc;
@@ -96,6 +112,13 @@ public class multibrotSet {
 		}
 		return passes; 
 	}
+	
+	/**
+	 * Returns a 2D array of int with the Escape-Times for every single pixel for the
+	 * Multibrot Set.
+	 * @param i - User input for distance in Escape-Time calculations
+	 * @return 2d array of int
+	 */
 	public int[][] userInputEscape(String i){
 		int a = Integer.parseInt(i);
 		int[][] array = new int[512][512];
