@@ -196,6 +196,7 @@ public class UI implements Observer {
 				JOptionPane.getRootFrame();
 				fp.updateImage(m.userInputEscape(textFromBox));
 				setTemp = 1;
+				
 			}
 		});
 
@@ -236,6 +237,18 @@ public class UI implements Observer {
 				fp.setIndexColorModel(cm.createBluesColorModel(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
+				if(setTemp == 1){
+					fp.updateImage(m.userInputEscape(textFromBox));
+				}
+				if(setTemp == 2){
+					fp.updateImage(j.userInputEscape(textFromBox));
+				}
+				if(setTemp == 3){
+				fp.updateImage(b.userInputEscape(textFromBox));
+				}
+				if(setTemp == 4){
+				fp.updateImage(multi.userInputEscape(textFromBox));
+				}
 			}
 		});
 		color2.addActionListener(new ActionListener(){
@@ -243,6 +256,18 @@ public class UI implements Observer {
 				fp.setIndexColorModel(cm.createGrayColorModel(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
+				if(setTemp == 1){
+					fp.updateImage(m.userInputEscape(textFromBox));
+				}
+				if(setTemp == 2){
+					fp.updateImage(j.userInputEscape(textFromBox));
+				}
+				if(setTemp == 3){
+				fp.updateImage(b.userInputEscape(textFromBox));
+				}
+				if(setTemp == 4){
+				fp.updateImage(multi.userInputEscape(textFromBox));
+				}
 			}
 		});
 		color3.addActionListener(new ActionListener(){
@@ -250,6 +275,18 @@ public class UI implements Observer {
 				fp.setIndexColorModel(cm.createRainbowColorModel(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
+				if(setTemp == 1){
+					fp.updateImage(m.userInputEscape(textFromBox));
+				}
+				if(setTemp == 2){
+					fp.updateImage(j.userInputEscape(textFromBox));
+				}
+				if(setTemp == 3){
+				fp.updateImage(b.userInputEscape(textFromBox));
+				}
+				if(setTemp == 4){
+				fp.updateImage(multi.userInputEscape(textFromBox));
+				}
 			}
 		});
 		color4.addActionListener(new ActionListener(){
@@ -257,6 +294,18 @@ public class UI implements Observer {
 				fp.setIndexColorModel(cm.createCrazyGoodColor(8));
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
+				if(setTemp == 1){
+					fp.updateImage(m.userInputEscape(textFromBox));
+				}
+				if(setTemp == 2){
+					fp.updateImage(j.userInputEscape(textFromBox));
+				}
+				if(setTemp == 3){
+				fp.updateImage(b.userInputEscape(textFromBox));
+				}
+				if(setTemp == 4){
+				fp.updateImage(multi.userInputEscape(textFromBox));
+				}
 			}
 		});
 		
