@@ -231,5 +231,31 @@ public class SetTests {
 		multibrotSet multibrotset = new multibrotSet();
 		assertEquals(10, multibrotset.multibrotsetPass10(0.7025440313111545, -0.5520547945205528), 0.0001);
 	}
-
+	/**
+	 * Phase 3 Rubric
+	 */
+	
+	@Test
+	public void testMandelbrotET135ED2() {
+		MandelbrotSet mandelbrotset = new MandelbrotSet();
+		assertEquals("Escape time is 135.", 135, mandelbrotset.INSERT_NEW_METHOD_NAME_HERE(0.3207031250000001, -0.07109374999999386), 0.0001);
+	}
+	
+	@Test
+	public void testJuliaET135ED2() {
+		JuliaSet juliaset = new JuliaSet();
+		assertEquals("Escape time is 135.", 135, juliaset.INSERT_NEW_METHOD_NAME_HERE(1.0492187499999897, -0.234375), 0.0001);
+	}
+	
+	@Test
+	public void testBurningShipET135ED2() {
+		burningshipset BurningShipSet = new burningshipset();
+		assertEquals("Escape time is 135.", 135, BurningShipSet.INSERT_NEW_METHOD_NAME_HERE(-1.7443359374999874, -0.017451171875000338), 0.0001);
+	}
+	
+	@Test
+	public void testMultibrotET135ED2() {
+		multibrotSet multibrotset = new multibrotSet();
+		assertEquals("Escape time is 135.", 135, multibrotset.INSERT_NEW_METHOD_NAME_HERE(0.5859375, 0.24375000000000108), 0.0001);
+	}
 }
