@@ -56,6 +56,11 @@ public class SetTests {
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses().length);
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses()[0].length);
 	}
+	
+	@Test
+	public void testMandelbrotET135ED2() {
+		
+	}
 
 	/**
 	 * Julia Set Tests
@@ -102,6 +107,11 @@ public class SetTests {
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.emptyArray()[0].length);
 
 	}
+	
+	@Test
+	public void testJuliaET135ED2() {
+		
+	}
 
 	/**
 	 * Burning Ship Set Tests
@@ -146,6 +156,11 @@ public class SetTests {
 		burningshipset returns2DArray = new burningshipset();
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses().length);
 		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses()[0].length);
+	}
+	
+	@Test
+	public void testBurningShipET135ED2() {
+		
 	}
 
 	/**
@@ -230,6 +245,11 @@ public class SetTests {
 	public void testMultibrotsetCalEsTime() {
 		multibrotSet multibrotset = new multibrotSet();
 		assertEquals(10, multibrotset.multibrotsetPass10(0.7025440313111545, -0.5520547945205528), 0.0001);
+	}
+	
+	@Test
+	public void testMultibrotET135ED2() {
+		
 	}
 
 }
