@@ -152,4 +152,24 @@ public int[][] userInputEscape(String i) {
 	}
 	return array;
 }
+public int (double xCalc, double yCalc) {
+	
+	double dist = 0;
+	int passes = 0;
+	while (dist <= 2 && passes < 135) {
+		double tempX = xCalc;
+		double tempY = yCalc;
+		
+
+		xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+		yCalc = (2 * tempX * tempY) + 0.188887;
+
+		dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+		passes++;
+
+	}
+
+	return passes;
+
+}
 }

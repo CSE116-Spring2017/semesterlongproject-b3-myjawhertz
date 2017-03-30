@@ -164,4 +164,23 @@ public class burningshipset {
 
 		return passes;
 	}
+	public int (double xCalc, double yCalc) {
+		double x = xCalc;
+		double y = yCalc;
+		double dist = 0;
+		int passes = 0;
+		while (dist <= 2 && passes < 135) {
+			double tempX = xCalc;
+			double tempY = yCalc;
+
+			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+			yCalc = Math.abs(2 * tempX * tempY) + y;
+
+			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+
+			passes++;
+		}
+
+		return passes;
+	}
 }
