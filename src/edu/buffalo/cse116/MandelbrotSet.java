@@ -158,7 +158,7 @@ public class MandelbrotSet {
 
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 
-			passes++;
+			passes++; 
 		}
 
 		return passes;

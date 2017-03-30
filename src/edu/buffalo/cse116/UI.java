@@ -331,7 +331,7 @@ public class UI implements Observer {
 
 				if(a > 0){
 				if(setTemp == 1){
-					fp.updateImage(m.userInputEscape(textFromBox));
+					fp.updateImage(m.userInputEscape(textFromBox)); 
 				}
 				if(setTemp == 2){
 					fp.updateImage(j.userInputEscape(textFromBox));
