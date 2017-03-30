@@ -168,7 +168,7 @@ public int (double xCalc, double yCalc) {
 		passes++;
 
 	}
-
+ 
 	return passes;
 
 }

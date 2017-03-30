@@ -133,7 +133,7 @@ public class multibrotSet {
 	public int (double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
-		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); 
 		int passes = 0;
 		while (dist <= 2 && passes < 135) {
 			double tempX = xCalc;
