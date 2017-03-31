@@ -130,7 +130,7 @@ public class multibrotSet {
 		}
 		return array;
 	}
-	public int (double xCalc, double yCalc) {
+	public int multibrotsetDist2Pass135(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
 		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); 

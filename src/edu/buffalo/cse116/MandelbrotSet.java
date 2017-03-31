@@ -143,8 +143,8 @@ public class MandelbrotSet {
 		}
 		return passes;
 	}
-<<<<<<< HEAD
-	public int (double xCalc, double yCalc) {
+
+	public int mandelbrotDist2Pass135(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
 		double dist = 0;
@@ -158,7 +158,8 @@ public class MandelbrotSet {
 			passes++;
 		}
 		return passes;
-=======
+	}
+
 	
 	public int mandelbrotRealPasses(double xCalc, double yCalc, int i) {
 		double x = xCalc;
@@ -190,6 +191,6 @@ public class MandelbrotSet {
 			} 
 		}
 		return array;
->>>>>>> branch 'master' of https://github.com/CSE116-Spring2017/semesterlongproject-b3-myjawhertz.git
+
 	}
 }

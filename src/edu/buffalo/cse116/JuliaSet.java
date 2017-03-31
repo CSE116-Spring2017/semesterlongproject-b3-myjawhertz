@@ -152,7 +152,7 @@ public int[][] userInputEscape(String i) {
 	}
 	return array;
 }
-public int (double xCalc, double yCalc) {
+public int juliaDist2Pass135 (double xCalc, double yCalc) {
 	
 	double dist = 0;
 	int passes = 0;
