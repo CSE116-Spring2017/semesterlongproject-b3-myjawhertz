@@ -146,12 +146,12 @@ public class multibrotSet {
 		return passes;
 	}
 	
-	public int multibrotRealPasses(double xCalc, double yCalc, int i) {
+	public int multibrotRealPasses(double xCalc, double yCalc, int i, int z) {
 		double x = xCalc;
 		double y = yCalc;
-		double dist = 0;
+		double dist = z;
 		int passes = 0;
-		while (dist <= 2 && passes < i) {
+		while (dist <= z && passes < i) {
 			double tempX = xCalc;
 			double tempY = yCalc;
 			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
@@ -163,12 +163,13 @@ public class multibrotSet {
 		return passes;
 	}
 
-	public int[][] userInputEscapeTime(String i) {
+	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
+		int c = Integer.parseInt(b);
 		int[][] array = new int[512][512];
 		for (int x = 0; x < 512; x++) {
 			for (int y = 0; y < 512; y++) {
-				array[x][y] = multibrotRealPasses(XCoordTranslation(x), YCoordTranslation(y), a);
+				array[x][y] = multibrotRealPasses(XCoordTranslation(x), YCoordTranslation(y), a, c);
 				// System.out.println(array[x][y]);
 			}
 		}

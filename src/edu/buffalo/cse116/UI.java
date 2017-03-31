@@ -108,9 +108,7 @@ public class UI implements Observer {
 		
 		_5thPart = new JPanel();
 		_5thRowPanel.setLayout(new GridLayout(7,1));
-		_5thRowPanel.add(_5thPart);
-		_5thRowPanel.add(et);
-		_5thRowPanel.add(enterForTime);
+		
 		
 		
 		 mb = new JMenuBar();
@@ -171,7 +169,9 @@ public class UI implements Observer {
 		jt.setPreferredSize(new Dimension(1,1));
 		_5thRowPanel.add(jt);
 		_5thRowPanel.add(enter);
-		
+		_5thRowPanel.add(_5thPart);
+		_5thRowPanel.add(et);
+		_5thRowPanel.add(enterForTime);
 		/* Here I'm using an anonymous inner class. Notice that I still have access to UI's instance variables. 
 		 * Doing this is much more convenient than creating a whole separate class and setting up an association 
 		 * relationship with UI. */
@@ -205,7 +205,7 @@ public class UI implements Observer {
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				temp = mandelbrot.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
-				fp.updateImage(m.userInputEscape(textFromBox));
+				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
 				setTemp = 1;
 				
 			}
@@ -216,7 +216,7 @@ public class UI implements Observer {
 				fp.updateImage(juliaSet.returnArrayWithPasses());
 				temp = juliaSet.returnArrayWithPasses();
 				JOptionPane.getRootFrame();
-				fp.updateImage(j.userInputEscape(textFromBox));
+				fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				setTemp = 2;
 			}
 		});
@@ -224,7 +224,7 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(burningShip.returnArrayWithPasses());
 				temp = burningShip.returnArrayWithPasses();
-				fp.updateImage(b.userInputEscape(textFromBox));
+				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 				JOptionPane.getRootFrame();
 				setTemp = 3;
 			}
@@ -233,7 +233,7 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e){
 				fp.updateImage(multibrotSet.return2DArray());
 				temp = multibrotSet.return2DArray();
-				fp.updateImage(multi.userInputEscape(textFromBox));
+				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 				JOptionPane.getRootFrame();
 				setTemp = 4;
 			}
@@ -249,16 +249,16 @@ public class UI implements Observer {
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if(setTemp == 1){
-					fp.updateImage(m.userInputEscape(textFromBox));
+					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 2){
-					fp.updateImage(j.userInputEscape(textFromBox));
+					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 3){
-				fp.updateImage(b.userInputEscape(textFromBox));
+				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 4){
-				fp.updateImage(multi.userInputEscape(textFromBox));
+				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 			}
 		});
@@ -268,16 +268,16 @@ public class UI implements Observer {
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if(setTemp == 1){
-					fp.updateImage(m.userInputEscape(textFromBox));
+					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 2){
-					fp.updateImage(j.userInputEscape(textFromBox));
+					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 3){
-				fp.updateImage(b.userInputEscape(textFromBox));
+				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 4){
-				fp.updateImage(multi.userInputEscape(textFromBox));
+				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 			}
 		});
@@ -287,16 +287,16 @@ public class UI implements Observer {
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if(setTemp == 1){
-					fp.updateImage(m.userInputEscape(textFromBox));
+					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 2){
-					fp.updateImage(j.userInputEscape(textFromBox));
+					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 3){
-				fp.updateImage(b.userInputEscape(textFromBox));
+				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 4){
-				fp.updateImage(multi.userInputEscape(textFromBox));
+				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 			}
 		});
@@ -306,16 +306,16 @@ public class UI implements Observer {
 				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if(setTemp == 1){
-					fp.updateImage(m.userInputEscape(textFromBox));
+					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 2){
-					fp.updateImage(j.userInputEscape(textFromBox));
+					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 3){
-				fp.updateImage(b.userInputEscape(textFromBox));
+				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if(setTemp == 4){
-				fp.updateImage(multi.userInputEscape(textFromBox));
+				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 			}
 		});
@@ -332,16 +332,16 @@ public class UI implements Observer {
 
 				if((isNumber(textFromBox) == true) && (a > 0)){		//if text in box is a valid positive number
 					if(setTemp == 1){
-						fp.updateImage(m.userInputEscape(textFromBox)); 
+						fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 					if(setTemp == 2){
-						fp.updateImage(j.userInputEscape(textFromBox));
+						fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 					if(setTemp == 3){
-					fp.updateImage(b.userInputEscape(textFromBox));
+					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 					if(setTemp == 4){
-					fp.updateImage(multi.userInputEscape(textFromBox));
+					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 				}
 			}
@@ -358,16 +358,16 @@ public class UI implements Observer {
 
 				if((isNumber(textFromBox2)==true) && a >= 2 && a <= 255){		//if text in box is a valid number between 2 and 255
 					if(setTemp == 1){
-						fp.updateImage(m.userInputEscapeTime(textFromBox2));
+						fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 					if(setTemp == 2){
-						fp.updateImage(j.userInputEscapeTime(textFromBox2));
+						fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 					if(setTemp == 3){
-					fp.updateImage(b.userInputEscapeTime(textFromBox2));
+						fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 					if(setTemp == 4){
-					fp.updateImage(multi.userInputEscapeTime(textFromBox2));
+						fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 					}
 				}
 			}

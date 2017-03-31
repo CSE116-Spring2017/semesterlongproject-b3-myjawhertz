@@ -160,13 +160,12 @@ public class MandelbrotSet {
 		return passes;
 	}
 
-	
-	public int mandelbrotRealPasses(double xCalc, double yCalc, int i) {
+	public int holder(double xCalc, double yCalc, int i, int z) {
 		double x = xCalc;
 		double y = yCalc;
-		double dist = 0;
+		double dist = z;
 		int passes = 0;
-		while (dist <= 2 && passes < i) {
+		while (dist <= z && passes < i) {
 			double tempX = xCalc;
 			double tempY = yCalc;
 
@@ -181,16 +180,18 @@ public class MandelbrotSet {
 		return passes;
 	}
 	
-	public int[][] userInputEscapeTime(String i) {
+	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
+		int c = Integer.parseInt(b);
 		int[][] array = new int[512][512];
 		for (int x = 0; x < 512; x++) {
 			for (int y = 0; y < 512; y++) {
-				array[x][y] = mandelbrotRealPasses(getXCord(x), getYCord(y), a);
+				array[x][y] = holder(getXCord(x), getYCord(y), a, c);
 				// System.out.println(array[x][y]);
 			} 
 		}
 		return array;
 
 	}
+	
 }
