@@ -164,7 +164,7 @@ public class burningshipset {
 
 		return passes;
 	}
-	public int (double xCalc, double yCalc) {
+	public int burningshipsetDist2Pass135(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
 		double dist = 0;
