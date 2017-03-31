@@ -1,0 +1,7 @@
+How to reset the zoom level:
+
+On the bottom half of the panel to the right of the FractalPanel, there will be a button labeled
+"Zoom Out". When the fractal is fully zoomed out to fit the screen (512x512), the button will be disabled.
+This prevents any possible bugs and any unnecessary runtime from happening when there's no need to zoom out.
+Whenever the fractal is zoomed in, the button will be enabled. Pressing the button will zoom out the fractal
+and bring it back to the original 512x512 view. Also, it'll disable the button again.
