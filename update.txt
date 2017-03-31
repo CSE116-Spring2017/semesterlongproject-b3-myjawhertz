@@ -7,4 +7,3 @@ with the new Escape Times.
 If an illegal escape distance is entered, an error will be printed in the console
 
 How to update Escape Times:
-
