@@ -351,11 +351,11 @@ public class UI implements Observer {
 				textFromBox2 = et.getText();
 				et.setText("");
 				int a = Integer.parseInt(textFromBox2);
-				if(a <= 2){
+				if(a < 2 || a > 255){
 					System.err.println("Illegal entry");
 				}
 
-				if(a > 2){
+				if(a >= 2 && a <= 255){
 				if(setTemp == 1){
 					fp.updateImage(m.userInputEscapeTime(textFromBox2));
 				}
