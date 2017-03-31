@@ -125,7 +125,8 @@ public class burningshipset {
 
 	/**
 	 * 
-	 * @param i - escape distance
+	 * @param i
+	 *            - escape distance
 	 * @return 2D array of passes
 	 */
 
@@ -140,9 +141,12 @@ public class burningshipset {
 		}
 		return array;
 	}
+
 	/**
-	 * @param xCalc - Y-coordinate range from -1.8 to -1.7
-	 * @param yCalc - Y-coordinate range from -0.08 to 0.025
+	 * @param xCalc
+	 *            - Y-coordinate range from -1.8 to -1.7
+	 * @param yCalc
+	 *            - Y-coordinate range from -0.08 to 0.025
 	 * @return - passes with an escape distance of 3
 	 */
 	public int burningshipsetPass10(double xCalc, double yCalc) {
@@ -164,6 +168,7 @@ public class burningshipset {
 
 		return passes;
 	}
+
 	public int burningshipsetDist2Pass135(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
@@ -178,9 +183,42 @@ public class burningshipset {
 
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 
-			passes++; 
+			passes++;
 		}
 
 		return passes;
 	}
+
+	public int burningshipRealPasses(double xCalc, double yCalc, int i) {
+		double x = xCalc;
+		double y = yCalc;
+		double dist = 0;
+		int passes = 0;
+		while (dist <= 2 && passes < i) {
+			double tempX = xCalc;
+			double tempY = yCalc;
+
+			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+			yCalc = Math.abs(2 * tempX * tempY) + y;
+
+			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+
+			passes++;
+		}
+
+		return passes;
+	}
+
+	public int[][] userInputEscapeTime(String i) {
+		int a = Integer.parseInt(i);
+		int[][] array = new int[512][512];
+		for (int x = 0; x < 512; x++) {
+			for (int y = 0; y < 512; y++) {
+				array[x][y] = burningshipRealPasses(getXCord(x), getYCord(y), a);
+				// System.out.println(array[x][y]);
+			}
+		}
+		return array;
+	}
+
 }

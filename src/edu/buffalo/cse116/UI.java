@@ -29,13 +29,18 @@ public class UI implements Observer {
 	JPanel _3rdRowPanel;
 	JPanel _4thRowPanel;
 	JPanel _5thRowPanel;
+	JPanel _5thPart;
+	
 	JTextField jt = new JTextField(30);
+	JTextField et = new JTextField(30);
 	
 	
 	JPanel _buttonGrid;
 	private int[][] temp;
 	private JButton enter = new JButton("Recaculate fractal with given escape distance");
+	private JButton enterForTime = new JButton("Recaculate fractal with given escape time");
 	private String textFromBox = "2";
+	private String textFromBox2 = "255";
 	private int setTemp;
 	
 	// Class Object
@@ -100,6 +105,12 @@ public class UI implements Observer {
 		//The panel that contains the function to re-calculate the fractal(Button) and input box
 		_5thRowPanel = new JPanel();
 		_5thRowPanel.setLayout(new GridLayout(2,1));
+		
+		_5thPart = new JPanel();
+		_5thRowPanel.setLayout(new GridLayout(7,1));
+		_5thRowPanel.add(_5thPart);
+		_5thRowPanel.add(et);
+		_5thRowPanel.add(enterForTime);
 		
 		
 		 mb = new JMenuBar();
@@ -320,7 +331,7 @@ public class UI implements Observer {
 
 				if(a > 0){
 				if(setTemp == 1){
-					fp.updateImage(m.userInputEscape(textFromBox));
+					fp.updateImage(m.userInputEscape(textFromBox)); 
 				}
 				if(setTemp == 2){
 					fp.updateImage(j.userInputEscape(textFromBox));
@@ -334,6 +345,34 @@ public class UI implements Observer {
 				}
 			}
 		}); 
+		
+		enterForTime.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				textFromBox2 = et.getText();
+				et.setText("");
+				int a = Integer.parseInt(textFromBox2);
+				if(a <= 1){
+					System.err.println("Illegal entry");
+				}
+
+				if(a > 1){
+				if(setTemp == 1){
+					fp.updateImage(m.userInputEscapeTime(textFromBox2));
+				}
+				if(setTemp == 2){
+					fp.updateImage(j.userInputEscape(textFromBox2));
+				}
+				if(setTemp == 3){
+				fp.updateImage(b.userInputEscape(textFromBox2));
+				}
+				if(setTemp == 4){
+				fp.updateImage(multi.userInputEscape(textFromBox2));
+				}
+				}
+			}
+		}); 
+		
+
 		
 		// This is necessary to actually see the changes that have been made
 		_window.pack();

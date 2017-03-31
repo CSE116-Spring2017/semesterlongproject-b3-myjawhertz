@@ -172,4 +172,36 @@ public int juliaDist2Pass135 (double xCalc, double yCalc) {
 	return passes;
 
 }
+public int juliaRealPasses(double xCalc, double yCalc, int i) {
+	double x = xCalc;
+	double y = yCalc;
+	double dist = 0;
+	int passes = 0;
+	while (dist <= 2 && passes < i) {
+		double tempX = xCalc;
+		double tempY = yCalc;
+
+		xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+		yCalc = (2 * tempX * tempY) + 0.188887;
+
+		dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+		passes++;
+	}
+
+	return passes;
+}
+
+public int[][] userInputEscapeTime(String i) {
+	int a = Integer.parseInt(i);
+	int[][] array = new int[512][512];
+	for (int x = 0; x < 512; x++) {
+		for (int y = 0; y < 512; y++) {
+			array[x][y] = juliaRealPasses(getXCord(x), getYCord(y), a);
+			// System.out.println(array[x][y]);
+		}
+	}
+	return array;
+}
+
+
 }
