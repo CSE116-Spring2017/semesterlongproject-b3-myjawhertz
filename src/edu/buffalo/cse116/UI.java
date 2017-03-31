@@ -351,22 +351,22 @@ public class UI implements Observer {
 				textFromBox2 = et.getText();
 				et.setText("");
 				int a = Integer.parseInt(textFromBox2);
-				if(a <= 1){
+				if(a <= 2){
 					System.err.println("Illegal entry");
 				}
 
-				if(a > 1){
+				if(a > 2){
 				if(setTemp == 1){
 					fp.updateImage(m.userInputEscapeTime(textFromBox2));
 				}
 				if(setTemp == 2){
-					fp.updateImage(j.userInputEscape(textFromBox2));
+					fp.updateImage(j.userInputEscapeTime(textFromBox2));
 				}
 				if(setTemp == 3){
-				fp.updateImage(b.userInputEscape(textFromBox2));
+				fp.updateImage(b.userInputEscapeTime(textFromBox2));
 				}
 				if(setTemp == 4){
-				fp.updateImage(multi.userInputEscape(textFromBox2));
+				fp.updateImage(multi.userInputEscapeTime(textFromBox2));
 				}
 				}
 			}
