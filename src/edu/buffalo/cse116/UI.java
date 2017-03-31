@@ -325,23 +325,24 @@ public class UI implements Observer {
 				textFromBox = jt.getText();
 				jt.setText("");
 				int a = Integer.parseInt(textFromBox);
-				if(a <= 0){
-					System.err.println("Illegal entry");
-				}
+//				if(a <= 0){
+//					System.err.println("Illegal entry");
+//				}
+				
 
-				if(a > 0){
-				if(setTemp == 1){
-					fp.updateImage(m.userInputEscape(textFromBox)); 
-				}
-				if(setTemp == 2){
-					fp.updateImage(j.userInputEscape(textFromBox));
-				}
-				if(setTemp == 3){
-				fp.updateImage(b.userInputEscape(textFromBox));
-				}
-				if(setTemp == 4){
-				fp.updateImage(multi.userInputEscape(textFromBox));
-				}
+				if((isNumber(textFromBox) == true) && (a > 0)){		//if text in box is a valid positive number
+					if(setTemp == 1){
+						fp.updateImage(m.userInputEscape(textFromBox)); 
+					}
+					if(setTemp == 2){
+						fp.updateImage(j.userInputEscape(textFromBox));
+					}
+					if(setTemp == 3){
+					fp.updateImage(b.userInputEscape(textFromBox));
+					}
+					if(setTemp == 4){
+					fp.updateImage(multi.userInputEscape(textFromBox));
+					}
 				}
 			}
 		}); 
@@ -351,30 +352,39 @@ public class UI implements Observer {
 				textFromBox2 = et.getText();
 				et.setText("");
 				int a = Integer.parseInt(textFromBox2);
-				if(a < 2 || a > 255){
-					System.err.println("Illegal entry");
-				}
+//				if(a < 2 || a > 255){
+//					System.err.println("Illegal entry");
+//				}
 
-				if(a >= 2 && a <= 255){
-				if(setTemp == 1){
-					fp.updateImage(m.userInputEscapeTime(textFromBox2));
-				}
-				if(setTemp == 2){
-					fp.updateImage(j.userInputEscapeTime(textFromBox2));
-				}
-				if(setTemp == 3){
-				fp.updateImage(b.userInputEscapeTime(textFromBox2));
-				}
-				if(setTemp == 4){
-				fp.updateImage(multi.userInputEscapeTime(textFromBox2));
-				}
+				if((isNumber(textFromBox2)==true) && a >= 2 && a <= 255){		//if text in box is a valid number between 2 and 255
+					if(setTemp == 1){
+						fp.updateImage(m.userInputEscapeTime(textFromBox2));
+					}
+					if(setTemp == 2){
+						fp.updateImage(j.userInputEscapeTime(textFromBox2));
+					}
+					if(setTemp == 3){
+					fp.updateImage(b.userInputEscapeTime(textFromBox2));
+					}
+					if(setTemp == 4){
+					fp.updateImage(multi.userInputEscapeTime(textFromBox2));
+					}
 				}
 			}
 		}); 
 		
-
+		
 		
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
 	}
+	
+	public static boolean isNumber (final String s) {
+		  try {
+		    Integer.parseInt(s);
+		    return true;
+		  } catch (NumberFormatException e){
+		    return false;
+		  }
+		}
 }
