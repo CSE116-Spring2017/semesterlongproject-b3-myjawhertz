@@ -10,6 +10,8 @@ import javax.swing.*;
 
 import edu.buffalo.*;
 import edu.buffalo.fractal.FractalPanel;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**This is the main class for the GUI for the fractal program.
  * It implements the Observer class and holds the calls to add the fractal display, menu bar items, and the button &
@@ -387,4 +389,15 @@ public class UI implements Observer {
 		    return false;
 		  }
 		}
+	public static void ErrorBox(String infoMessage, String titleBar){
+		alertBox(infoMessage, titleBar, null);
+	}
+	public static void alertBox(String infoMessage,String titleBar, String headerMessage){
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle(titleBar);
+      alert.setHeaderText(headerMessage);
+      alert.setContentText(infoMessage);
+      alert.showAndWait();
+ 
+	}
 }
