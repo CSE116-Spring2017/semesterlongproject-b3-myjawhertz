@@ -345,6 +345,10 @@ public class UI implements Observer {
 					if(setTemp == 4){
 					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 					}
+					else if((isNumber(textFromBox)==false) && a < 0){
+						ErrorBox("Please enter positive number","ErrorBox");
+
+					}
 				}
 			}
 		}); 
@@ -371,6 +375,9 @@ public class UI implements Observer {
 					if(setTemp == 4){
 						fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 					}
+				}
+				else{
+					ErrorBox("Please enter positive number","ErrorBox");
 				}
 			}
 		}); 
