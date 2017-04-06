@@ -194,4 +194,28 @@ public class MandelbrotSet {
 
 	}
 	
+	public double getXCordRect(int xRow, int xStart, int xWidth) {
+		double xCord = -2.15 + ((2.75 * (xRow + xStart))/ (512));
+		return xCord;
+	}
+	
+	public double getYCordRect(int yCol, int yStart, int yWidth) {
+		double yCord = -1.3 + (2.6 * (yCol + yStart )/ (512));
+		return yCord;
+	}
+	
+	
+	public int[][] rectangle(String i, String b, int e, int r, int er, int gg) {
+		int a = Integer.parseInt(i);
+		int c = Integer.parseInt(b);
+		int[][] array = new int[512][512];
+		for (int x = 0; x < 512; x++) {
+			for (int y = 0; y < 512; y++) {
+				array[x][y] = holder(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
+				// System.out.println(array[x][y]);
+			} 
+		}
+		return array;
+	}
+	
 }
