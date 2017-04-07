@@ -56,7 +56,7 @@ public class UI implements Observer {
 	private int setTemp;
 
 	// Class Object
-	FractalPanel fp;
+	private FractalPanel fp;
 	MandelbrotSet m;
 	JuliaSet j;
 	burningshipset b;
@@ -224,7 +224,6 @@ public class UI implements Observer {
 		final JuliaSet juliaSet = new JuliaSet();
 		final burningshipset burningShip = new burningshipset();
 		final multibrotSet multibrotSet = new multibrotSet();
-		final FractalPanel fp = new FractalPanel();
 		_buttonGrid.add(fp);
 		fp.setOpaque(true);
 		fp.setSize(512, 512);
@@ -404,20 +403,23 @@ public class UI implements Observer {
 		
 		reset.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				// if text in box is a valid number between 2 and 255
 				if (setTemp == 1) {
-					fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if (setTemp == 2) {
-					fp.updateImage(j.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if (setTemp == 3) {
-					fp.updateImage(b.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 				if (setTemp == 4) {
-					fp.updateImage(multi.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 				}
 			}
 		});
+		
+		
 
 		// _buttonGrid.addMouseListener(new MouseListener(){
 		// public void mouseDragged(MouseEvent m){
@@ -428,6 +430,10 @@ public class UI implements Observer {
 
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
+	}
+	
+	public void changed(){
+		
 	}
 
 	public static boolean isNumber(final String s) {
@@ -521,20 +527,19 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			
+			System.out.println("RELEASED");
 			endX = e.getX();
 			endY = e.getY();
 			
+			
+
 			
 			
 			if (setTemp == 1) {
 				System.out.println("SDFfgsdgSD");
 				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
-				paint();
-				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 				System.out.println("1234");
 				
-			
 			}
 			if (setTemp == 2) {
 				fp.updateImage(j.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
@@ -556,7 +561,6 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-
 		}
 		
 
