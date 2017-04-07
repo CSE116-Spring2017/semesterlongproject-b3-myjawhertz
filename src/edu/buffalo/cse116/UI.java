@@ -352,6 +352,11 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e) {
 				textFromBox = jt.getText();
 				jt.setText("");
+				
+				if(ErrorBoxNotNumber(textFromBox)==true){
+					ErrorBox("Please insert numbers only!","ErrorBox");
+					
+				}
 				int a = Integer.parseInt(textFromBox);
 
 				if ((isNumber(textFromBox) == true) && (a > 0)) { // if text in box is a valid positive number
@@ -378,6 +383,13 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e) {
 				textFromBox2 = et.getText();
 				et.setText("");
+				
+				if(ErrorBoxNotNumber(textFromBox2)==true){
+					ErrorBox("Please insert numbers only!","ErrorBox");
+					
+				}
+				
+				
 				int a = Integer.parseInt(textFromBox2);
 				  
 				if ((isNumber(textFromBox2) == true) && a >= 2 && a <= 255) {
@@ -449,8 +461,18 @@ public class UI implements Observer {
 		JOptionPane jop = new JOptionPane();
 		fractal.add(jop);
         JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
-        }
-
+	}
+	
+	public boolean ErrorBoxNotNumber(String str){
+		for(int i = 0; i < str.length(); i++){
+			char c = str.charAt(i);
+			if(!Character.isDigit(c)){
+				return true;
+			}
+		}
+		return false;
+		
+	}
 	
 	private class HandlerClass implements MouseListener, MouseMotionListener {
 
@@ -459,7 +481,7 @@ public class UI implements Observer {
 		public void paint() {
 			
 			gr = _buttonGrid.getGraphics();
-			Color myColor = new Color(55, 122, 125, 255);
+			Color myColor = new Color(55, 122, 125, 80);
 			gr.setColor(myColor);
 			
 			
