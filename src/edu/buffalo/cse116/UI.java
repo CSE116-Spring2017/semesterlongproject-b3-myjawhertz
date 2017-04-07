@@ -405,16 +405,16 @@ public class UI implements Observer {
 		reset.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				if (setTemp == 1) {
-					fp.updateImage(m.rectangle(textFromBox2, textFromBox, startX, startY, Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 				}
 				if (setTemp == 2) {
-					fp.updateImage(j.rectangle(textFromBox2, textFromBox, startX, startY, Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(j.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 				}
 				if (setTemp == 3) {
-					fp.updateImage(b.rectangle(textFromBox2, textFromBox, startX, startY, Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(b.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 				}
 				if (setTemp == 4) {
-					fp.updateImage(multi.rectangle(textFromBox2, textFromBox, startX, startY, Math.abs(startX-endX), Math.abs(startY - endY)));
+					fp.updateImage(multi.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 				}
 			}
 		});
@@ -526,19 +526,18 @@ public class UI implements Observer {
 			endY = e.getY();
 			
 			
+			
 			if (setTemp == 1) {
-//				System.out.println(Math.abs(startX - endX));
-//				System.out.println(Math.abs(startY - endY));
-				fp.updateImage(m.rectangle(textFromBox2, textFromBox, startX, startY, Math.min(startX,endX), Math.min(startY, endY)));
+				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 			}
 			if (setTemp == 2) {
-				fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
+				fp.updateImage(j.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 			}
 			if (setTemp == 3) {
-				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
+				fp.updateImage(b.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 			}
 			if (setTemp == 4) {
-				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
+				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 			}
 
 		}
