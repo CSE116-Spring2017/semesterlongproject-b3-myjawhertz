@@ -196,7 +196,7 @@ public class multibrotSet {
 				array[x][y] = multibrotRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 				// System.out.println(array[x][y]);
 			} 
-		}
+		} 
 		return array;
 	}
 
