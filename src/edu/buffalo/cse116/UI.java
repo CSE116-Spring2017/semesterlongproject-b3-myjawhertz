@@ -539,7 +539,7 @@ public class UI implements Observer {
 			if (setTemp == 1) {
 //				System.out.println(Math.abs(startX - endX));
 //				System.out.println(Math.abs(startY - endY));
-				fp.updateImage(m.rectangle(textFromBox2, textFromBox, startX, startY, Math.abs(startX-endX), Math.abs(startY - endY)));
+				fp.updateImage(m.rectangle(textFromBox2, textFromBox, startX, startY, Math.min(startX,endX), Math.min(startY, endY)));
 			}
 			if (setTemp == 2) {
 				fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
