@@ -71,7 +71,7 @@ public class UI implements Observer {
 	private JMenuItem color2;
 	private JMenuItem color3;
 	private JMenuItem color4;
-	private JMenu fractal;
+	private static JMenu fractal;
 	private JMenuItem julia;
 	private JMenuItem multibrot;
 	private JMenuItem burningship;
@@ -354,9 +354,6 @@ public class UI implements Observer {
 				textFromBox = jt.getText();
 				jt.setText("");
 				int a = Integer.parseInt(textFromBox);
-				// if(a <= 0){
-				// System.err.println("Illegal entry");
-				// }
 
 				if ((isNumber(textFromBox) == true) && (a > 0)) { // if text in box is a valid positive number
 					if (setTemp == 1) {
@@ -370,9 +367,9 @@ public class UI implements Observer {
 					}
 					if (setTemp == 4) {
 						fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-					} else if ((isNumber(textFromBox) == false) && a < 0) {
+					} 
+					else if ((isNumber(textFromBox) == false) || a < 0) {
 						ErrorBox("Please enter positive number", "ErrorBox");
-
 					}
 				}
 			}
@@ -383,9 +380,7 @@ public class UI implements Observer {
 				textFromBox2 = et.getText();
 				et.setText("");
 				int a = Integer.parseInt(textFromBox2);
-				// if(a < 2 || a > 255){
-				// System.err.println("Illegal entry");
-				// }
+				  
 				if ((isNumber(textFromBox2) == true) && a >= 2 && a <= 255) {
 					// if text in box is a valid number between 2 and 255
 					if (setTemp == 1) {
@@ -400,8 +395,9 @@ public class UI implements Observer {
 					if (setTemp == 4) {
 						fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 					}
-				} else {
-					ErrorBox("Please enter positive number", "ErrorBox");
+				}
+				else if((isNumber(textFromBox2)==false)|| a<2 || a>255){
+					ErrorBox("Please enter positive number","ErrorBox");
 				}
 			}
 		});
@@ -444,18 +440,12 @@ public class UI implements Observer {
 	}
 
 	public static void ErrorBox(String infoMessage, String titleBar) {
-		alertBox(infoMessage, titleBar, null);
-	}
+		JOptionPane jop = new JOptionPane();
+		fractal.add(jop);
+        JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
+        }
 
-	public static void alertBox(String infoMessage, String titleBar, String headerMessage) {
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle(titleBar);
-		alert.setHeaderText(headerMessage);
-		alert.setContentText(infoMessage);
-		alert.showAndWait();
-
-	}
-
+	
 	private class HandlerClass implements MouseListener, MouseMotionListener {
 
 		
