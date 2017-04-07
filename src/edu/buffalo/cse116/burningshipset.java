@@ -221,5 +221,28 @@ public class burningshipset {
 		}
 		return array;
 	}
-
+	
+	public double getXCordRect(int xRow, int xStart, int xWidth) {
+		double xCord = -1.8 + (0.1 * xStart / 512) + ((0.1 * xWidth / 512) * xRow / 512);
+		return xCord;
+	}
+	
+	public double getYCordRect(int yCol, int yStart, int yWidth) {
+		double yCord = -0.08 + (0.105 * yStart / 512) +  ((0.105 * yWidth / 512) * yCol / 512);
+		return yCord;
+	}
+	public int[][] rectangle(String i, String b, int e, int r, int er, int gg) {
+		int a = Integer.parseInt(i);
+		int c = Integer.parseInt(b);
+		int[][] array = new int[512][512];
+		for (int x = 0; x < 512; x++) {
+			for (int y = 0; y < 512; y++) {
+				array[x][y] = burningshipRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
+				// System.out.println(array[x][y]);
+			} 
+		}
+		return array;
+	}
+	
+	
 }
