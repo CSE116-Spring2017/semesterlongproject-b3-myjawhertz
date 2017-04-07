@@ -453,7 +453,7 @@ public class UI implements Observer {
 		public void paint() {
 			
 			gr = _buttonGrid.getGraphics();
-			Color myColor = new Color(55, 122, 125, 12);
+			Color myColor = new Color(55, 122, 125, 80);
 			gr.setColor(myColor);
 			
 			
@@ -528,7 +528,13 @@ public class UI implements Observer {
 			
 			
 			if (setTemp == 1) {
+				System.out.println("SDFfgsdgSD");
 				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+				paint();
+				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+				System.out.println("1234");
+				
+			
 			}
 			if (setTemp == 2) {
 				fp.updateImage(j.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
