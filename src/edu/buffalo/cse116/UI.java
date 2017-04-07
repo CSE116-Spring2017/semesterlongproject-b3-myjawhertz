@@ -453,7 +453,7 @@ public class UI implements Observer {
 		public void paint() {
 			
 			gr = _buttonGrid.getGraphics();
-			Color myColor = new Color(55, 122, 125, 80);
+			Color myColor = new Color(55, 122, 125, 255);
 			gr.setColor(myColor);
 			
 			
