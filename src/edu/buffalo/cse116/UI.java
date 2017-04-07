@@ -555,7 +555,7 @@ public class UI implements Observer {
 			
 			
 
-			
+			 
 			
 			if (setTemp == 1) {
 				System.out.println("SDFfgsdgSD");
