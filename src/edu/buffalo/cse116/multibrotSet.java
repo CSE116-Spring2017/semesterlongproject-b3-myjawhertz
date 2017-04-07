@@ -130,6 +130,13 @@ public class multibrotSet {
 		}
 		return array;
 	}
+	/**
+	 * Only called in a JUnit test to test if the set returns an escape time of 135 when
+	 * the distance is set to 2 given a certain x and y value.
+	 * @param xCalc - X-Value given in the JUnit test case
+	 * @param yCalc - Y-Value given in the JUnit test case
+	 * @return the Escape-Time of the set == the number of passes done
+	 */
 	public int multibrotsetDist2Pass135(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
@@ -146,6 +153,15 @@ public class multibrotSet {
 		return passes;
 	}
 	
+	/**
+	 * Calculates the Escape-Time using for the set using the custom distance and maximum number
+	 * of passes which are set by the user.
+	 * @param xCalc - a translated X-Coordinate in the Multibrot Set
+	 * @param yCalc - a translated Y-Coordinate in the Multibrot Set
+	 * @param i - maximum number of passes (determined by user input)
+	 * @param z - distance used for calculations (determined by user input)
+	 * @return the Escape-Time of the set == the number of passes done
+	 */
 	public int multibrotRealPasses(double xCalc, double yCalc, int i, int z) {
 		double x = xCalc;
 		double y = yCalc;
@@ -163,6 +179,13 @@ public class multibrotSet {
 		return passes;
 	}
 
+	/**
+	 * The method that creates a new 512x512 panel for a new Mandelbrot Set with a custom number
+	 * of passes and maximum distance that are set by the user on the GUI.
+	 * @param i - entry from TextBox1: determines maximum number of passes allowed
+	 * @param b - entry from TextBox2: determines distance used for ET calculations
+	 * @return 2D array of int of Escape-Times for each pixel in the 512x512 array
+	 */
 	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
@@ -175,18 +198,40 @@ public class multibrotSet {
 		}
 		return array;
 	}
-	
+	/**
+	 * 
+	 * @param xRow
+	 * @param xStart
+	 * @param xWidth
+	 * @return
+	 */
 	public double getXCordRect(int xRow, int xStart, int xWidth) {
 		double xCord = -1 + (2.0 * xStart / 512) + ((2.0 * xWidth / 512) * xRow / 512);
 		return xCord;
 	}
 	
+	/**
+	 * 
+	 * @param yCol
+	 * @param yStart
+	 * @param yWidth
+	 * @return
+	 */
 	public double getYCordRect(int yCol, int yStart, int yWidth) {
 		double yCord = -1.3 + (2.6 * yStart / 512) +  ((2.6 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}
 	
-	
+	/**
+	 * 
+	 * @param i
+	 * @param b
+	 * @param e
+	 * @param r
+	 * @param er
+	 * @param gg
+	 * @return
+	 */
 	public int[][] rectangle(String i, String b, int e, int r, int er, int gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
