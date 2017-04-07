@@ -218,7 +218,7 @@ public class burningshipset {
 				array[x][y] = burningshipRealPasses(getXCord(x), getYCord(y), a, c);
 				// System.out.println(array[x][y]);
 			}
-		}
+		} 
 		return array;
 	}
 	
