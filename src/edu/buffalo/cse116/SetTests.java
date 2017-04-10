@@ -231,28 +231,41 @@ public class SetTests {
 		multibrotSet multibrotset = new multibrotSet();
 		assertEquals(10, multibrotset.multibrotsetPass10(0.7025440313111545, -0.5520547945205528), 0.0001);
 	}
+	
 	/**
-	 * Phase 3 Rubric
+	 * Phase 3 Rubric Tests
 	 */
 	
+	// When the escape distance is set to 2, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after 135 passes of a loop
 	@Test
 	public void testMandelbrotET135ED2() {
 		MandelbrotSet mandelbrotset = new MandelbrotSet();
 		assertEquals("Escape time is 135.", 135, mandelbrotset.mandelbrotDist2Pass135(0.3207031250000001, -0.07109374999999386), 0.0001);
 	}
 	
+	// When the escape distance is set to 2, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after 135 passes of a loop
 	@Test
 	public void testJuliaET135ED2() {
 		JuliaSet juliaset = new JuliaSet();
 		assertEquals("Escape time is 135.", 135, juliaset.juliaDist2Pass135(1.0492187499999897, -0.234375), 0.0001);
 	}
 	
+	// When the escape distance is set to 2, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after 135 passes of a loop
 	@Test
 	public void testBurningShipET135ED2() {
 		burningshipset BurningShipSet = new burningshipset();
 		assertEquals("Escape time is 135.", 135, BurningShipSet.burningshipsetDist2Pass135(-1.7443359374999874, -0.017451171875000338), 0.0001);
 	}
 	
+	// When the escape distance is set to 2, calculates the escape time for a
+	// coordinate whose distance from the origin exceeds the escape distance
+	// after 135 passes of a loop
 	@Test
 	public void testMultibrotET135ED2() {
 		multibrotSet multibrotset = new multibrotSet();
