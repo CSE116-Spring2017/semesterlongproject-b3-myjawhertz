@@ -492,8 +492,8 @@ public class UI implements Observer {
 				width = Math.abs(currentX - startX);
 				height = Math.abs(currentY - startY);
 
-				gr.drawRect(beginX, beginY, width, height);
-				gr.fillRect(beginX, beginY, width, height);
+				gr.drawRect(beginX, beginY, width, width);
+				gr.fillRect(beginX, beginY, width, width);
 				
 
 			}
@@ -558,7 +558,7 @@ public class UI implements Observer {
 			 
 			
 			if (setTemp == 1) {
-				System.out.println("SDFfgsdgSD");
+				//System.out.println("SDFfgsdgSD");
 				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 				System.out.println("1234");
 				
