@@ -492,8 +492,8 @@ public class UI implements Observer {
 				width = Math.abs(currentX - startX);
 				height = Math.abs(currentY - startY);
 
-				gr.drawRect(beginX, beginY, width, width);
-				gr.fillRect(beginX, beginY, width, width);
+				gr.drawRect(beginX, beginY, width, height);
+				gr.fillRect(beginX, beginY, width, height);
 				
 
 			}
