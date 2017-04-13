@@ -203,7 +203,6 @@ public class JuliaSet {
 		for (int x = 0; x < 512; x++) {
 			for (int y = 0; y < 512; y++) {
 				array[x][y] = juliaRealPasses(getXCord(x), getYCord(y), a, c);
-				// System.out.println(array[x][y]);
 			}
 		}
 		return array;
@@ -217,7 +216,16 @@ public class JuliaSet {
 		double yCord = -1.0 + (2.0 * yStart / 512) +  ((2.0 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}
-	
+	/*
+	 * Gets the recalculated image once user selects an area to zoom to
+	 * @param String i gets user desired escape distance
+	 *        String b gets user desired escape time
+	 *        int e 
+	 *        int r 
+	 *        int er
+	 *        int gg
+	 * @return array 
+	 */
 	public int[][] rectangle(String i, String b, int e, int r, int er, int gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
