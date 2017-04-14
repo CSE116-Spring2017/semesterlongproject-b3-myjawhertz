@@ -13,17 +13,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 /**
- * This is the main class for the GUI for the fractal program. It implements the
- * Observer class and holds the calls to add the fractal display, menu bar
- * items, and the button & text box needed to change the distance used for
- * Escape-Time calculations.
- * 
- * @author Alec Otminski
- * @author Stephen Fung
- * @author Ayesha Ismail
- * @author Junhong Jeong
- *
- */
+ * This is the main class for the GUI for the fractal program. It implements the
+ * Observer class and holds the calls to add the fractal display, menu bar
+ * items, and the button & text box needed to change the distance used for
+ * Escape-Time calculations.
+ * 
+ * @author Alec Otminski
+ * @author Stephen Fung
+ * @author Ayesha Ismail
+ * @author Junhong Jeong
+ *
+ */
 public class UI implements Observer {
 
 	Model _model;
@@ -45,6 +45,13 @@ public class UI implements Observer {
 
 	JTextField jt = new JTextField(30);
 	JTextField et = new JTextField(30);
+	int width1 = 512;
+	int height1 = 512;
+	
+	int width2 =512;
+	int height2=512;
+	int newW = 0, newH = 0;
+	private int newX, newY = 0;
 	int beginX, beginY, width, height;
 
 	JPanel _buttonGrid;
@@ -54,7 +61,10 @@ public class UI implements Observer {
 	private String textFromBox = "2";
 	private String textFromBox2 = "255";
 	private int setTemp;
-
+	
+	private int count;
+	
+	
 	// Class Object
 	private FractalPanel fp;
 	MandelbrotSet m;
@@ -78,16 +88,13 @@ public class UI implements Observer {
 	private JMenuItem madelbrot;
 	private JButton reset;
 	
-	//if zoomedIn is true, this will cause the default array to adjust to the zoomed in coordinates
-	//if zoomedIn is false, the default 512x512 array is in affect
-	private boolean zoomedIn = false; 
 	/**
-	 * Calls the methods to generate a new UI for the program when booting up.
-	 * 
-	 * @param m
-	 *            The model used for the UI that contains observers for the
-	 *            button and menu bar items
-	 */
+	* Calls the methods to generate a new UI for the program when booting up.
+	* 
+	* @param m
+	*            The model used for the UI that contains observers for the
+	*            button and menu bar items
+	*/
 	public UI(Model m) {
 
 		// Keep a permanent reference to the Model in order to notify it of user
@@ -95,9 +102,9 @@ public class UI implements Observer {
 		_model = m;
 
 		/**
-		 * The UI is taking care of itself here - it's making sure the model
-		 * will know to call it when it's time for visual updates.
-		 */
+		* The UI is taking care of itself here - it's making sure the model
+		* will know to call it when it's time for visual updates.
+		*/
 		_model.addObserver(this);
 
 		// Perform some setup tasks that only need to be done once.
@@ -108,10 +115,10 @@ public class UI implements Observer {
 	}
 
 	/**
-	 * Creates the JPanels, buttons, Menu Items, links to Fractal Sets, and
-	 * JFrame needed for the program. This method is only to be called once
-	 * during the start of the program.
-	 */
+	* Creates the JPanels, buttons, Menu Items, links to Fractal Sets, and
+	* JFrame needed for the program. This method is only to be called once
+	* during the start of the program.
+	*/
 	public void initialize() {
 
 		_window = new JFrame("Super awesome project");
@@ -196,11 +203,11 @@ public class UI implements Observer {
 		_5thRowPanel.add(reset);
 
 		/*
-		 * Here I'm using an anonymous inner class. Notice that I still have
-		 * access to UI's instance variables. Doing this is much more convenient
-		 * than creating a whole separate class and setting up an association
-		 * relationship with UI.
-		 */
+		* Here I'm using an anonymous inner class. Notice that I still have
+		* access to UI's instance variables. Doing this is much more convenient
+		* than creating a whole separate class and setting up an association
+		* relationship with UI.
+		*/
 
 		// Final steps to display the window
 		_window.setContentPane(_mainPanel);
@@ -218,9 +225,9 @@ public class UI implements Observer {
 //	}
 
 	/**
-	 * Change information displayed on the UI based on what has changed in the
-	 * Model.
-	 */
+	* Change information displayed on the UI based on what has changed in the
+	* Model.
+	*/
 	@Override
 	public void update() {
 
@@ -375,7 +382,7 @@ public class UI implements Observer {
 					}
 					if (setTemp == 4) {
 						fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-					} 
+					}
 					else if ((isNumber(textFromBox) == false) || a < 0) {
 						ErrorBox("Please enter positive number", "ErrorBox");
 					}
@@ -395,7 +402,7 @@ public class UI implements Observer {
 				
 				
 				int a = Integer.parseInt(textFromBox2);
-				  
+				
 				if ((isNumber(textFromBox2) == true) && a >= 2 && a <= 255) {
 					// if text in box is a valid number between 2 and 255
 					if (setTemp == 1) {
@@ -419,22 +426,30 @@ public class UI implements Observer {
 		
 		reset.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				
+				
+				
+				width1 = 512;
+				height1 = 512;
+				
+				width2 =512;
+				height2=512;
+				newW = 0;
+						newH = 0;
+				newX = 0;
+				newY = 0;
 				// if text in box is a valid number between 2 and 255
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
-					zoomedIn = false;
 				}
 				if (setTemp == 2) {
 					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-					zoomedIn = false;
 				}
 				if (setTemp == 3) {
 					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-					zoomedIn = false;
 				}
 				if (setTemp == 4) {
 					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-					zoomedIn = false;
 				}
 			}
 		});
@@ -468,7 +483,7 @@ public class UI implements Observer {
 	public static void ErrorBox(String infoMessage, String titleBar) {
 		JOptionPane jop = new JOptionPane();
 		fractal.add(jop);
-        JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	public boolean ErrorBoxNotNumber(String str){
@@ -561,31 +576,56 @@ public class UI implements Observer {
 			endX = e.getX();
 			endY = e.getY();
 			
+			count = 0;
+			
+			
+			
+			newX = newX + Math.min(startX, endX) * width1 / 512;
 			
 
-			 
+			newY = newY + Math.min(startY, endY) * height1 / 512;
+			
+			
+			
+			newW = Math.abs(startX - endX) * width2 / 512;
+			
+			newH = Math.abs(startY - endY) * height2 / 512 ;
+//			
+			
+			int asf = 1;
+			if(asf == 1){
+				width2 = Math.abs(startX-endX);
+				height2 = Math.abs(startY - endY);
+				asf++;
+			}
+
+			
 			
 			if (setTemp == 1) {
 				//System.out.println("SDFfgsdgSD");
-				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newX, newY , newW, newH));
 				System.out.println("1234");
-				zoomedIn = true;
-				zoomedInAdjustWindow(Math.abs(startX-endX), Math.abs(startY - endY));
 				
 			}
 			if (setTemp == 2) {
-				fp.updateImage(j.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
-				zoomedIn = true;
+				fp.updateImage(j.rectangle(textFromBox2, textFromBox, newX, newY, newW, newH));
 			}
 			if (setTemp == 3) {
-				fp.updateImage(b.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
-				zoomedIn = true;
+				fp.updateImage(b.rectangle(textFromBox2, textFromBox, newX, newY, newW, newH));
 			}
 			if (setTemp == 4) {
-				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
-				zoomedIn = true;
+				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, newX, newY, newW, newH));
 			}
-
+			
+//			width1 = width1 - Math.abs(startX-endX) * 512 / (512 - Math.abs(startX-endX)); 
+//			height1 = height1 - Math.abs(startY - endY) * 512 / (512 - Math.abs(startY - endY));
+			width1 = Math.abs(startX-endX);
+			height1 = Math.abs(startY - endY);
+			
+			width2 = Math.abs(startX - endX);
+			height2 = Math.abs(startY - endY) ;
+			
+			
 		}
 
 		@Override
@@ -600,13 +640,6 @@ public class UI implements Observer {
 		
 
 	}
-	
-	private void zoomedInAdjustWindow(int xRange, int yRange) {
-
-	}
-	
-	private void zoomedOutAdjustWindow() {
-		
-	}
 
 }
+
