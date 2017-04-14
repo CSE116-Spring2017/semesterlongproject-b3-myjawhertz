@@ -77,6 +77,10 @@ public class UI implements Observer {
 	private JMenuItem burningship;
 	private JMenuItem madelbrot;
 	private JButton reset;
+	
+	//if zoomedIn is true, this will cause the default array to adjust to the zoomed in coordinates
+	//if zoomedIn is false, the default 512x512 array is in affect
+	private boolean zoomedIn = false; 
 	/**
 	 * Calls the methods to generate a new UI for the program when booting up.
 	 * 
@@ -418,15 +422,19 @@ public class UI implements Observer {
 				// if text in box is a valid number between 2 and 255
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+					zoomedIn = false;
 				}
 				if (setTemp == 2) {
 					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
+					zoomedIn = false;
 				}
 				if (setTemp == 3) {
 					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
+					zoomedIn = false;
 				}
 				if (setTemp == 4) {
 					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
+					zoomedIn = false;
 				}
 			}
 		});
@@ -561,16 +569,21 @@ public class UI implements Observer {
 				//System.out.println("SDFfgsdgSD");
 				fp.updateImage(m.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
 				System.out.println("1234");
+				zoomedIn = true;
+				zoomedInAdjustWindow(Math.abs(startX-endX), Math.abs(startY - endY));
 				
 			}
 			if (setTemp == 2) {
 				fp.updateImage(j.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+				zoomedIn = true;
 			}
 			if (setTemp == 3) {
 				fp.updateImage(b.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+				zoomedIn = true;
 			}
 			if (setTemp == 4) {
 				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, Math.min(startX, endX), Math.min(startY, endY), Math.abs(startX-endX), Math.abs(startY - endY)));
+				zoomedIn = true;
 			}
 
 		}
@@ -586,6 +599,14 @@ public class UI implements Observer {
 		}
 		
 
+	}
+	
+	private void zoomedInAdjustWindow(int xRange, int yRange) {
+
+	}
+	
+	private void zoomedOutAdjustWindow() {
+		
 	}
 
 }
