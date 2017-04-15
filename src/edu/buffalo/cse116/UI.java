@@ -621,7 +621,7 @@ public class UI implements Observer {
 			}
 			
 			if(f!= 0){
-				width1 = (width2*Math.abs(startX - endY)/512);
+				width1 = (width2*Math.abs(startX - endX)/512);
 				height1 =  (height2*Math.abs(startY - endY)/512) ;
 //				System.out.println("part w is : " + width1);
 //				System.out.println("part h is : " + height1);
