@@ -222,7 +222,7 @@ public class burningshipset {
 		return array;
 	}
 	
-	public double getXCordRect(int xRow, double xStart, double xWidth) {
+	public double getXCordRect(int xRow, double xStart, double xWidth) { 
 		double xCord = -1.8 + (0.1 * xStart / 512) + ((0.1 * xWidth / 512) * xRow / 512);
 		return xCord;
 	}

@@ -212,7 +212,7 @@ public class JuliaSet {
 		return xCord;
 	}
 	
-	public double getYCordRect(int yCol, double yStart, double yWidth) {
+	public double getYCordRect(int yCol, double yStart, double yWidth) { 
 		double yCord = -1.0 + (2.0 * yStart / 512) +  ((2.0 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}

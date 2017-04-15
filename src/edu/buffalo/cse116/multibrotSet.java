@@ -217,7 +217,7 @@ public class multibrotSet {
 	 * @param yWidth
 	 * @return
 	 */
-	public double getYCordRect(int yCol, double yStart, double yWidth) {
+	public double getYCordRect(int yCol, double yStart, double yWidth) { 
 		double yCord = -1.3 + (2.6 * yStart / 512) +  ((2.6 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}

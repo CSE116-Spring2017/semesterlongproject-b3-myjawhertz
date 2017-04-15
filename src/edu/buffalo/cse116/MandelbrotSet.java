@@ -195,7 +195,7 @@ public class MandelbrotSet {
 	}
 	
 	
-	public double getXCordRect(int xRow, double xStart, double xWidth) {
+	public double getXCordRect(int xRow, double xStart, double xWidth) { 
 		double xCord = -2.15 + (2.75 * xStart / 512) + ((2.75 * xWidth / 512) * xRow / 512);
 		return xCord;
 	}

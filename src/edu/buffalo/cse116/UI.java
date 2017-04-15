@@ -675,7 +675,7 @@ public class UI implements Observer {
 			}
 			if (setTemp == 4) {
 				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
-			}
+			}  
 			
 			
 			
