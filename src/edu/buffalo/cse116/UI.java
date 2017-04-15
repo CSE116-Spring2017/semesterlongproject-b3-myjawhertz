@@ -9,8 +9,6 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.*;
 
 import edu.buffalo.fractal.FractalPanel;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 /**
  * This is the main class for the GUI for the fractal program. It implements the
@@ -424,7 +422,7 @@ public class UI implements Observer {
 					}
 				}
 				else if((isNumber(textFromBox2)==false)|| a<2 || a>255){
-					ErrorBox("Please enter positive number","ErrorBox");
+					ErrorBox("Please enter numbers between 2 and 255","ErrorBox");
 				}
 			}
 		});
@@ -533,15 +531,12 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-			// int beginX, beginY, width, height;
-			// Graphics gr = _buttonGrid.getGraphics();
-			// gr.setColor(Color.MAGENTA);
-			
+						
 			if (drag == true) {
 
 				currentX = e.getX();
 				currentY = e.getY();
-
+				
 				paint();
 				
 				
