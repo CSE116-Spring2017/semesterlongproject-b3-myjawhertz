@@ -207,12 +207,12 @@ public class JuliaSet {
 		}
 		return array;
 	}
-	public double getXCordRect(int xRow, int xStart, int xWidth) {
+	public double getXCordRect(int xRow, double xStart, double xWidth) {
 		double xCord = -1.7 + (3.4 * xStart / 512) + ((3.4 * xWidth / 512) * xRow / 512);
 		return xCord;
 	}
 	
-	public double getYCordRect(int yCol, int yStart, int yWidth) {
+	public double getYCordRect(int yCol, double yStart, double yWidth) {
 		double yCord = -1.0 + (2.0 * yStart / 512) +  ((2.0 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}
@@ -226,7 +226,7 @@ public class JuliaSet {
 	 *        int gg
 	 * @return array 
 	 */
-	public int[][] rectangle(String i, String b, int e, int r, int er, int gg) {
+	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
 		int[][] array = new int[512][512];

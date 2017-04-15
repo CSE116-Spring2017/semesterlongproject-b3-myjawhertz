@@ -45,15 +45,20 @@ public class UI implements Observer {
 
 	JTextField jt = new JTextField(30);
 	JTextField et = new JTextField(30);
-	int width1 = 512;
-	int height1 = 512;
-	
-	int width2 =512;
-	int height2=512;
-	int newW = 0, newH = 0;
-	private int newX, newY = 0;
+	double width1 = 512;
+	double height1 = 512;
+	double i = 0;
+	int z = 0;
+	int k = 0;
+	int f = 0;
+	double widthHolder = 0;
+	double width2 =512;
+	double height2=512;
+	double newW = 512, newH = 512;
+	private double newX, newY = 0;
 	int beginX, beginY, width, height;
-
+	double rectW = 0;
+	double rectH = 0;
 	JPanel _buttonGrid;
 	private int[][] temp;
 	private JButton enter = new JButton("Recaculate fractal with given escape distance");
@@ -62,7 +67,7 @@ public class UI implements Observer {
 	private String textFromBox2 = "255";
 	private int setTemp;
 	
-	private int zoomedInCount;
+	private int count;
 	
 	
 	// Class Object
@@ -428,17 +433,19 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e){
 				
 				
+				 i = 0;
+				 z = 0;
+				 k = 0;
+				 f = 0;
+				 width2 =512;
+				 height2=512;
+				newW = 512;
+				 newH = 512;
+				 newX=0;
+				 newY = 0;
 				
-				width1 = 512;
-				height1 = 512;
-				
-				width2 =512;
-				height2=512;
-				newW = 0;
-				newH = 0;
-				newX = 0;
-				newY = 0;
-				zoomedInCount = 0;
+				 rectW = 0;
+				rectH = 0;
 				// if text in box is a valid number between 2 and 255
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
@@ -573,64 +580,110 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			System.out.println("RELEASED");
 			endX = e.getX();
 			endY = e.getY();
 			
-			zoomedInCount += 1;
-			
-			
-			
-			newX = newX + Math.min(startX, endX) * width1 / 512;
 			
 
-			newY = newY + Math.min(startY, endY) * height1 / 512;
+	
 			
+				
 			
+			widthHolder = width2;
+	
 			
-			newW = Math.abs(startX - endX) * width2 / 512;
-			
-			newH = Math.abs(startY - endY) * height2 / 512 ;
-//			
-			
-//			int asf = 1;
-//			if(asf == 1){
-//				width2 = Math.abs(startX-endX);
-//				height2 = Math.abs(startY - endY);
-//				asf++;
-//			}
-
-			if (zoomedInCount > 1) {
-				width2 = Math.abs(startX - endY);
-				height2 = Math.abs(startY - endY);
-			} else {
-				width2 = 512;
-				height2 = 512;
+			// starting x and y in rectangle
+			if(i != 0){
+				newW = newW + (Math.min(startX, endX) * rectW / 512);
+//				System.out.println(rectW);
+				
+				newH = newH + (Math.min(startY, endY) * rectH / 512) ;
 			}
+			
+			if(i == 0){
+				newW =  Math.min(startX, endX) ;
+				
+				newH =  Math.min(startY, endY)  ;
+			i++;
+			}
+			
+			
+			
+			if(k!=0){
+				width2 =  width2 - (width2 - width1);
+				height2 = height2 -  (height2  - height1) ;
+			}
+			
+			if(k==0){
+				width2 =  512;
+				height2 = 512 ;
+				k++;
+			}
+			
+			if(f!= 0){
+				width1 = (width2*Math.abs(startX - endY)/512);
+				height1 =  (height2*Math.abs(startY - endY)/512) ;
+//				System.out.println("part w is : " + width1);
+//				System.out.println("part h is : " + height1);
+			}
+//			if(f!= 0){
+//				width1 = width1 + (width2 - width1);
+//				height1 = height1 + (height2 - height1);
+//				System.out.println("part is : " + width1);
+//			}
+			
+			if(f==0){
+				width1 = Math.abs(startX - endX);
+				height1 = Math.abs(startY - endY);
+//				System.out.println("part is : " + width1);
+				f++;
+			}
+			
+//			System.out.println("whole is : " + width2);
+			
+			if(z != 0){
+				rectW =  width1;
+				rectH =  height1;
+//				System.out.println(rectW);
+			
+//				System.out.println(width1);
+////				
+//				System.out.println("part is : " + width1);
+//				System.out.println("whole is : " + width2);
+			}
+			if(z == 0){
+				rectW = Math.abs(startX - endX);
+				rectH = Math.abs(startY - endY);
+//				System.out.println(rectW);
+//				System.out.println("part is : " + width1);
+//				System.out.println("whole is : " + width2);
+					z++;
+			}
+			
+			
 			
 			if (setTemp == 1) {
 				//System.out.println("SDFfgsdgSD");
-				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newX, newY , newW, newH));
-				System.out.println("1234");
-				
+				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newW, newH , rectW, rectH));
+//				System.out.println(rectW);
 			}
 			if (setTemp == 2) {
-				fp.updateImage(j.rectangle(textFromBox2, textFromBox, newX, newY, newW, newH));
+				fp.updateImage(j.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
 			}
 			if (setTemp == 3) {
-				fp.updateImage(b.rectangle(textFromBox2, textFromBox, newX, newY, newW, newH));
+				fp.updateImage(b.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
 			}
 			if (setTemp == 4) {
-				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, newX, newY, newW, newH));
+				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
 			}
 			
-//			width1 = width1 - Math.abs(startX-endX) * 512 / (512 - Math.abs(startX-endX)); 
-//			height1 = height1 - Math.abs(startY - endY) * 512 / (512 - Math.abs(startY - endY));
-			width1 = Math.abs(startX-endX);
-			height1 = Math.abs(startY - endY);
 			
-			width2 = Math.abs(startX - endX);
-			height2 = Math.abs(startY - endY) ;
+			
+			
+			
+			
+			
+			
 			
 			
 		}
