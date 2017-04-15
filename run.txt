@@ -5,4 +5,6 @@ Use the menu bar on the top to choose a fractal set under "Fractal", color schem
 The color can be changed ONLY once a fractal has been chosen.
 The input box allows the user to change the escape distance
 "Re-calculate fractal with given escape time" should be clicked once desired escape time is in the text field ONLY after a fractal is chosen. 
-If the users entry to recalculate fractal is less then or equal to 0, the console will display an error message.
+If the users entry to recalculate fractal is less then or equal to 0 or any illegal entry, the console will display an error message.
+"recalculate fractal with given escape time" button is clicked once user enter's desired escape time
+"Recalculate and redisplay the fractal using the default coordinate range" zooms out the fractal to default 512*512
