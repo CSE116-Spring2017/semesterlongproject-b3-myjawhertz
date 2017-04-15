@@ -641,7 +641,7 @@ public class UI implements Observer {
 			
 //			System.out.println("whole is : " + width2);
 			
-			if(z != 0){
+//			if(z != 0){
 				rectW =  width1;
 				rectH =  height1;
 //				System.out.println(rectW);
@@ -650,15 +650,15 @@ public class UI implements Observer {
 ////				
 //				System.out.println("part is : " + width1);
 //				System.out.println("whole is : " + width2);
-			}
-			if(z == 0){
-				rectW = Math.abs(startX - endX);
-				rectH = Math.abs(startY - endY);
-//				System.out.println(rectW);
-//				System.out.println("part is : " + width1);
-//				System.out.println("whole is : " + width2);
-					z++;
-			}
+//			}
+//			if(z == 0){
+//				rectW = Math.abs(startX - endX);
+//				rectH = Math.abs(startY - endY);
+////				System.out.println(rectW);
+////				System.out.println("part is : " + width1);
+////				System.out.println("whole is : " + width2);
+//					z++;
+//			}
 			
 			
 			
