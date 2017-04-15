@@ -7,3 +7,7 @@ with the new Escape Times.
 If an illegal escape distance is entered, an error will be printed in the console
 
 How to update Escape Times:
+You can type in new Escape Time into the text box above the buttong "Recalculate fractal with given 
+escape time" and then hit that button
+If any illegal character is entered besides a number, an error will be thrown
+
