@@ -62,7 +62,7 @@ public class UI implements Observer {
 	private String textFromBox2 = "255";
 	private int setTemp;
 	
-	private int count;
+	private int zoomedInCount;
 	
 	
 	// Class Object
@@ -435,9 +435,10 @@ public class UI implements Observer {
 				width2 =512;
 				height2=512;
 				newW = 0;
-						newH = 0;
+				newH = 0;
 				newX = 0;
 				newY = 0;
+				zoomedInCount = 0;
 				// if text in box is a valid number between 2 and 255
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
@@ -576,7 +577,7 @@ public class UI implements Observer {
 			endX = e.getX();
 			endY = e.getY();
 			
-			count = 0;
+			zoomedInCount += 1;
 			
 			
 			
@@ -592,14 +593,20 @@ public class UI implements Observer {
 			newH = Math.abs(startY - endY) * height2 / 512 ;
 //			
 			
-			int asf = 1;
-			if(asf == 1){
-				width2 = Math.abs(startX-endX);
-				height2 = Math.abs(startY - endY);
-				asf++;
-			}
+//			int asf = 1;
+//			if(asf == 1){
+//				width2 = Math.abs(startX-endX);
+//				height2 = Math.abs(startY - endY);
+//				asf++;
+//			}
 
-			
+			if (zoomedInCount > 1) {
+				width2 = Math.abs(startX - endY);
+				height2 = Math.abs(startY - endY);
+			} else {
+				width2 = 512;
+				height2 = 512;
+			}
 			
 			if (setTemp == 1) {
 				//System.out.println("SDFfgsdgSD");
