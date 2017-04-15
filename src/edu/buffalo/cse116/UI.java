@@ -371,25 +371,28 @@ public class UI implements Observer {
 					ErrorBox("Please insert numbers only!","ErrorBox");
 					
 				}
-				int a = Integer.parseInt(textFromBox);
+				else{
+					int a = Integer.parseInt(textFromBox);
 
-				if ((isNumber(textFromBox) == true) && (a > 0)) { // if text in box is a valid positive number
-					if (setTemp == 1) {
-						fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-					if (setTemp == 2) {
-						fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-					if (setTemp == 3) {
-						fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-					if (setTemp == 4) {
-						fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-					else if ((isNumber(textFromBox) == false) || a < 0) {
-						ErrorBox("Please enter positive number", "ErrorBox");
-					}
+					if ((isNumber(textFromBox) == true) && (a > 0)) { // if text in box is a valid positive number
+						if (setTemp == 1) {
+							fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+						}
+						if (setTemp == 2) {
+							fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
+						}
+						if (setTemp == 3) {
+							fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
+						}
+						if (setTemp == 4) {
+							fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
+						}
+						else if ((isNumber(textFromBox) == false) || a < 0) {
+							ErrorBox("Please enter positive number", "ErrorBox");
+						}
+	
 				}
+								}
 			}
 		});
 
@@ -402,9 +405,8 @@ public class UI implements Observer {
 					ErrorBox("Please insert numbers only!","ErrorBox");
 					
 				}
-				
-				
-				int a = Integer.parseInt(textFromBox2);
+				else{
+					int a = Integer.parseInt(textFromBox2);
 				
 				if ((isNumber(textFromBox2) == true) && a >= 2 && a <= 255) {
 					// if text in box is a valid number between 2 and 255
@@ -423,7 +425,9 @@ public class UI implements Observer {
 				}
 				else if((isNumber(textFromBox2)==false)|| a<2 || a>255){
 					ErrorBox("Please enter numbers between 2 and 255","ErrorBox");
-				}
+				}}
+				
+				
 			}
 		});
 		
