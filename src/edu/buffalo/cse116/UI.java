@@ -11,11 +11,11 @@ import javax.swing.*;
 import edu.buffalo.fractal.FractalPanel;
 
 /**
- *  * This is the main class for the GUI for the fractal program. It implements
- * the  * Observer class and holds the calls to add the fractal display, menu
- * bar  * items, and the button & text box needed to change the distance used
- * for  * Escape-Time calculations.  *   * @author Alec Otminski  * @author
- * Stephen Fung  * @author Ayesha Ismail  * @author Junhong Jeong  *  
+ *  This is the main class for the GUI for the fractal program. It implements
+ * the  Observer class and holds the calls to add the fractal display, menu
+ * bar  items, and the button & text box needed to change the distance used
+ * for  Escape-Time calculations.  @author Alec Otminski  @author
+ * Stephen Fung @author Ayesha Ismail  @author Junhong Jeong
  */
 public class UI implements Observer {
 
@@ -86,11 +86,11 @@ public class UI implements Observer {
 	private JButton reset;
 
 	/**
-	 * Calls the methods to generate a new UI for the program when booting up.  
+	 * Calls the methods to generate a new UI for the program when booting up�
 	 * 
 	 * @param m
-	 *                        The model used for the UI that contains observers
-	 *            for the             button and menu bar items
+	 *            The model used for the UI that contains observers
+	 *            for the button and menu bar items
 	 */
 	public UI(Model m) {
 
