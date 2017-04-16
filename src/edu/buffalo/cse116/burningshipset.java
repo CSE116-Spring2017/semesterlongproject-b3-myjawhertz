@@ -144,7 +144,7 @@ public class burningshipset {
 
 	/**
 	 * @param xCalc
-	 *            - Y-coordinate range from -1.8 to -1.7
+	 *            - X-coordinate range from -1.8 to -1.7
 	 * @param yCalc
 	 *            - Y-coordinate range from -0.08 to 0.025
 	 * @return - passes with an escape distance of 3
@@ -168,7 +168,12 @@ public class burningshipset {
 
 		return passes;
 	}
-
+	/**
+	 * 
+	 * @param xCalc x - coordinate range from -1.8 from -1.7
+	 * @param yCalc y - coordinate range from -0.08 from 0.025
+	 * @return number of passes when distance is 2 and passes less than 135
+	 */
 	public int burningshipsetDist2Pass135(double xCalc, double yCalc) {
 		double x = xCalc;
 		double y = yCalc;
@@ -188,7 +193,14 @@ public class burningshipset {
 
 		return passes;
 	}
-
+	/**
+	 * 
+	 * @param xCalc x - coordinate range from -1.8 from -1.7
+	 * @param yCalc y - coordinate range from -0.08 from 0.025
+	 * @param i escape distance
+	 * @param z escape time
+	 * @return number of passes calculated
+	 */
 	public int burningshipRealPasses(double xCalc, double yCalc, int i, int z) {
 		double x = xCalc;
 		double y = yCalc;
@@ -216,21 +228,42 @@ public class burningshipset {
 		for (int x = 0; x < 512; x++) {
 			for (int y = 0; y < 512; y++) {
 				array[x][y] = burningshipRealPasses(getXCord(x), getYCord(y), a, c);
-				// System.out.println(array[x][y]);
 			}
 		} 
 		return array;
 	}
-	
+	/**
+	 * 
+	 * @param xRow numbor of rows
+	 * @param xStart current location of x
+	 * @param xWidth width 
+	 * @return calculated x coordinates
+	 */
 	public double getXCordRect(int xRow, double xStart, double xWidth) { 
 		double xCord = -1.8 + (0.1 * xStart / 512) + ((0.1 * xWidth / 512) * xRow / 512);
 		return xCord;
 	}
-	
+	/**
+	 * 
+	 * @param yCol number of columns
+	 * @param yStart current location of y
+	 * @param yWidth height
+	 * @return calculated y coordinates
+	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) {
 		double yCord = -0.08 + (0.105 * yStart / 512) +  ((0.105 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}
+	/**
+	 * 
+	 * @param i text read from userinput
+	 * @param b text read from userinput
+	 * @param e	starting point of x value
+	 * @param r starting point of y value
+	 * @param er rectangle's width
+	 * @param gg rectangle's height
+	 * @return
+	 */
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
@@ -238,7 +271,7 @@ public class burningshipset {
 		for (int x = 0; x < 512; x++) {
 			for (int y = 0; y < 512; y++) {
 				array[x][y] = burningshipRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
-				// System.out.println(array[x][y]);
+				
 			} 
 		}
 		return array;

@@ -122,15 +122,11 @@ public class UI implements Observer {
 
 		// The main panel
 		_mainPanel = new JPanel();
-		// _mainPanel.setLayout(new GridBagLayout());
-
-		// _3rdRowPanel = new JPanel();
-		// _3rdRowPanel.setLayout(new GridLayout(1, 7));
-
+		
 		// The panel that contains the function to re-calculate the
 		// fractal(Button) and input box
 		_5thRowPanel = new JPanel();
-		// _5thRowPanel.setLayout(new GridLayout(2, 1));
+	
 
 		_spacer = new JPanel();
 		_spacer2 = new JPanel();
@@ -149,7 +145,6 @@ public class UI implements Observer {
 		fractal = new JMenu("Fractal");
 		mb.add(fractal);
 
-		// _window.getContentPane().addMouseListener(new MouseListener());
 
 		color = new JMenu("Change color");
 		mb.add(color);
@@ -212,14 +207,7 @@ public class UI implements Observer {
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-	// public void addLayer(){
-	//
-	// JPanel window = new JPanel();
-	// window.setOpaque(true);
-	// rectangle = new JLayeredPane();
-	// rectangle.add(_buttonGrid, Integer.valueOf(1));
-	// rectangle.add(window, Integer.valueOf(2));
-	// }
+	
 
 	/**
 	 * Change information displayed on the UI based on what has changed in the
@@ -459,13 +447,6 @@ public class UI implements Observer {
 			}
 		});
 
-		// _buttonGrid.addMouseListener(new MouseListener(){
-		// public void mouseDragged(MouseEvent m){
-		// System.out.println(m.getX());
-		// System.out.println(m.getY());
-		// }
-		// });
-
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
 	}
@@ -504,12 +485,10 @@ public class UI implements Observer {
 
 		public void paint(Graphics g) {
 
-			// gr = _buttonGrid.getGraphics();
 			gr = fp.getGraphics();
 			Color myColor = new Color(55, 122, 125, 225);
 			gr.setColor(myColor);
 
-//			fp.paintComponents(g);
 			_buttonGrid.paintComponents(_buttonGrid.getGraphics());
 			
 			if (drag == true) {
@@ -519,9 +498,7 @@ public class UI implements Observer {
 				height = Math.abs(currentY - startY);
 
 				gr.drawRect(beginX, beginY, width, height);
-				// gr.fillRect(beginX, beginY, width, height);
 
-//				g.drawLine(0, 0, 0, 0);
 				
 			}
 
@@ -540,16 +517,6 @@ public class UI implements Observer {
 				fp.validate();
 
 			}
-
-			// if(drag == true){
-			// beginX = Math.min(startX, currentX);
-			// beginY = Math.min(startY, currentY);
-			// width = Math.abs(currentX - startX);
-			// height = Math.abs(currentY - startY);
-			//
-			// gr.drawRect(beginX, beginY, width, height);
-			//
-			// }
 
 		}
 
@@ -580,14 +547,11 @@ public class UI implements Observer {
 			// starting x and y in rectangle
 			if (i != 0) {
 				newW = newW + (Math.min(startX, endX) * rectW / 512);
-				// System.out.println(rectW);
-
 				newH = newH + (Math.min(startY, endY) * rectH / 512);
 			}
 
 			if (i == 0) {
 				newW = Math.min(startX, endX);
-
 				newH = Math.min(startY, endY);
 				i++;
 			}
@@ -606,47 +570,22 @@ public class UI implements Observer {
 			if (f != 0) {
 				width1 = (width2 * Math.abs(startX - endX) / 512);
 				height1 = (height2 * Math.abs(startY - endY) / 512);
-				// System.out.println("part w is : " + width1);
-				// System.out.println("part h is : " + height1);
 			}
-			// if(f!= 0){
-			// width1 = width1 + (width2 - width1);
-			// height1 = height1 + (height2 - height1);
-			// System.out.println("part is : " + width1);
-			// }
+		
 
 			if (f == 0) {
 				width1 = Math.abs(startX - endX);
 				height1 = Math.abs(startY - endY);
-				// System.out.println("part is : " + width1);
 				f++;
 			}
 
-			// System.out.println("whole is : " + width2);
 
-			// if(z != 0){
 			rectW = width1;
 			rectH = height1;
-			// System.out.println(rectW);
 
-			// System.out.println(width1);
-			////
-			// System.out.println("part is : " + width1);
-			// System.out.println("whole is : " + width2);
-			// }
-			// if(z == 0){
-			// rectW = Math.abs(startX - endX);
-			// rectH = Math.abs(startY - endY);
-			//// System.out.println(rectW);
-			//// System.out.println("part is : " + width1);
-			//// System.out.println("whole is : " + width2);
-			// z++;
-			// }
 
 			if (setTemp == 1) {
-				// System.out.println("SDFfgsdgSD");
 				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
-				// System.out.println(rectW);
 			}
 			if (setTemp == 2) {
 				fp.updateImage(j.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
