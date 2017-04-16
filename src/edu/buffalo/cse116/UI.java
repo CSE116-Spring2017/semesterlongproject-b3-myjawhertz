@@ -171,7 +171,7 @@ public class UI implements Observer {
 
 		// The Panel that holds the image
 		_buttonGrid = new JPanel();
-
+ 
 		m = new MandelbrotSet();
 		j = new JuliaSet();
 		b = new burningshipset();

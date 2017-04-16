@@ -1,7 +1,7 @@
 package edu.buffalo.cse116;
 
 //class for burningshipset
-public class burningshipset {
+public class burningshipset { 
 	/**
 	 * @param xRow
 	 *            - row from 0 - 512
