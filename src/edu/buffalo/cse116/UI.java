@@ -11,23 +11,18 @@ import javax.swing.*;
 import edu.buffalo.fractal.FractalPanel;
 
 /**
- * This is the main class for the GUI for the fractal program. It implements the
- * Observer class and holds the calls to add the fractal display, menu bar
- * items, and the button & text box needed to change the distance used for
- * Escape-Time calculations.
- * 
- * @author Alec Otminski
- * @author Stephen Fung
- * @author Ayesha Ismail
- * @author Junhong Jeong
- *
- */
+ *  * This is the main class for the GUI for the fractal program. It implements
+ * the  * Observer class and holds the calls to add the fractal display, menu
+ * bar  * items, and the button & text box needed to change the distance used
+ * for  * Escape-Time calculations.  *   * @author Alec Otminski  * @author
+ * Stephen Fung  * @author Ayesha Ismail  * @author Junhong Jeong  *  
+ */
 public class UI implements Observer {
 
 	Model _model;
 
 	// numbers for graphic
-	int currentX, currentY, startX, startY, endX, endY=0;
+	int currentX, currentY, startX, startY, endX, endY = 0;
 	boolean drag = false;
 
 	// UI elements
@@ -50,8 +45,8 @@ public class UI implements Observer {
 	int k = 0;
 	int f = 0;
 	double widthHolder = 0;
-	double width2 =512;
-	double height2=512;
+	double width2 = 512;
+	double height2 = 512;
 	double newW = 512, newH = 512;
 	private double newX, newY = 0;
 	int beginX, beginY, width, height;
@@ -64,10 +59,9 @@ public class UI implements Observer {
 	private String textFromBox = "2";
 	private String textFromBox2 = "255";
 	private int setTemp;
-	
+
 	private int count;
-	
-	
+
 	// Class Object
 	private FractalPanel fp;
 	MandelbrotSet m;
@@ -90,14 +84,14 @@ public class UI implements Observer {
 	private JMenuItem burningship;
 	private JMenuItem madelbrot;
 	private JButton reset;
-	
+
 	/**
-	* Calls the methods to generate a new UI for the program when booting up.
-	* 
-	* @param m
-	*            The model used for the UI that contains observers for the
-	*            button and menu bar items
-	*/
+	 * Calls the methods to generate a new UI for the program when booting up.  
+	 * 
+	 * @param m
+	 *                        The model used for the UI that contains observers
+	 *            for the             button and menu bar items
+	 */
 	public UI(Model m) {
 
 		// Keep a permanent reference to the Model in order to notify it of user
@@ -105,9 +99,9 @@ public class UI implements Observer {
 		_model = m;
 
 		/**
-		* The UI is taking care of itself here - it's making sure the model
-		* will know to call it when it's time for visual updates.
-		*/
+		 * The UI is taking care of itself here - it's making sure the model
+		 * will know to call it when it's time for visual updates.
+		 */
 		_model.addObserver(this);
 
 		// Perform some setup tasks that only need to be done once.
@@ -118,25 +112,25 @@ public class UI implements Observer {
 	}
 
 	/**
-	* Creates the JPanels, buttons, Menu Items, links to Fractal Sets, and
-	* JFrame needed for the program. This method is only to be called once
-	* during the start of the program.
-	*/
+	 * Creates the JPanels, buttons, Menu Items, links to Fractal Sets, and
+	 * JFrame needed for the program. This method is only to be called once
+	 * during the start of the program.
+	 */
 	public void initialize() {
 
 		_window = new JFrame("Super awesome project");
 
 		// The main panel
 		_mainPanel = new JPanel();
-//		_mainPanel.setLayout(new GridBagLayout());
+		// _mainPanel.setLayout(new GridBagLayout());
 
-//		_3rdRowPanel = new JPanel();
-//		_3rdRowPanel.setLayout(new GridLayout(1, 7));
+		// _3rdRowPanel = new JPanel();
+		// _3rdRowPanel.setLayout(new GridLayout(1, 7));
 
 		// The panel that contains the function to re-calculate the
 		// fractal(Button) and input box
 		_5thRowPanel = new JPanel();
-//		_5thRowPanel.setLayout(new GridLayout(2, 1));
+		// _5thRowPanel.setLayout(new GridLayout(2, 1));
 
 		_spacer = new JPanel();
 		_spacer2 = new JPanel();
@@ -206,11 +200,11 @@ public class UI implements Observer {
 		_5thRowPanel.add(reset);
 
 		/*
-		* Here I'm using an anonymous inner class. Notice that I still have
-		* access to UI's instance variables. Doing this is much more convenient
-		* than creating a whole separate class and setting up an association
-		* relationship with UI.
-		*/
+		 * Here I'm using an anonymous inner class. Notice that I still have
+		 * access to UI's instance variables. Doing this is much more convenient
+		 * than creating a whole separate class and setting up an association
+		 * relationship with UI.
+		 */
 
 		// Final steps to display the window
 		_window.setContentPane(_mainPanel);
@@ -218,19 +212,19 @@ public class UI implements Observer {
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-//	public void addLayer(){
-//		
-//		JPanel window = new JPanel();
-//		window.setOpaque(true);
-//		rectangle = new JLayeredPane();
-//		rectangle.add(_buttonGrid, Integer.valueOf(1));
-//		rectangle.add(window, Integer.valueOf(2));
-//	}
+	// public void addLayer(){
+	//
+	// JPanel window = new JPanel();
+	// window.setOpaque(true);
+	// rectangle = new JLayeredPane();
+	// rectangle.add(_buttonGrid, Integer.valueOf(1));
+	// rectangle.add(window, Integer.valueOf(2));
+	// }
 
 	/**
-	* Change information displayed on the UI based on what has changed in the
-	* Model.
-	*/
+	 * Change information displayed on the UI based on what has changed in the
+	 * Model.
+	 */
 	@Override
 	public void update() {
 
@@ -366,15 +360,53 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e) {
 				textFromBox = jt.getText();
 				jt.setText("");
-				
-				if(ErrorBoxNotNumber(textFromBox)==true){
-					ErrorBox("Please insert numbers only!","ErrorBox");
-					
-				}
-				else{
+
+				if (ErrorBoxNotNumber(textFromBox) == true) {
+					ErrorBox("Please insert numbers only!", "ErrorBox");
+
+				} else {
 					int a = Integer.parseInt(textFromBox);
 
-					if ((isNumber(textFromBox) == true) && (a > 0)) { // if text in box is a valid positive number
+					if ((isNumber(textFromBox) == true) && (a > 0)) { // if text
+																		// in
+																		// box
+																		// is a
+																		// valid
+																		// positive
+																		// number
+						if (setTemp == 1) {
+							fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+						}
+						if (setTemp == 2) {
+							fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
+						}
+						if (setTemp == 3) {
+							fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
+						}
+						if (setTemp == 4) {
+							fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
+						} else if ((isNumber(textFromBox) == false) || a < 0) {
+							ErrorBox("Please enter positive number", "ErrorBox");
+						}
+
+					}
+				}
+			}
+		});
+
+		enterForTime.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textFromBox2 = et.getText();
+				et.setText("");
+
+				if (ErrorBoxNotNumber(textFromBox2) == true) {
+					ErrorBox("Please insert numbers only!", "ErrorBox");
+
+				} else {
+					int a = Integer.parseInt(textFromBox2);
+
+					if ((isNumber(textFromBox2) == true) && a >= 2 && a <= 255) {
+						// if text in box is a valid number between 2 and 255
 						if (setTemp == 1) {
 							fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
 						}
@@ -387,66 +419,29 @@ public class UI implements Observer {
 						if (setTemp == 4) {
 							fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 						}
-						else if ((isNumber(textFromBox) == false) || a < 0) {
-							ErrorBox("Please enter positive number", "ErrorBox");
-						}
-	
+					} else if ((isNumber(textFromBox2) == false) || a < 2 || a > 255) {
+						ErrorBox("Please enter numbers between 2 and 255", "ErrorBox");
+					}
 				}
-								}
+
 			}
 		});
 
-		enterForTime.addActionListener(new ActionListener() {
+		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textFromBox2 = et.getText();
-				et.setText("");
-				
-				if(ErrorBoxNotNumber(textFromBox2)==true){
-					ErrorBox("Please insert numbers only!","ErrorBox");
-					
-				}
-				else{
-					int a = Integer.parseInt(textFromBox2);
-				
-				if ((isNumber(textFromBox2) == true) && a >= 2 && a <= 255) {
-					// if text in box is a valid number between 2 and 255
-					if (setTemp == 1) {
-						fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-					if (setTemp == 2) {
-						fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-					if (setTemp == 3) {
-						fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-					if (setTemp == 4) {
-						fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-					}
-				}
-				else if((isNumber(textFromBox2)==false)|| a<2 || a>255){
-					ErrorBox("Please enter numbers between 2 and 255","ErrorBox");
-				}}
-				
-				
-			}
-		});
-		
-		reset.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				
-				
-				 i = 0;
-				 z = 0;
-				 k = 0;
-				 f = 0;
-				 width2 =512;
-				 height2=512;
+
+				i = 0;
+				z = 0;
+				k = 0;
+				f = 0;
+				width2 = 512;
+				height2 = 512;
 				newW = 512;
-				 newH = 512;
-				 newX=0;
-				 newY = 0;
-				
-				 rectW = 0;
+				newH = 512;
+				newX = 0;
+				newY = 0;
+
+				rectW = 0;
 				rectH = 0;
 				// if text in box is a valid number between 2 and 255
 				if (setTemp == 1) {
@@ -463,8 +458,6 @@ public class UI implements Observer {
 				}
 			}
 		});
-		
-		
 
 		// _buttonGrid.addMouseListener(new MouseListener(){
 		// public void mouseDragged(MouseEvent m){
@@ -476,9 +469,9 @@ public class UI implements Observer {
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
 	}
-	
-	public void changed(){
-		
+
+	public void changed() {
+
 	}
 
 	public static boolean isNumber(final String s) {
@@ -495,32 +488,30 @@ public class UI implements Observer {
 		fractal.add(jop);
 		JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
-	
-	public boolean ErrorBoxNotNumber(String str){
-		for(int i = 0; i < str.length(); i++){
+
+	public boolean ErrorBoxNotNumber(String str) {
+		for (int i = 0; i < str.length(); i++) {
 			char c = str.charAt(i);
-			if(!Character.isDigit(c)){
+			if (!Character.isDigit(c)) {
 				return true;
 			}
 		}
 		return false;
-		
+
 	}
-	
+
 	private class HandlerClass extends JFrame implements MouseListener, MouseMotionListener {
 
-		
-		
 		public void paint(Graphics g) {
-			
-//			gr = _buttonGrid.getGraphics();
+
+			// gr = _buttonGrid.getGraphics();
 			gr = fp.getGraphics();
-			Color myColor = new Color(55, 122, 125, 80);
+			Color myColor = new Color(55, 122, 125, 225);
 			gr.setColor(myColor);
+
+//			fp.paintComponents(g);
+			_buttonGrid.paintComponents(_buttonGrid.getGraphics());
 			
-			
-fp.paintComponents(g);
-_buttonGrid.paintComponents(g);
 			if (drag == true) {
 				beginX = Math.min(startX, currentX);
 				beginY = Math.min(startY, currentY);
@@ -528,27 +519,25 @@ _buttonGrid.paintComponents(g);
 				height = Math.abs(currentY - startY);
 
 				gr.drawRect(beginX, beginY, width, height);
-//				gr.fillRect(beginX, beginY, width, height);
+				// gr.fillRect(beginX, beginY, width, height);
+
+//				g.drawLine(0, 0, 0, 0);
 				
-				g.drawLine(0,0,0,0);
 			}
 
 		}
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-						
+
 			if (drag == true) {
 
 				currentX = e.getX();
 				currentY = e.getY();
-				
+
 				paint(fp.getGraphics());
-			fp.invalidate();
-			fp.validate();
-				
-				
-				
+				fp.invalidate();
+				fp.validate();
 
 			}
 
@@ -563,11 +552,10 @@ _buttonGrid.paintComponents(g);
 			// }
 
 		}
-		
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-			
+
 		}
 
 		@Override
@@ -586,90 +574,79 @@ _buttonGrid.paintComponents(g);
 		public void mouseReleased(MouseEvent e) {
 			endX = e.getX();
 			endY = e.getY();
-			
-			
 
-	
-			
-				
-			
 			widthHolder = width2;
-	
-			
+
 			// starting x and y in rectangle
-			if(i != 0){
+			if (i != 0) {
 				newW = newW + (Math.min(startX, endX) * rectW / 512);
-//				System.out.println(rectW);
-				
-				newH = newH + (Math.min(startY, endY) * rectH / 512) ;
+				// System.out.println(rectW);
+
+				newH = newH + (Math.min(startY, endY) * rectH / 512);
 			}
-			
-			if(i == 0){
-				newW =  Math.min(startX, endX) ;
-				
-				newH =  Math.min(startY, endY)  ;
-			i++;
+
+			if (i == 0) {
+				newW = Math.min(startX, endX);
+
+				newH = Math.min(startY, endY);
+				i++;
 			}
-			
-			
-			
-			if(k!=0){
-				width2 =  width2 - (width2 - width1);
-				height2 = height2 -  (height2  - height1) ;
+
+			if (k != 0) {
+				width2 = width2 - (width2 - width1);
+				height2 = height2 - (height2 - height1);
 			}
-			
-			if(k==0){
-				width2 =  512;
-				height2 = 512 ;
+
+			if (k == 0) {
+				width2 = 512;
+				height2 = 512;
 				k++;
 			}
-			
-			if(f!= 0){
-				width1 = (width2*Math.abs(startX - endX)/512);
-				height1 =  (height2*Math.abs(startY - endY)/512) ;
-//				System.out.println("part w is : " + width1);
-//				System.out.println("part h is : " + height1);
+
+			if (f != 0) {
+				width1 = (width2 * Math.abs(startX - endX) / 512);
+				height1 = (height2 * Math.abs(startY - endY) / 512);
+				// System.out.println("part w is : " + width1);
+				// System.out.println("part h is : " + height1);
 			}
-//			if(f!= 0){
-//				width1 = width1 + (width2 - width1);
-//				height1 = height1 + (height2 - height1);
-//				System.out.println("part is : " + width1);
-//			}
-			
-			if(f==0){
+			// if(f!= 0){
+			// width1 = width1 + (width2 - width1);
+			// height1 = height1 + (height2 - height1);
+			// System.out.println("part is : " + width1);
+			// }
+
+			if (f == 0) {
 				width1 = Math.abs(startX - endX);
 				height1 = Math.abs(startY - endY);
-//				System.out.println("part is : " + width1);
+				// System.out.println("part is : " + width1);
 				f++;
 			}
-			
-//			System.out.println("whole is : " + width2);
-			
-//			if(z != 0){
-				rectW =  width1;
-				rectH =  height1;
-//				System.out.println(rectW);
-			
-//				System.out.println(width1);
-////				
-//				System.out.println("part is : " + width1);
-//				System.out.println("whole is : " + width2);
-//			}
-//			if(z == 0){
-//				rectW = Math.abs(startX - endX);
-//				rectH = Math.abs(startY - endY);
-////				System.out.println(rectW);
-////				System.out.println("part is : " + width1);
-////				System.out.println("whole is : " + width2);
-//					z++;
-//			}
-			
-			
-			
+
+			// System.out.println("whole is : " + width2);
+
+			// if(z != 0){
+			rectW = width1;
+			rectH = height1;
+			// System.out.println(rectW);
+
+			// System.out.println(width1);
+			////
+			// System.out.println("part is : " + width1);
+			// System.out.println("whole is : " + width2);
+			// }
+			// if(z == 0){
+			// rectW = Math.abs(startX - endX);
+			// rectH = Math.abs(startY - endY);
+			//// System.out.println(rectW);
+			//// System.out.println("part is : " + width1);
+			//// System.out.println("whole is : " + width2);
+			// z++;
+			// }
+
 			if (setTemp == 1) {
-				//System.out.println("SDFfgsdgSD");
-				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newW, newH , rectW, rectH));
-//				System.out.println(rectW);
+				// System.out.println("SDFfgsdgSD");
+				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
+				// System.out.println(rectW);
 			}
 			if (setTemp == 2) {
 				fp.updateImage(j.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
@@ -679,31 +656,19 @@ _buttonGrid.paintComponents(g);
 			}
 			if (setTemp == 4) {
 				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
-			}  
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			}
+
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-
 
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 		}
-		
 
 	}
 
 }
-
