@@ -499,7 +499,6 @@ public class UI implements Observer {
 	
 	/**
 	 * handles rectangle drag / redrawing of the zoomed in area
-	 *
 	 */
 
 	private class HandlerClass extends JFrame implements MouseListener, MouseMotionListener {
