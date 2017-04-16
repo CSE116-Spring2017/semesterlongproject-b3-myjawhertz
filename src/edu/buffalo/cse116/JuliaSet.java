@@ -89,7 +89,8 @@ public class JuliaSet {
 	/*
 	 * 
 	 * Takes in xCalc and YCalc and calculates the passes
-	 * 
+	 * @param xCalc takes in X coordinate range
+	 * @param yCalc takes in y Coordinate range
 	 * @return passes
 	 */
 	public int juliasetPass10(double xCalc, double yCalc) {
@@ -114,6 +115,9 @@ public class JuliaSet {
 
 	/*
 	 * Takes in user input for distance and returns passes
+	 * @param double xCalc
+	 * 		  double yCalc
+	 * 		  double i 
 	 * 
 	 * @return passes
 	 * 
@@ -156,7 +160,13 @@ public class JuliaSet {
 		}
 		return array;
 	}
-
+	/*
+	 * Only called in a JUnit test to test if the set returns an escape time of 135 when
+	 * the distance is set to 2 given a certain x and y value.
+	 * @param xCalc - X-Value given in the JUnit test case
+	 * @param yCalc - Y-Value given in the JUnit test case
+	 * @return the Escape-Time of the set == the number of passes done
+	 */
 	public int juliaDist2Pass135(double xCalc, double yCalc) {
 
 		double dist = 0;
@@ -176,7 +186,15 @@ public class JuliaSet {
 		return passes;
 
 	}
-
+	/*
+	 * Calculates the Escape-Time using for the set using the custom distance and maximum number
+	 * of passes which are set by the user.
+	 * @param xCalc - a translated X-Coordinate in the Multibrot Set
+	 * @param yCalc - a translated Y-Coordinate in the Multibrot Set
+	 * @param i - maximum number of passes (determined by user input)
+	 * @param z - distance used for calculations (determined by user input)
+	 * @return the Escape-Time of the set == the number of passes done
+	 */
 	public int juliaRealPasses(double xCalc, double yCalc, int i, int z) {
 		double x = xCalc;
 		double y = yCalc;
@@ -195,7 +213,11 @@ public class JuliaSet {
 
 		return passes;
 	}
-
+	/*
+	 * @param  String i entry from TextBox1: determines maximum number of passes allowed
+	 * 		   String b entry from TextBox2: determines distance used for ET calculations
+	 * @return 2D array of int of Escape-Times for each pixel in 512*512 array
+	 */
 	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
@@ -207,23 +229,33 @@ public class JuliaSet {
 		}
 		return array;
 	}
+	/*@param int xRow
+	 * 		 int xStart
+	 * 		 int xWidth
+	 * 
+	 */
 	public double getXCordRect(int xRow, double xStart, double xWidth) {
 		double xCord = -1.7 + (3.4 * xStart / 512) + ((3.4 * xWidth / 512) * xRow / 512);
 		return xCord;
 	}
-	
+	/*
+	 * @param int yCol
+	 * 		  int yStart is height start
+	 * 		  int yWidth is total width of drawn rectangle
+	 * 
+	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) { 
 		double yCord = -1.0 + (2.0 * yStart / 512) +  ((2.0 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}
 	/*
 	 * Gets the recalculated image once user selects an area to zoom to
-	 * @param String i gets user desired escape distance
-	 *        String b gets user desired escape time
-	 *        int e 
-	 *        int r 
-	 *        int er
-	 *        int gg
+	 * @param String i  gets user desired escape distance
+	 *        String b  gets user desired escape time
+	 *        double e  starting x
+	 *        double r  starting y
+	 *        double er rectangle width
+	 *        double gg rectangle height
 	 * @return array 
 	 */
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
