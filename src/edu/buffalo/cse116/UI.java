@@ -507,18 +507,20 @@ public class UI implements Observer {
 		
 	}
 	
-	private class HandlerClass implements MouseListener, MouseMotionListener {
+	private class HandlerClass extends JFrame implements MouseListener, MouseMotionListener {
 
 		
 		
-		public void paint() {
+		public void paint(Graphics g) {
 			
-			gr = _buttonGrid.getGraphics();
+//			gr = _buttonGrid.getGraphics();
+			gr = fp.getGraphics();
 			Color myColor = new Color(55, 122, 125, 80);
 			gr.setColor(myColor);
 			
 			
-
+fp.paintComponents(g);
+_buttonGrid.paintComponents(g);
 			if (drag == true) {
 				beginX = Math.min(startX, currentX);
 				beginY = Math.min(startY, currentY);
@@ -526,9 +528,9 @@ public class UI implements Observer {
 				height = Math.abs(currentY - startY);
 
 				gr.drawRect(beginX, beginY, width, height);
-				gr.fillRect(beginX, beginY, width, height);
+//				gr.fillRect(beginX, beginY, width, height);
 				
-
+				g.drawLine(0,0,0,0);
 			}
 
 		}
@@ -541,7 +543,9 @@ public class UI implements Observer {
 				currentX = e.getX();
 				currentY = e.getY();
 				
-				paint();
+				paint(fp.getGraphics());
+			fp.invalidate();
+			fp.validate();
 				
 				
 				
@@ -559,10 +563,11 @@ public class UI implements Observer {
 			// }
 
 		}
+		
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-
+			
 		}
 
 		@Override
