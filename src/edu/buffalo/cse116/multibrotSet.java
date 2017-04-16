@@ -199,11 +199,10 @@ public class multibrotSet {
 		return array;
 	}
 	/**
-	 * 
-	 * @param xRow
-	 * @param xStart
-	 * @param xWidth
-	 * @return
+	 * @param xRow - goes from 0 to 512
+	 * @param xStart  0-512 scale of new X starting part
+	 * @param xWidth 0-512 scale of width
+	 * @return x coordinate 
 	 */
 	public double getXCordRect(int xRow, double xStart, double xWidth) {
 		double xCord = -1 + (2.0 * xStart / 512) + ((2.0 * xWidth / 512) * xRow / 512);
@@ -211,11 +210,10 @@ public class multibrotSet {
 	}
 	
 	/**
-	 * 
-	 * @param yCol
-	 * @param yStart
-	 * @param yWidth
-	 * @return
+	 * @param yCol - goes from 0 to 512
+	 * @param yStart 0-512 scale of new Y starting point
+	 * @param yWidth 0-512 sale of height
+	 * @return y coordinate
 	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) { 
 		double yCord = -1.3 + (2.6 * yStart / 512) +  ((2.6 * yWidth / 512) * yCol / 512);
@@ -223,14 +221,13 @@ public class multibrotSet {
 	}
 	
 	/**
-	 * 
-	 * @param i
-	 * @param b
-	 * @param e
-	 * @param r
-	 * @param er
-	 * @param gg
-	 * @return
+	 * @param i - escape distance
+	 * @param b - escape time
+	 * @param e - distance from -2.15
+	 * @param r - distance from -1.3
+	 * @param er - width of dragged area
+	 * @param gg - height of dragged area
+	 * @return 2D array with passes
 	 */
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);

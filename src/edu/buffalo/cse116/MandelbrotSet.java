@@ -4,9 +4,7 @@ public class MandelbrotSet {
 
 	/**
 	 * translate from 0-512 row to xCord
-	 * 
-	 * @param xRow
-	 *            - row from 0 - 512
+	 * @param xRow - row from 0 - 512
 	 * @return y coordinate
 	 **/
 	public double getXCord(int xRow) {
@@ -16,9 +14,7 @@ public class MandelbrotSet {
 
 	/**
 	 * translate from 0-512 row to yCord
-	 * 
-	 * @param yCol
-	 *            - column from 0 - 512
+	 * @param yCol - column from 0 - 512
 	 * @return y coordinate
 	 **/
 	public double getYCord(int yCol) {
@@ -29,10 +25,8 @@ public class MandelbrotSet {
 	/**
 	 * calculates passes
 	 * 
-	 * @param xCalc
-	 *            - X-coordinate range from -2.15 to 0.6
-	 * @param yCalc
-	 *            - Y-coordinate range from -1.3 to 1.3
+	 * @param xCalc - X-coordinate range from -2.15 to 0.6
+	 * @param yCalc - Y-coordinate range from -1.3 to 1.3
 	 * @return number of passes for the inserted xCalc and yCalc
 	 **/
 	public int mandelbrotSet(double xCalc, double yCalc) {
@@ -57,7 +51,6 @@ public class MandelbrotSet {
 
 	/**
 	 * creates a 2D array with passes for each point
-	 * 
 	 * @return 2D array with passes for each point
 	 */
 	public int[][] returnArrayWithPasses() {
@@ -73,13 +66,9 @@ public class MandelbrotSet {
 
 	/**
 	 * Returns a single pass
-	 * 
-	 * @param xCalc
-	 *            - X-coordinate range from -2.15 to 0.6
-	 * @param yCalc
-	 *            - Y-coordinate range from -1.3 to 1.3
-	 * @param i
-	 *            - distance
+	 * @param xCalc - X-coordinate range from -2.15 to 0.6
+	 * @param yCalc - Y-coordinate range from -1.3 to 1.3
+	 * @param i - distance
 	 * @return - the number of passes
 	 */
 
@@ -101,9 +90,7 @@ public class MandelbrotSet {
 
 	/**
 	 * Return a 2D array of passes
-	 * 
-	 * @param i
-	 *            - distance
+	 * @param i - distance
 	 * @return- the number of passes
 	 */
 
@@ -120,12 +107,10 @@ public class MandelbrotSet {
 	}
 
 	/**
-	 * 
-	 * @param xCalc
-	 *            - Y-coordinate range from -2.15 to 0.6
-	 * @param yCalc
-	 *            - Y-coordinate range from -1.3 to 1.3
-	 * @return
+	 * method to pass JUnit test
+	 * @param xCalc - Y-coordinate range from -2.15 to 0.6
+	 * @param yCal - Y-coordinate range from -1.3 to 1.3
+	 * @return Number of passes
 	 */
 
 	public int mandelbrotsetPass10(double xCalc, double yCalc) {
@@ -143,6 +128,13 @@ public class MandelbrotSet {
 		}
 		return passes;
 	}
+	
+	/**
+	 * method to pass JUnit test
+	 * @param xCalc - Y-coordinate range from -2.15 to 0.6
+	 * @param yCal - Y-coordinate range from -1.3 to 1.3
+	 * @return Number of passes
+	 */
 
 	public int mandelbrotDist2Pass135(double xCalc, double yCalc) {
 		double x = xCalc;
@@ -159,6 +151,15 @@ public class MandelbrotSet {
 		}
 		return passes;
 	}
+	
+	/**
+	 * returns passes with given xcord, ycord, number of passes, and escape distance
+	 * @param xCalc - Y-coordinate range from -2.15 to 0.6
+	 * @param yCal - Y-coordinate range from -1.3 to 1.3
+	 * @param i - Escape distance
+	 * @param z -escape time
+	 * @return return passes
+	 */
 
 	public int holder(double xCalc, double yCalc, int i, int z) {
 		double x = xCalc;
@@ -180,6 +181,12 @@ public class MandelbrotSet {
 		return passes;
 	}
 	
+	/**
+	 * 
+	 * @param i - escape distance
+	 * @param b - escape time
+	 * @return 2D array with escape time and passes
+	 */
 	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
@@ -194,17 +201,38 @@ public class MandelbrotSet {
 
 	}
 	
+	/**
+	 * @param xRow - goes from 0 to 512
+	 * @param xStart  0-512 scale of new X starting part
+	 * @param xWidth 0-512 scale of width
+	 * @return x coordinate 
+	 */
 	
 	public double getXCordRect(int xRow, double xStart, double xWidth) { 
 		double xCord = -2.15 + (2.75 * xStart / 512) + ((2.75 * xWidth / 512) * xRow / 512);
 		return xCord;
 	}
 	
+	/**
+	 * @param yCol - goes from 0 to 512
+	 * @param yStart 0-512 scale of new Y starting point
+	 * @param yWidth 0-512 sale of height
+	 * @return y coordinate
+	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) {
 		double yCord = -1.3 + (2.6 * yStart / 512) +  ((2.6 * yWidth / 512) * yCol / 512);
 		return yCord;
 	}
 	
+	/**
+	 * @param i - escape distance
+	 * @param b - escape time
+	 * @param e - distance from -2.15
+	 * @param r - distance from -1.3
+	 * @param er - width of dragged area
+	 * @param gg - height of dragged area
+	 * @return 2D array with passes
+	 */
 	
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);
