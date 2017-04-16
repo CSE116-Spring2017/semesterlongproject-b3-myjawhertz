@@ -415,6 +415,9 @@ public class UI implements Observer {
 			}
 		});
 
+		/**
+		 * Adds function to reset button
+		 */
 		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -454,6 +457,9 @@ public class UI implements Observer {
 	public void changed() {
 
 	}
+	/**
+	 * checks if inputed input is a number
+	 */
 
 	public static boolean isNumber(final String s) {
 		try {
@@ -463,6 +469,11 @@ public class UI implements Observer {
 			return false;
 		}
 	}
+	/**
+	 * error box if its the input is not a number
+	 * @param infoMessage - message in error box
+	 * @param titleBar - title of error
+	 */
 
 	public static void ErrorBox(String infoMessage, String titleBar) {
 		JOptionPane jop = new JOptionPane();
@@ -470,6 +481,11 @@ public class UI implements Observer {
 		JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	/**
+	 *
+	 * @param str- user input string
+	 * @return boolean value
+	 */
 	public boolean ErrorBoxNotNumber(String str) {
 		for (int i = 0; i < str.length(); i++) {
 			char c = str.charAt(i);
@@ -480,6 +496,11 @@ public class UI implements Observer {
 		return false;
 
 	}
+	
+	/**
+	 * handles rectangle drag / redrawing of the zoomed in area
+	 *
+	 */
 
 	private class HandlerClass extends JFrame implements MouseListener, MouseMotionListener {
 
