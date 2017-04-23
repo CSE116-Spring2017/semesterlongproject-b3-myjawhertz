@@ -4,18 +4,18 @@ public class JuliaSet {
 	int[][] emptyArray;
 
 	/**
-	 * The method below @return new empty 2D array 512 by 512
+	 * The method below @return new empty 2D array 2048 by 2048
 	 */
 
 	/**
 	 * The method below:
 	 * 
 	 * @param row
-	 *            takes in XCoord on 512 by 512 and
+	 *            takes in XCoord on 2048 by 2048 and
 	 * @return in pixel
 	 */
 	public double getXCord(int xRow) {
-		double xCord = -1.7 + (3.4 * xRow / 512);
+		double xCord = -1.7 + (3.4 * xRow / 2048);
 		return xCord;
 	}
 
@@ -23,11 +23,11 @@ public class JuliaSet {
 	 * The method below:
 	 * 
 	 * @param col
-	 *            takes in Y-Coordinate on 512 by 512 2D array
+	 *            takes in Y-Coordinate on 2048 by 2048 2D array
 	 * @return in Pixel
 	 */
 	public double getYCord(int yCol) {
-		double yCord = -1.0 + (2.0 * yCol / 512);
+		double yCord = -1.0 + (2.0 * yCol / 2048);
 		return yCord;
 	}
 
@@ -62,11 +62,11 @@ public class JuliaSet {
 
 	}
 	/*
-	 * @return empty array 512 by 512
+	 * @return empty array 2048 by 2048
 	 */
 
 	public int[][] emptyArray() {
-		emptyArray = new int[512][512];
+		emptyArray = new int[2048][2048];
 		return emptyArray;
 	}
 	/*
@@ -76,9 +76,9 @@ public class JuliaSet {
 	 */
 
 	public int[][] returnArrayWithPasses() {
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = JuliaSet(getXCord(x), getYCord(y));
 				// System.out.println(array[x][y]);
 			}
@@ -151,9 +151,9 @@ public class JuliaSet {
 	 */
 	public int[][] userInputEscape(String i) {
 		int a = Integer.parseInt(i);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
 				// System.out.println(array[x][y]);
 			}
@@ -216,14 +216,14 @@ public class JuliaSet {
 	/*
 	 * @param  String i entry from TextBox1: determines maximum number of passes allowed
 	 * 		   String b entry from TextBox2: determines distance used for ET calculations
-	 * @return 2D array of int of Escape-Times for each pixel in 512*512 array
+	 * @return 2D array of int of Escape-Times for each pixel in 2048*2048 array
 	 */
 	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = juliaRealPasses(getXCord(x), getYCord(y), a, c);
 			}
 		}
@@ -235,7 +235,7 @@ public class JuliaSet {
 	 * 
 	 */
 	public double getXCordRect(int xRow, double xStart, double xWidth) {
-		double xCord = -1.7 + (3.4 * xStart / 512) + ((3.4 * xWidth / 512) * xRow / 512);
+		double xCord = -1.7 + (3.4 * xStart / 2048) + ((3.4 * xWidth / 2048) * xRow / 2048);
 		return xCord;
 	}
 	/*
@@ -245,7 +245,7 @@ public class JuliaSet {
 	 * 
 	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) { 
-		double yCord = -1.0 + (2.0 * yStart / 512) +  ((2.0 * yWidth / 512) * yCol / 512);
+		double yCord = -1.0 + (2.0 * yStart / 2048) +  ((2.0 * yWidth / 2048) * yCol / 2048);
 		return yCord;
 	}
 	/*
@@ -261,9 +261,9 @@ public class JuliaSet {
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = juliaRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 				// System.out.println(array[x][y]);
 			} 

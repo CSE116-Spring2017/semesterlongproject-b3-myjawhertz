@@ -8,24 +8,24 @@ public class multibrotSet {
 	 */
 	
 	/**
-	 * Translates x-coordinates from 0-512 ----> -1 to 1
-	 * @param x original x-coordinate in 512 x 512 array
+	 * Translates x-coordinates from 0-2048 ----> -1 to 1
+	 * @param x original x-coordinate in 2048 x 2048 array
 	 * @return new xCalc value for this set
 	 */
 	public double XCoordTranslation(int x){
 //		System.out.println("Original x-value is:" + x);
-		double xCalc = -1 + (2.0 * x / 512);
+		double xCalc = -1 + (2.0 * x / 2048);
 //		System.out.println("New x-value for " + x + " is: " + xCalc);
 		return xCalc; 
 	}
 	/**
-	 * Translates y-coordinates from 0-512 ----> -1.3 to 1.3 
-	 * @param y original y-coordinate in 512 x 512 array
+	 * Translates y-coordinates from 0-2048 ----> -1.3 to 1.3 
+	 * @param y original y-coordinate in 2048 x 2048 array
 	 * @return new yCalc value for this set
 	 */
 	public double YCoordTranslation(int y){
 //		System.out.println("Original y-value is: " + y);
-		double yCalc = -1.3 + (2.6 * y / 512);
+		double yCalc = -1.3 + (2.6 * y / 2048);
 //		System.out.println("New y-value for " + y + " is: " + yCalc);
 		return yCalc;
 	}
@@ -76,12 +76,12 @@ public class multibrotSet {
 	}
 	/**
 	 * This method gives the escape-times of each pixel in a 2D array form.
-	 * @return A 2D Array of int containing the escape time of each pixel in the 512 x 512 array. 
+	 * @return A 2D Array of int containing the escape time of each pixel in the 2048 x 2048 array. 
 	 */
 	public int[][] return2DArray(){
-		int[][] array = new int[512][512];
-		for (int r = 0; r < 512; r++){		//for each row in the array
-			for (int c = 0; c < 512; c++) {		//for each column in the array
+		int[][] array = new int[2048][2048];
+		for (int r = 0; r < 2048; r++){		//for each row in the array
+			for (int c = 0; c < 2048; c++) {		//for each column in the array
 				array[r][c] = mbSetETCalculation(XCoordTranslation(r),YCoordTranslation(c));
 //				System.out.println(array[r][c]);	//this line is for debugging purposes
 			}
@@ -121,9 +121,9 @@ public class multibrotSet {
 	 */
 	public int[][] userInputEscape(String i){
 		int a = Integer.parseInt(i);
-		int[][] array = new int[512][512];
-		for (int r = 0; r < 512; r++){		//for each row in the array
-			for (int c = 0; c < 512; c++) {		//for each column in the array
+		int[][] array = new int[2048][2048];
+		for (int r = 0; r < 2048; r++){		//for each row in the array
+			for (int c = 0; c < 2048; c++) {		//for each column in the array
 				array[r][c] = userInputPasses(XCoordTranslation(r),YCoordTranslation(c), a);
 //				System.out.println(array[r][c]);	//this line is for debugging purposes
 			}
@@ -180,18 +180,18 @@ public class multibrotSet {
 	}
 
 	/**
-	 * The method that creates a new 512x512 panel for a new Mandelbrot Set with a custom number
+	 * The method that creates a new 2048x2048 panel for a new Mandelbrot Set with a custom number
 	 * of passes and maximum distance that are set by the user on the GUI.
 	 * @param i - entry from TextBox1: determines maximum number of passes allowed
 	 * @param b - entry from TextBox2: determines distance used for ET calculations
-	 * @return 2D array of int of Escape-Times for each pixel in the 512x512 array
+	 * @return 2D array of int of Escape-Times for each pixel in the 2048x2048 array
 	 */
 	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = multibrotRealPasses(XCoordTranslation(x), YCoordTranslation(y), a, c);
 				// System.out.println(array[x][y]);
 			}
@@ -199,24 +199,24 @@ public class multibrotSet {
 		return array;
 	}
 	/**
-	 * @param xRow - goes from 0 to 512
-	 * @param xStart  0-512 scale of new X starting part
-	 * @param xWidth 0-512 scale of width
+	 * @param xRow - goes from 0 to 2048
+	 * @param xStart  0-2048 scale of new X starting part
+	 * @param xWidth 0-2048 scale of width
 	 * @return x coordinate 
 	 */
 	public double getXCordRect(int xRow, double xStart, double xWidth) {
-		double xCord = -1 + (2.0 * xStart / 512) + ((2.0 * xWidth / 512) * xRow / 512);
+		double xCord = -1 + (2.0 * xStart / 2048) + ((2.0 * xWidth / 2048) * xRow / 2048);
 		return xCord;
 	}
 	
 	/**
-	 * @param yCol - goes from 0 to 512
-	 * @param yStart 0-512 scale of new Y starting point
-	 * @param yWidth 0-512 sale of height
+	 * @param yCol - goes from 0 to 2048
+	 * @param yStart 0-2048 scale of new Y starting point
+	 * @param yWidth 0-2048 sale of height
 	 * @return y coordinate
 	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) { 
-		double yCord = -1.3 + (2.6 * yStart / 512) +  ((2.6 * yWidth / 512) * yCol / 512);
+		double yCord = -1.3 + (2.6 * yStart / 2048) +  ((2.6 * yWidth / 2048) * yCol / 2048);
 		return yCord;
 	}
 	
@@ -232,9 +232,9 @@ public class multibrotSet {
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = multibrotRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 				// System.out.println(array[x][y]);
 			} 

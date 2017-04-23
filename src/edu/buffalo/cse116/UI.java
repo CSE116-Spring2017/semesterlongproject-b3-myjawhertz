@@ -38,16 +38,16 @@ public class UI implements Observer {
 
 	JTextField jt = new JTextField(30);
 	JTextField et = new JTextField(30);
-	double width1 = 512;
-	double height1 = 512;
+	double width1 = 2048;
+	double height1 = 2048;
 	double i = 0;
 	int z = 0;
 	int k = 0;
 	int f = 0;
 	double widthHolder = 0;
-	double width2 = 512;
-	double height2 = 512;
-	double newW = 512, newH = 512;
+	double width2 = 2048;
+	double height2 = 2048;
+	double newW = 2048, newH = 2048;
 	private double newX, newY = 0;
 	int beginX, beginY, width, height;
 	double rectW = 0;
@@ -122,11 +122,10 @@ public class UI implements Observer {
 
 		// The main panel
 		_mainPanel = new JPanel();
-		
+
 		// The panel that contains the function to re-calculate the
 		// fractal(Button) and input box
 		_5thRowPanel = new JPanel();
-	
 
 		_spacer = new JPanel();
 		_spacer2 = new JPanel();
@@ -144,7 +143,6 @@ public class UI implements Observer {
 
 		fractal = new JMenu("Fractal");
 		mb.add(fractal);
-
 
 		color = new JMenu("Change color");
 		mb.add(color);
@@ -171,7 +169,7 @@ public class UI implements Observer {
 
 		// The Panel that holds the image
 		_buttonGrid = new JPanel();
- 
+
 		m = new MandelbrotSet();
 		j = new JuliaSet();
 		b = new burningshipset();
@@ -207,7 +205,6 @@ public class UI implements Observer {
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-	
 
 	/**
 	 * Change information displayed on the UI based on what has changed in the
@@ -220,15 +217,23 @@ public class UI implements Observer {
 		final JuliaSet juliaSet = new JuliaSet();
 		final burningshipset burningShip = new burningshipset();
 		final multibrotSet multibrotSet = new multibrotSet();
+
+		// fp.setOpaque(true);
+
+		fp.setPreferredSize(new Dimension(2048, 2048));
+		fp.setSize(2048, 2048);
+		fp.setMinimumSize(new Dimension(2048, 2048));
+		fp.setMaximumSize(new Dimension(2048, 2048));
+
+		System.out.println(fp.getSize());
+
 		_buttonGrid.add(fp);
-		fp.setOpaque(true);
-		fp.setSize(512, 512);
 
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				temp = mandelbrot.returnArrayWithPasses();
-				JOptionPane.getRootFrame();
+				// JOptionPane.getRootFrame();
 				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
 				setTemp = 1;
 
@@ -239,7 +244,7 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e) {
 				fp.updateImage(juliaSet.returnArrayWithPasses());
 				temp = juliaSet.returnArrayWithPasses();
-				JOptionPane.getRootFrame();
+				// JOptionPane.getRootFrame();
 				fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				setTemp = 2;
 			}
@@ -249,7 +254,7 @@ public class UI implements Observer {
 				fp.updateImage(burningShip.returnArrayWithPasses());
 				temp = burningShip.returnArrayWithPasses();
 				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-				JOptionPane.getRootFrame();
+				// JOptionPane.getRootFrame();
 				setTemp = 3;
 			}
 		});
@@ -258,7 +263,7 @@ public class UI implements Observer {
 				fp.updateImage(multibrotSet.return2DArray());
 				temp = multibrotSet.return2DArray();
 				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-				JOptionPane.getRootFrame();
+				// JOptionPane.getRootFrame();
 				setTemp = 4;
 			}
 		});
@@ -425,10 +430,10 @@ public class UI implements Observer {
 				z = 0;
 				k = 0;
 				f = 0;
-				width2 = 512;
-				height2 = 512;
-				newW = 512;
-				newH = 512;
+				width2 = 2048;
+				height2 = 2048;
+				newW = 2048;
+				newH = 2048;
 				newX = 0;
 				newY = 0;
 
@@ -457,6 +462,7 @@ public class UI implements Observer {
 	public void changed() {
 
 	}
+
 	/**
 	 * checks if inputed input is a number
 	 */
@@ -469,10 +475,14 @@ public class UI implements Observer {
 			return false;
 		}
 	}
+
 	/**
 	 * error box if its the input is not a number
-	 * @param infoMessage - message in error box
-	 * @param titleBar - title of error
+	 * 
+	 * @param infoMessage
+	 *            - message in error box
+	 * @param titleBar
+	 *            - title of error
 	 */
 
 	public static void ErrorBox(String infoMessage, String titleBar) {
@@ -483,7 +493,8 @@ public class UI implements Observer {
 
 	/**
 	 *
-	 * @param str- user input string
+	 * @param str-
+	 *            user input string
 	 * @return boolean value
 	 */
 	public boolean ErrorBoxNotNumber(String str) {
@@ -496,7 +507,7 @@ public class UI implements Observer {
 		return false;
 
 	}
-	
+
 	/**
 	 * handles rectangle drag / redrawing of the zoomed in area
 	 */
@@ -510,7 +521,7 @@ public class UI implements Observer {
 			gr.setColor(myColor);
 
 			_buttonGrid.paintComponents(_buttonGrid.getGraphics());
-			
+
 			if (drag == true) {
 				beginX = Math.min(startX, currentX);
 				beginY = Math.min(startY, currentY);
@@ -519,7 +530,6 @@ public class UI implements Observer {
 
 				gr.drawRect(beginX, beginY, width, height);
 
-				
 			}
 
 		}
@@ -542,7 +552,7 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-
+			System.out.println(e.getX());
 		}
 
 		@Override
@@ -566,8 +576,8 @@ public class UI implements Observer {
 
 			// starting x and y in rectangle
 			if (i != 0) {
-				newW = newW + (Math.min(startX, endX) * rectW / 512);
-				newH = newH + (Math.min(startY, endY) * rectH / 512);
+				newW = newW + (Math.min(startX, endX) * rectW / 2048);
+				newH = newH + (Math.min(startY, endY) * rectH / 2048);
 			}
 
 			if (i == 0) {
@@ -582,16 +592,15 @@ public class UI implements Observer {
 			}
 
 			if (k == 0) {
-				width2 = 512;
-				height2 = 512;
+				width2 = 2048;
+				height2 = 2048;
 				k++;
 			}
 
 			if (f != 0) {
-				width1 = (width2 * Math.abs(startX - endX) / 512);
-				height1 = (height2 * Math.abs(startY - endY) / 512);
+				width1 = (width2 * Math.abs(startX - endX) / 2048);
+				height1 = (height2 * Math.abs(startY - endY) / 2048);
 			}
-		
 
 			if (f == 0) {
 				width1 = Math.abs(startX - endX);
@@ -599,10 +608,8 @@ public class UI implements Observer {
 				f++;
 			}
 
-
 			rectW = width1;
 			rectH = height1;
-
 
 			if (setTemp == 1) {
 				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));

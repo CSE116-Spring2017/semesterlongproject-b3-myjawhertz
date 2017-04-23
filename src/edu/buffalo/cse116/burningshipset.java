@@ -4,23 +4,23 @@ package edu.buffalo.cse116;
 public class burningshipset { 
 	/**
 	 * @param xRow
-	 *            - row from 0 - 512
+	 *            - row from 0 - 2048
 	 * @return x cordinate
 	 */
 	public double getXCord(int xRow) {
-		double xCord = -1.8 + (.1 * xRow / 512);
+		double xCord = -1.8 + (.1 * xRow / 2048);
 		return xCord;
 	}
 
 	/**
-	 * translate from 0-512 row to yCord
+	 * translate from 0-2048 row to yCord
 	 * 
 	 * @param yCol
-	 *            - column from 0 - 512
+	 *            - column from 0 - 2048
 	 * @return y coordinate
 	 **/
 	public double getYCord(int yCol) {
-		double yCord = -0.08 + (.105 * yCol / 512);
+		double yCord = -0.08 + (.105 * yCol / 2048);
 		return yCord;
 	}
 
@@ -62,9 +62,9 @@ public class burningshipset {
 	 * @return 2D array with passes for each point
 	 */
 	public int[][] returnArrayWithPasses() {
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = burningShip(getXCord(x), getYCord(y));
 				// System.out.println(array[x][y]);
 			}
@@ -108,9 +108,9 @@ public class burningshipset {
 	 * @return a boolean value
 	 */
 	public boolean OnlyOneOrZero() {
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				if (array[x][y] <= 2) {
 					return true;
 				} else {
@@ -132,9 +132,9 @@ public class burningshipset {
 
 	public int[][] userInputEscape(String i) {
 		int a = Integer.parseInt(i);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
 				// System.out.println(array[x][y]);
 			}
@@ -224,9 +224,9 @@ public class burningshipset {
 	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = burningshipRealPasses(getXCord(x), getYCord(y), a, c);
 			}
 		} 
@@ -240,7 +240,7 @@ public class burningshipset {
 	 * @return calculated x coordinates
 	 */
 	public double getXCordRect(int xRow, double xStart, double xWidth) { 
-		double xCord = -1.8 + (0.1 * xStart / 512) + ((0.1 * xWidth / 512) * xRow / 512);
+		double xCord = -1.8 + (0.1 * xStart / 2048) + ((0.1 * xWidth / 2048) * xRow / 2048);
 		return xCord;
 	}
 	/**
@@ -251,7 +251,7 @@ public class burningshipset {
 	 * @return calculated y coordinates
 	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) {
-		double yCord = -0.08 + (0.105 * yStart / 512) +  ((0.105 * yWidth / 512) * yCol / 512);
+		double yCord = -0.08 + (0.105 * yStart / 2048) +  ((0.105 * yWidth / 2048) * yCol / 2048);
 		return yCord;
 	}
 	/**
@@ -267,9 +267,9 @@ public class burningshipset {
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = burningshipRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 				
 			} 

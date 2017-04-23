@@ -3,22 +3,22 @@ package edu.buffalo.cse116;
 public class MandelbrotSet {
 
 	/**
-	 * translate from 0-512 row to xCord
-	 * @param xRow - row from 0 - 512
+	 * translate from 0-2048 row to xCord
+	 * @param xRow - row from 0 - 2048
 	 * @return y coordinate
 	 **/
 	public double getXCord(int xRow) {
-		double xCord = -2.15 + (2.75 * xRow / 512);
+		double xCord = -2.15 + (2.75 * xRow / 2048);
 		return xCord;
 	}
 
 	/**
-	 * translate from 0-512 row to yCord
-	 * @param yCol - column from 0 - 512
+	 * translate from 0-2048 row to yCord
+	 * @param yCol - column from 0 - 2048
 	 * @return y coordinate
 	 **/
 	public double getYCord(int yCol) {
-		double yCord = -1.3 + (2.6 * yCol / 512);
+		double yCord = -1.3 + (2.6 * yCol / 2048);
 		return yCord;
 	}
 
@@ -54,9 +54,9 @@ public class MandelbrotSet {
 	 * @return 2D array with passes for each point
 	 */
 	public int[][] returnArrayWithPasses() {
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = mandelbrotSet(getXCord(x), getYCord(y));
 				// System.out.println(array[x][y]);
 			}
@@ -96,9 +96,9 @@ public class MandelbrotSet {
 
 	public int[][] userInputEscape(String i) {
 		int a = Integer.parseInt(i);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
 				// System.out.println(array[x][y]);
 			}
@@ -190,9 +190,9 @@ public class MandelbrotSet {
 	public int[][] userInputEscapeTime(String i, String b) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = holder(getXCord(x), getYCord(y), a, c);
 				// System.out.println(array[x][y]); 
 			} 
@@ -202,25 +202,25 @@ public class MandelbrotSet {
 	}
 	
 	/**
-	 * @param xRow - goes from 0 to 512
-	 * @param xStart  0-512 scale of new X starting part
-	 * @param xWidth 0-512 scale of width
+	 * @param xRow - goes from 0 to 2048
+	 * @param xStart  0-2048 scale of new X starting part
+	 * @param xWidth 0-2048 scale of width
 	 * @return x coordinate 
 	 */
 	
 	public double getXCordRect(int xRow, double xStart, double xWidth) { 
-		double xCord = -2.15 + (2.75 * xStart / 512) + ((2.75 * xWidth / 512) * xRow / 512);
+		double xCord = -2.15 + (2.75 * xStart / 2048) + ((2.75 * xWidth / 2048) * xRow / 2048);
 		return xCord;
 	}
 	
 	/**
-	 * @param yCol - goes from 0 to 512
-	 * @param yStart 0-512 scale of new Y starting point
-	 * @param yWidth 0-512 sale of height
+	 * @param yCol - goes from 0 to 2048
+	 * @param yStart 0-2048 scale of new Y starting point
+	 * @param yWidth 0-2048 sale of height
 	 * @return y coordinate
 	 */
 	public double getYCordRect(int yCol, double yStart, double yWidth) {
-		double yCord = -1.3 + (2.6 * yStart / 512) +  ((2.6 * yWidth / 512) * yCol / 512);
+		double yCord = -1.3 + (2.6 * yStart / 2048) +  ((2.6 * yWidth / 2048) * yCol / 2048);
 		return yCord;
 	}
 	
@@ -237,9 +237,9 @@ public class MandelbrotSet {
 	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[512][512];
-		for (int x = 0; x < 512; x++) {
-			for (int y = 0; y < 512; y++) {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
 				array[x][y] = holder(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 				// System.out.println(array[x][y]);
 			} 
