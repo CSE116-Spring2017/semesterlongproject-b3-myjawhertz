@@ -86,7 +86,7 @@ public class UI implements Observer {
 	private JButton reset;
 
 	/**
-	 * Calls the methods to generate a new UI for the program when booting up 
+	 * Calls the methods to generate a new UI for the program when booting upï¿½
 	 * 
 	 * @param m
 	 *            The model used for the UI that contains observers
@@ -363,7 +363,7 @@ public class UI implements Observer {
 					if ((isNumber(textFromBox) == true) && (a > 0)) { // if text
 																		// in
 																		// box
-																		// is a
+								 										// is a
 																		// valid
 																		// positive
 																		// number
