@@ -84,7 +84,8 @@ public class UI implements Observer {
 	private JMenuItem burningship;
 	private JMenuItem madelbrot;
 	private JButton reset;
-
+	private JMenu Threads;
+	private JMenuItem CalculatesThreads;
 	/**
 	 * Calls the methods to generate a new UI for the program when booting up�
 	 * 
@@ -143,7 +144,7 @@ public class UI implements Observer {
 
 		fractal = new JMenu("Fractal");
 		mb.add(fractal);
-
+		
 		color = new JMenu("Change color");
 		mb.add(color);
 		color1 = new JMenuItem("Blue");
@@ -166,7 +167,13 @@ public class UI implements Observer {
 
 		multibrot = new JMenuItem("Multibrot");
 		fractal.add(multibrot);
-
+		
+		Threads = new JMenu("Threads");
+		mb.add(Threads);
+		
+		CalculatesThreads = new JMenuItem("Calculates the number of Threads used");
+		Threads.add(CalculatesThreads);
+		
 		// The Panel that holds the image
 		_buttonGrid = new JPanel();
 
