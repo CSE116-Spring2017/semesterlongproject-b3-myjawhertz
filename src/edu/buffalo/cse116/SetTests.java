@@ -53,8 +53,8 @@ public class SetTests {
 	@Test
 	public void testMandelbrotReturn() {
 		MandelbrotSet returns2DArray = new MandelbrotSet();
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses().length);
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses()[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses().length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses()[0].length);
 	}
 
 	/**
@@ -98,8 +98,8 @@ public class SetTests {
 	public void testJuliaReturn() {
 		JuliaSet returns2DArray = new JuliaSet();
 		int[][] arr = new int[512][512];
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.emptyArray().length);
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.emptyArray()[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.emptyArray().length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.emptyArray()[0].length);
 
 	}
 
@@ -144,8 +144,8 @@ public class SetTests {
 	@Test
 	public void testBurningShipReturn() {
 		burningshipset returns2DArray = new burningshipset();
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses().length);
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.returnArrayWithPasses()[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses().length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses()[0].length);
 	}
 
 	/**
@@ -189,8 +189,8 @@ public class SetTests {
 	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.return2DArray().length);
-		assertEquals("2D 512 by 512 array", 512, returns2DArray.return2DArray()[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray().length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray()[0].length);
 	}
 
 	/**
