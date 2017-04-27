@@ -475,7 +475,7 @@ public class UI implements Observer {
 		CalculatesThreads.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				int threads = 0;
-				System.out.print(threads);
+//				System.out.print(threads);
 				
 			}});
 
