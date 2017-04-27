@@ -38,6 +38,7 @@ public class UI implements Observer {
 
 	JTextField jt = new JTextField(30);
 	JTextField et = new JTextField(30);
+	JTextField textfieldforThread = new JTextField(30);
 	double width1 = 2048;
 	double height1 = 2048;
 	double i = 0;
@@ -58,6 +59,7 @@ public class UI implements Observer {
 	private JButton enterForTime = new JButton("Recaculate fractal with given escape time");
 	private String textFromBox = "2";
 	private String textFromBox2 = "255";
+	private String textFromBox3;
 	private int setTemp;
 
 	private int count;
@@ -84,6 +86,7 @@ public class UI implements Observer {
 	private JMenuItem burningship;
 	private JMenuItem madelbrot;
 	private JButton reset;
+	private JButton userInputForThreads;
 	private JMenu Threads;
 	private JMenuItem CalculatesThreads;
 	/**
@@ -132,7 +135,8 @@ public class UI implements Observer {
 		_spacer2 = new JPanel();
 		_5thRowPanel.setLayout(new GridLayout(7, 1));
 		reset = new JButton("Recalculate and redisplay the fractal using the default coordinate range");
-
+		userInputForThreads = new JButton("This is thread calculating button i guess but I cannot come up with awesome name");
+		
 		mb = new JMenuBar();
 		_window.setJMenuBar(mb);
 
@@ -198,7 +202,9 @@ public class UI implements Observer {
 		_5thRowPanel.add(enterForTime);
 		_5thRowPanel.add(_spacer2);
 		_5thRowPanel.add(reset);
-
+		_5thRowPanel.add(textfieldforThread);
+		_5thRowPanel.add(userInputForThreads);
+		
 		/*
 		 * Here I'm using an anonymous inner class. Notice that I still have
 		 * access to UI's instance variables. Doing this is much more convenient
@@ -355,6 +361,13 @@ public class UI implements Observer {
 				}
 			}
 		});
+		
+		CalculatesThreads.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				int threads = 0;
+				System.out.print(threads);
+				
+			}});
 
 		enter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -461,7 +474,15 @@ public class UI implements Observer {
 				}
 			}
 		});
-
+		userInputForThreads.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				String textFromBox3 = textfieldforThread.getText();
+				textfieldforThread.setText("");
+				
+				System.out.print(textFromBox3 + "We got nothing so far");
+			}
+			
+		});
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
 	}
