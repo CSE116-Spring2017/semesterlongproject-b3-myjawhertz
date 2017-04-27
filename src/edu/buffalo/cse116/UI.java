@@ -8,7 +8,9 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.*;
 
+import edu.buffalo.fractal.ComputePool;
 import edu.buffalo.fractal.FractalPanel;
+import edu.buffalo.fractal.WorkerResult;
 
 /**
  *  This is the main class for the GUI for the fractal program. It implements
@@ -67,6 +69,7 @@ public class UI implements Observer {
 
 	// Class Object
 	private FractalPanel fp;
+	ComputePool cp;
 	MandelbrotSet m;
 	JuliaSet j;
 	burningshipset b;
@@ -188,6 +191,7 @@ public class UI implements Observer {
 		b = new burningshipset();
 		multi = new multibrotSet();
 		fp = new FractalPanel();
+		cp = new ComputePool();
 
 		HandlerClass handler = new HandlerClass();
 		_buttonGrid.addMouseListener(handler);
@@ -546,7 +550,7 @@ public class UI implements Observer {
 	 * handles rectangle drag / redrawing of the zoomed in area
 	 */
 
-	private class HandlerClass extends JFrame implements MouseListener, MouseMotionListener {
+	private class HandlerClass extends SwingWorker<WorkerResult, Void>implements MouseListener, MouseMotionListener {
 
 		public void paint(Graphics g) {
 
@@ -668,6 +672,14 @@ public class UI implements Observer {
 		@Override
 		public void mouseExited(MouseEvent e) {
 		}
+
+		@Override
+		protected WorkerResult doInBackground() throws Exception {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		
 
 	}
 
