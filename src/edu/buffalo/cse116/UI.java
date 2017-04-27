@@ -34,6 +34,7 @@ public class UI implements Observer {
 	JPanel _5thRowPanel;
 	JPanel _spacer;
 	JPanel _spacer2;
+	JPanel _spacer3;
 	Graphics gr;
 
 	JTextField jt = new JTextField(30);
@@ -133,7 +134,8 @@ public class UI implements Observer {
 
 		_spacer = new JPanel();
 		_spacer2 = new JPanel();
-		_5thRowPanel.setLayout(new GridLayout(7, 1));
+		_spacer3 = new JPanel();
+		_5thRowPanel.setLayout(new GridLayout(10, 1));
 		reset = new JButton("Recalculate and redisplay the fractal using the default coordinate range");
 		userInputForThreads = new JButton("This is thread calculating button i guess but I cannot come up with awesome name");
 		
@@ -202,6 +204,7 @@ public class UI implements Observer {
 		_5thRowPanel.add(enterForTime);
 		_5thRowPanel.add(_spacer2);
 		_5thRowPanel.add(reset);
+		_5thRowPanel.add(_spacer3);
 		_5thRowPanel.add(textfieldforThread);
 		_5thRowPanel.add(userInputForThreads);
 		
@@ -362,13 +365,7 @@ public class UI implements Observer {
 			}
 		});
 		
-		CalculatesThreads.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent arg0) {
-				int threads = 0;
-				System.out.print(threads);
-				
-			}});
-
+		
 		enter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFromBox = jt.getText();
@@ -474,6 +471,15 @@ public class UI implements Observer {
 				}
 			}
 		});
+		
+		CalculatesThreads.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				int threads = 0;
+				System.out.print(threads);
+				
+			}});
+
+		
 		userInputForThreads.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				String textFromBox3 = textfieldforThread.getText();
