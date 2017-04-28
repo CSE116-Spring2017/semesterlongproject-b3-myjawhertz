@@ -486,10 +486,19 @@ public class UI implements Observer {
 		
 		userInputForThreads.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				String textFromBox3 = textfieldforThread.getText();
+				textFromBox3 = textfieldforThread.getText();
 				textfieldforThread.setText("");
 				
-				System.out.print(textFromBox3 + "We got nothing so far");
+				int numFromBox = Integer.parseInt(textFromBox3);
+				if((isNumber(textFromBox3) ==true) && numFromBox > 0 && numFromBox < 129){
+					// use #userInput of swingworker to do the background work
+				}
+				else if(ErrorBoxNotNumber(textFromBox3) == true){
+					ErrorBox("Please enter numbers only!","ErrorBox");
+				}
+				else{
+					ErrorBox("Please enter number between 1 to 128","Errorbox");
+				}
 			}
 			
 		});
