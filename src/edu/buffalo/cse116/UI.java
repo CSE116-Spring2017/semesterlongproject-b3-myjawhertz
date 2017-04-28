@@ -19,7 +19,7 @@ import edu.buffalo.fractal.WorkerResult;
  * for  Escape-Time calculations.  @author Alec Otminski  @author
  * Stephen Fung @author Ayesha Ismail  @author Junhong Jeong
  */
-public class UI implements Observer {
+public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 
 	Model _model;
 
@@ -70,6 +70,7 @@ public class UI implements Observer {
 	// Class Object
 	private FractalPanel fp;
 	ComputePool cp;
+	WorkerResult wr;
 	MandelbrotSet m;
 	JuliaSet j;
 	burningshipset b;
@@ -93,6 +94,8 @@ public class UI implements Observer {
 	private JButton userInputForThreads;
 	private JMenu Threads;
 	private JMenuItem CalculatesThreads;
+	private int thread2 = 1;
+	
 	/**
 	 * Calls the methods to generate a new UI for the program when booting up�
 	 * 
@@ -191,7 +194,7 @@ public class UI implements Observer {
 		b = new burningshipset();
 		multi = new multibrotSet();
 		fp = new FractalPanel();
-		cp = new ComputePool();
+		
 
 		HandlerClass handler = new HandlerClass();
 		_buttonGrid.addMouseListener(handler);
@@ -251,10 +254,21 @@ public class UI implements Observer {
 
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+//				SwingWorker<WorkerResult, Void>[] a = new SwingWorker[thread2];
+//				for(int i = 0 ; i < 2048; i+=2048/thread2){
+//					a[i] = new WorkerResult(i, a.);
+//				}
+				SwingWorker<WorkerResult, Void> workers[] = new SwingWorker[thread2];
+				for (int i = 0; i < thread2; i++) {
+					workers[i].execute();
+				}
+				
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				temp = mandelbrot.returnArrayWithPasses();
 				// JOptionPane.getRootFrame();
-				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
+//				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
+				cp.generateFractal(thread2, a);
 				setTemp = 1;
 
 			}
@@ -478,8 +492,8 @@ public class UI implements Observer {
 		
 		CalculatesThreads.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				int threads = 0;
-//				System.out.print(threads);
+				thread2 = 1;
+				System.out.print(thread2);
 				
 			}});
 
@@ -492,6 +506,7 @@ public class UI implements Observer {
 				int numFromBox = Integer.parseInt(textFromBox3);
 				if((isNumber(textFromBox3) ==true) && numFromBox > 0 && numFromBox < 129){
 					// use #userInput of swingworker to do the background work
+					thread2 = numFromBox;
 				}
 				else if(ErrorBoxNotNumber(textFromBox3) == true){
 					ErrorBox("Please enter numbers only!","ErrorBox");
@@ -599,7 +614,7 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-			System.out.println(e.getX());
+//			System.out.println(e.getX());
 		}
 
 		@Override
@@ -684,12 +699,28 @@ public class UI implements Observer {
 
 		@Override
 		protected WorkerResult doInBackground() throws Exception {
-			// TODO Auto-generated method stub
+////			WorkerResult[][] arr = new WorkerResult[2048][2048];
+//			cp.changePanel(fp);
+//			for(int i = 0 ; i < 2048; i+=2048/thread2){
+//				wr = new WorkerResult(i, m.rectangle(textFromBox2, textFromBox, 0, i, 2048, i+(2048/thread2)));
+//			}
+//			cp.changePanel(fp);
 			return null;
 		}
 
 		
 
+	}
+
+	@Override
+	protected WorkerResult doInBackground() throws Exception {
+		WorkerResult[][] arr = new WorkerResult[2048][2048];
+		cp.changePanel(fp);
+		for(int i = 0 ; i < 2048; i+=2048/thread2){
+			wr = new WorkerResult(i, m.rectangle(textFromBox2, textFromBox, 0, i, 2048, i+(2048/thread2)));
+		}
+		cp.changePanel(fp);
+		return null;
 	}
 
 }
