@@ -259,16 +259,16 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 //				for(int i = 0 ; i < 2048; i+=2048/thread2){
 //					a[i] = new WorkerResult(i, a.);
 //				}
-				SwingWorker<WorkerResult, Void> workers[] = new SwingWorker[thread2];
+				SwingWorker<WorkerResult, Void> workers[] = new UI[thread2];
 				for (int i = 0; i < thread2; i++) {
-					workers[i].execute();
+					workers[i] = new UI(_model);
 				}
 				
 				fp.updateImage(mandelbrot.returnArrayWithPasses());
 				temp = mandelbrot.returnArrayWithPasses();
 				// JOptionPane.getRootFrame();
 //				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
-				cp.generateFractal(thread2, a);
+				cp.generateFractal(2048, workers);
 				setTemp = 1;
 
 			}
@@ -515,14 +515,12 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 					ErrorBox("Please enter number between 1 to 128","Errorbox");
 				}
 			}
-			
 		});
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
 	}
 
 	public void changed() {
-
 	}
 
 	/**
@@ -567,14 +565,13 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 			}
 		}
 		return false;
-
 	}
 
 	/**
 	 * handles rectangle drag / redrawing of the zoomed in area
 	 */
 
-	private class HandlerClass extends SwingWorker<WorkerResult, Void>implements MouseListener, MouseMotionListener {
+	private class HandlerClass implements MouseListener, MouseMotionListener {
 
 		public void paint(Graphics g) {
 
@@ -591,9 +588,7 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 				height = Math.abs(currentY - startY);
 
 				gr.drawRect(beginX, beginY, width, height);
-
 			}
-
 		}
 
 		@Override
@@ -609,17 +604,14 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 				fp.validate();
 
 			}
-
 		}
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-//			System.out.println(e.getX());
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-
 		}
 
 		@Override
@@ -690,37 +682,22 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-		}
-
-		@Override
-		protected WorkerResult doInBackground() throws Exception {
-////			WorkerResult[][] arr = new WorkerResult[2048][2048];
-//			cp.changePanel(fp);
-//			for(int i = 0 ; i < 2048; i+=2048/thread2){
-//				wr = new WorkerResult(i, m.rectangle(textFromBox2, textFromBox, 0, i, 2048, i+(2048/thread2)));
-//			}
-//			cp.changePanel(fp);
-			return null;
-		}
-
-		
+		}	
 
 	}
 
 	@Override
 	protected WorkerResult doInBackground() throws Exception {
-		WorkerResult[][] arr = new WorkerResult[2048][2048];
 		cp.changePanel(fp);
 		for(int i = 0 ; i < 2048; i+=2048/thread2){
 			wr = new WorkerResult(i, m.rectangle(textFromBox2, textFromBox, 0, i, 2048, i+(2048/thread2)));
 		}
 		cp.changePanel(fp);
-		return null;
+		return wr;
 	}
 
 }
