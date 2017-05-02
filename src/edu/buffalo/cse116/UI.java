@@ -19,7 +19,7 @@ import edu.buffalo.fractal.WorkerResult;
  * for  Escape-Time calculations.  @author Alec Otminski  @author
  * Stephen Fung @author Ayesha Ismail  @author Junhong Jeong
  */
-public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
+public class UI implements Observer {
 
 	Model _model;
 
@@ -75,6 +75,8 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 	JuliaSet j;
 	burningshipset b;
 	multibrotSet multi;
+	
+	int workerNumber = 0;
 
 	// Menu Items
 	private JMenuBar mb;
@@ -226,6 +228,8 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 		_window.setContentPane(_mainPanel);
 		_window.setVisible(true);
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		cp = new ComputePool();
 
 	}
 
@@ -259,13 +263,16 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 //				for(int i = 0 ; i < 2048; i+=2048/thread2){
 //					a[i] = new WorkerResult(i, a.);
 //				}
-				SwingWorker<WorkerResult, Void> workers[] = new UI[thread2];
-				for (int i = 0; i < thread2; i++) {
-					workers[i] = new UI(_model);
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; i <= thread2; i++) {
+				//	SwingWorker<WorkerResult, Void> werod = new SwingWorker<WorkerResult, Void> ();
+					SwingWorker<WorkerResult, Void> swing = new createWorkers();
+					workers[workerNumber] = swing;
 				}
 				
-				fp.updateImage(mandelbrot.returnArrayWithPasses());
-				temp = mandelbrot.returnArrayWithPasses();
+				
+//				fp.updateImage(mandelbrot.returnArrayWithPasses());
+//				temp = mandelbrot.returnArrayWithPasses();
 				// JOptionPane.getRootFrame();
 //				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
 				cp.generateFractal(2048, workers);
@@ -285,6 +292,7 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 		});
 		burningship.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				fp.updateImage(burningShip.returnArrayWithPasses());
 				temp = burningShip.returnArrayWithPasses();
 				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
@@ -490,12 +498,7 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 			}
 		});
 		
-		CalculatesThreads.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent arg0) {
-				thread2 = 1;
-				System.out.print(thread2);
-				
-			}});
+		
 
 		
 		userInputForThreads.addActionListener(new ActionListener(){
@@ -515,12 +518,14 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 					ErrorBox("Please enter number between 1 to 128","Errorbox");
 				}
 			}
+			
 		});
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
 	}
 
 	public void changed() {
+
 	}
 
 	/**
@@ -565,6 +570,7 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 			}
 		}
 		return false;
+
 	}
 
 	/**
@@ -588,7 +594,9 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 				height = Math.abs(currentY - startY);
 
 				gr.drawRect(beginX, beginY, width, height);
+
 			}
+
 		}
 
 		@Override
@@ -604,14 +612,17 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 				fp.validate();
 
 			}
+
 		}
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
+//			System.out.println(e.getX());
 		}
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
+
 		}
 
 		@Override
@@ -682,22 +693,38 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-		}	
+		}
+
+		
+		
+
+		
+
+		
+
+	
+
 
 	}
-
-	@Override
-	protected WorkerResult doInBackground() throws Exception {
-		cp.changePanel(fp);
-		for(int i = 0 ; i < 2048; i+=2048/thread2){
-			wr = new WorkerResult(i, m.rectangle(textFromBox2, textFromBox, 0, i, 2048, i+(2048/thread2)));
+	
+	public class createWorkers extends SwingWorker<WorkerResult, Void> {
+		
+		@Override
+		protected WorkerResult doInBackground() throws Exception {
+//			cp.changePanel(fp);
+//			for(int i = 0 ; i < 2048; i+=2048/thread2){
+				wr = new WorkerResult(workerNumber * 2048 / thread2 , m.returnArrayWithPasses());
+//			}
+			cp.changePanel(fp);
+			return wr;
 		}
-		cp.changePanel(fp);
-		return wr;
+		
+		
 	}
 
 }
