@@ -574,7 +574,7 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 	 * handles rectangle drag / redrawing of the zoomed in area
 	 */
 
-	private class HandlerClass extends SwingWorker<WorkerResult, Void>implements MouseListener, MouseMotionListener {
+	private class HandlerClass implements MouseListener, MouseMotionListener {
 
 		public void paint(Graphics g) {
 
@@ -697,17 +697,6 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 		public void mouseExited(MouseEvent e) {
 		}
 
-		@Override
-		protected WorkerResult doInBackground() throws Exception {
-////			WorkerResult[][] arr = new WorkerResult[2048][2048];
-//			cp.changePanel(fp);
-//			for(int i = 0 ; i < 2048; i+=2048/thread2){
-//				wr = new WorkerResult(i, m.rectangle(textFromBox2, textFromBox, 0, i, 2048, i+(2048/thread2)));
-//			}
-//			cp.changePanel(fp);
-			return null;
-		}
-
 		
 
 	}
@@ -720,7 +709,7 @@ public class UI extends SwingWorker<WorkerResult, Void> implements Observer {
 			wr = new WorkerResult(i, m.rectangle(textFromBox2, textFromBox, 0, i, 2048, i+(2048/thread2)));
 		}
 		cp.changePanel(fp);
-		return null;
+		return wr;
 	}
 
 }
