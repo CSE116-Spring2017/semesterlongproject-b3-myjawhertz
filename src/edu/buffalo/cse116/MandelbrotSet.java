@@ -53,10 +53,10 @@ public class MandelbrotSet {
 	 * creates a 2D array with passes for each point
 	 * @return 2D array with passes for each point
 	 */
-	public int[][] returnArrayWithPasses() {
-		int[][] array = new int[2048][2048];
+	public int[][] returnArrayWithPasses(int a, int b) {
+		int[][] array = new int[b-a][2048];
 		for (int x = 0; x < 2048; x++) {
-			for (int y = 0; y < 2048; y++) {
+			for (int y = a; y < b; y++) {
 				array[x][y] = mandelbrotSet(getXCord(x), getYCord(y));
 				// System.out.println(array[x][y]);
 			}

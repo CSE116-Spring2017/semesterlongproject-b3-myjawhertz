@@ -264,7 +264,7 @@ public class UI implements Observer {
 //					a[i] = new WorkerResult(i, a.);
 //				}
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
-				for (workerNumber = 0; i <= thread2; i++) {
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 				//	SwingWorker<WorkerResult, Void> werod = new SwingWorker<WorkerResult, Void> ();
 					SwingWorker<WorkerResult, Void> swing = new createWorkers();
 					workers[workerNumber] = swing;
@@ -718,7 +718,7 @@ public class UI implements Observer {
 		protected WorkerResult doInBackground() throws Exception {
 //			cp.changePanel(fp);
 //			for(int i = 0 ; i < 2048; i+=2048/thread2){
-				wr = new WorkerResult(workerNumber * 2048 / thread2 , m.returnArrayWithPasses());
+				wr = new WorkerResult(workerNumber * 2048 / thread2 , m.returnArrayWithPasses(workerNumber * 2048/thread2 ,(workerNumber +1)*2048/thread2));
 //			}
 			cp.changePanel(fp);
 			return wr;
