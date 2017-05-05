@@ -716,10 +716,16 @@ public class UI implements Observer {
 		
 		@Override
 		protected WorkerResult doInBackground() throws Exception {
-//			cp.changePanel(fp);
-//			for(int i = 0 ; i < 2048; i+=2048/thread2){
-				wr = new WorkerResult(workerNumber * 2048 / thread2 , m.returnArrayWithPasses(workerNumber * 2048/thread2 ,(workerNumber +1)*2048/thread2));
-//			}
+			int start = ((workerNumber -1)* 2048) / thread2;
+			int end = (workerNumber ) * 2048 / thread2;
+			try {
+			wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
+			} finally {
+			System.out.println(workerNumber);
+			System.out.println(thread2);
+			System.out.println("" + start + "");
+			System.out.println("" + end + "");
+			}
 			cp.changePanel(fp);
 			return wr;
 		}
