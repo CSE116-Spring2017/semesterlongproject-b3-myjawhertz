@@ -53,8 +53,8 @@ public class SetTests {
 	@Test
 	public void testMandelbrotReturn() {
 		MandelbrotSet returns2DArray = new MandelbrotSet();
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses().length);
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses()[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses(0,2048).length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses(0,2048)[0].length);
 	}
 
 	/**
