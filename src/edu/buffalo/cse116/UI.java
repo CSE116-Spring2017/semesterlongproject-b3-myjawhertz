@@ -97,6 +97,7 @@ public class UI implements Observer {
 	private JMenu Threads;
 	private JMenuItem CalculatesThreads;
 	private int thread2 = 1;
+	private int workerCount = 1;
 	
 	/**
 	 * Calls the methods to generate a new UI for the program when booting up�
@@ -244,40 +245,33 @@ public class UI implements Observer {
 		final JuliaSet juliaSet = new JuliaSet();
 		final burningshipset burningShip = new burningshipset();
 		final multibrotSet multibrotSet = new multibrotSet();
-
 		// fp.setOpaque(true);
-
 		fp.setPreferredSize(new Dimension(2048, 2048));
 		fp.setSize(2048, 2048);
 		fp.setMinimumSize(new Dimension(2048, 2048));
 		fp.setMaximumSize(new Dimension(2048, 2048));
-
 		System.out.println(fp.getSize());
-
 		_buttonGrid.add(fp);
 
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 //				SwingWorker<WorkerResult, Void>[] a = new SwingWorker[thread2];
 //				for(int i = 0 ; i < 2048; i+=2048/thread2){
 //					a[i] = new WorkerResult(i, a.);
 //				}
+				workerCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 				//	SwingWorker<WorkerResult, Void> werod = new SwingWorker<WorkerResult, Void> ();
 					SwingWorker<WorkerResult, Void> swing = new createWorkers();
 					workers[workerNumber] = swing;
 				}
-				
-				
 //				fp.updateImage(mandelbrot.returnArrayWithPasses());
 //				temp = mandelbrot.returnArrayWithPasses();
 				// JOptionPane.getRootFrame();
 //				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
 				cp.generateFractal(2048, workers);
 				setTemp = 1;
-
 			}
 		});
 
@@ -498,9 +492,6 @@ public class UI implements Observer {
 			}
 		});
 		
-		
-
-		
 		userInputForThreads.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				textFromBox3 = textfieldforThread.getText();
@@ -525,7 +516,6 @@ public class UI implements Observer {
 	}
 
 	public void changed() {
-
 	}
 
 	/**
@@ -570,7 +560,6 @@ public class UI implements Observer {
 			}
 		}
 		return false;
-
 	}
 
 	/**
@@ -584,29 +573,22 @@ public class UI implements Observer {
 			gr = fp.getGraphics();
 			Color myColor = new Color(55, 122, 125, 225);
 			gr.setColor(myColor);
-
 			_buttonGrid.paintComponents(_buttonGrid.getGraphics());
-
 			if (drag == true) {
 				beginX = Math.min(startX, currentX);
 				beginY = Math.min(startY, currentY);
 				width = Math.abs(currentX - startX);
 				height = Math.abs(currentY - startY);
-
 				gr.drawRect(beginX, beginY, width, height);
-
 			}
 
 		}
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-
 			if (drag == true) {
-
 				currentX = e.getX();
 				currentY = e.getY();
-
 				paint(fp.getGraphics());
 				fp.invalidate();
 				fp.validate();
@@ -622,7 +604,6 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-
 		}
 
 		@Override
@@ -636,9 +617,7 @@ public class UI implements Observer {
 		public void mouseReleased(MouseEvent e) {
 			endX = e.getX();
 			endY = e.getY();
-
 			widthHolder = width2;
-
 			// starting x and y in rectangle
 			if (i != 0) {
 				newW = newW + (Math.min(startX, endX) * rectW / 2048);
@@ -672,10 +651,8 @@ public class UI implements Observer {
 				height1 = Math.abs(startY - endY);
 				f++;
 			}
-
 			rectW = width1;
 			rectH = height1;
-
 			if (setTemp == 1) {
 				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
 			}
@@ -693,44 +670,31 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
 		}
-
 		
-		
-
-		
-
-		
-
-	
-
-
 	}
 	
 	public class createWorkers extends SwingWorker<WorkerResult, Void> {
 		
 		@Override
 		protected WorkerResult doInBackground() throws Exception {
-			int start = ((workerNumber -1)* 2048) / thread2;
-			int end = (workerNumber ) * 2048 / thread2;
+			int start = ((workerCount -1)* 2048) / thread2;
+			int end = (workerCount ) * 2048 / thread2;
 			try {
 			wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
 			} finally {
-			System.out.println(workerNumber);
+			System.out.println(workerCount);
 			System.out.println(thread2);
 			System.out.println("" + start + "");
 			System.out.println("" + end + "");
 			}
 			cp.changePanel(fp);
+			workerCount += 1;
 			return wr;
 		}
-		
-		
 	}
-
 }
