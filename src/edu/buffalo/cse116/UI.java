@@ -97,7 +97,7 @@ public class UI implements Observer {
 	private JMenu Threads;
 	private JMenuItem CalculatesThreads;
 	private int thread2 = 1;
-	private int workerCount = 1;
+	private int tempCount = 1;
 	
 	/**
 	 * Calls the methods to generate a new UI for the program when booting up�
@@ -259,7 +259,7 @@ public class UI implements Observer {
 //				for(int i = 0 ; i < 2048; i+=2048/thread2){
 //					a[i] = new WorkerResult(i, a.);
 //				}
-				workerCount = thread2;
+				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 				//	SwingWorker<WorkerResult, Void> werod = new SwingWorker<WorkerResult, Void> ();
@@ -682,6 +682,7 @@ public class UI implements Observer {
 		
 		@Override
 		protected WorkerResult doInBackground() throws Exception {
+			int workerCount = tempCount - (thread2 - 1);
 			int start = ((workerCount -1)* 2048) / thread2;
 			int end = (workerCount ) * 2048 / thread2;
 			try {
@@ -693,7 +694,7 @@ public class UI implements Observer {
 			System.out.println("" + end + "");
 			}
 			cp.changePanel(fp);
-			workerCount += 1;
+			tempCount += 1;
 			return wr;
 		}
 	}
