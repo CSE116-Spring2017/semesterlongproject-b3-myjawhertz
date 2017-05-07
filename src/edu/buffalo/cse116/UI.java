@@ -48,6 +48,7 @@ public class UI implements Observer {
 	int z = 0;
 	int k = 0;
 	int f = 0;
+	int wo = -1;
 	double widthHolder = 0;
 	double width2 = 2048;
 	double height2 = 2048;
@@ -76,7 +77,7 @@ public class UI implements Observer {
 	burningshipset b;
 	multibrotSet multi;
 	
-	int workerNumber = 0;
+	int workerNumber;
 
 	// Menu Items
 	private JMenuBar mb;
@@ -146,7 +147,7 @@ public class UI implements Observer {
 		_spacer3 = new JPanel();
 		_5thRowPanel.setLayout(new GridLayout(10, 1));
 		reset = new JButton("Recalculate and redisplay the fractal using the default coordinate range");
-		userInputForThreads = new JButton("This is thread calculating button i guess but I cannot come up with awesome name");
+		userInputForThreads = new JButton("Number of threads");
 		
 		mb = new JMenuBar();
 		_window.setJMenuBar(mb);
@@ -231,6 +232,7 @@ public class UI implements Observer {
 		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		cp = new ComputePool();
+		cp.changePanel(fp);
 
 	}
 
@@ -252,6 +254,8 @@ public class UI implements Observer {
 		fp.setMaximumSize(new Dimension(2048, 2048));
 		System.out.println(fp.getSize());
 		_buttonGrid.add(fp);
+		
+		
 
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -263,9 +267,13 @@ public class UI implements Observer {
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 				//	SwingWorker<WorkerResult, Void> werod = new SwingWorker<WorkerResult, Void> ();
-					SwingWorker<WorkerResult, Void> swing = new createWorkers();
-					workers[workerNumber] = swing;
+//					SwingWorker<WorkerResult, Void> swing = new createWorkers();
+					workers[workerNumber] =  new createWorkers();
+//					System.out.println("worker's length " + workers.length);
+//					System.out.println(workerNumber);
+					
 				}
+				
 //				fp.updateImage(mandelbrot.returnArrayWithPasses());
 //				temp = mandelbrot.returnArrayWithPasses();
 				// JOptionPane.getRootFrame();
@@ -514,6 +522,11 @@ public class UI implements Observer {
 		// This is necessary to actually see the changes that have been made
 		_window.pack();
 	}
+	
+	public int workNum(){
+		wo+=1;
+		return wo;
+	}
 
 	public void changed() {
 	}
@@ -679,22 +692,42 @@ public class UI implements Observer {
 	}
 	
 	public class createWorkers extends SwingWorker<WorkerResult, Void> {
+		int a ;
 		
 		@Override
 		protected WorkerResult doInBackground() throws Exception {
-			int workerCount = tempCount - (thread2 - 1);
-			int start = ((workerCount -1)* 2048) / thread2;
-			int end = (workerCount ) * 2048 / thread2;
-			try {
-			wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
-			} finally {
-			System.out.println(workerCount);
-			System.out.println(thread2);
-			System.out.println("" + start + "");
-			System.out.println("" + end + "");
-			}
-			cp.changePanel(fp);
-			tempCount += 1;
+////			int workerCount = tempCount - (thread2 - 1);
+//			int start = ((workerNumber-1)* 2048) / thread2;
+//			System.out.println(workerNumber);
+//			
+////			System.out.println("s " + start + "");
+//			
+//			int end = (workerNumber  ) * 2048 / thread2;
+////			System.out.println("e " + end + "");
+//			try {
+//			wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
+//			} finally {
+////			System.out.println(workerNumber);
+////			System.out.println(thread2);
+////			System.out.println("" + start + "");
+////			System.out.println("" + end + "");
+//			}
+////			cp.changePanel(fp);
+////			tempCount += 1;
+			
+//			for (int iCount = 0; iCount < thread2; iCount++) {
+//				System.out.println("wn : " + workNum());
+				int a = workNum();
+				int start = (a* 2048) / thread2;
+				System.out.println("start: " + start + "");
+				int end = ((a  +1) * 2048 / thread2);
+				System.out.println("end: " + end + "");
+				wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
+				
+				
+//			}
+			
+			
 			return wr;
 		}
 	}

@@ -54,9 +54,14 @@ public class MandelbrotSet {
 	 * @return 2D array with passes for each point
 	 */
 	public int[][] returnArrayWithPasses(int a, int b) {
-		int[][] array = new int[b-a][2048];
-		for (int x = 0; x < 2048; x++) {
-			for (int y = a; y < b; y++) {
+		int i = -1;
+		int[][] array = new int[2048][b-a];
+//		System.out.println(a);
+		for (int y = a; y < b; y++) {
+//		System.out.println(a);
+			//i+=1;
+//			System.out.println(i);
+			for (int x = 0; x < 2048; x++) {
 				array[x][y] = mandelbrotSet(getXCord(x), getYCord(y));
 				// System.out.println(array[x][y]);
 			}
