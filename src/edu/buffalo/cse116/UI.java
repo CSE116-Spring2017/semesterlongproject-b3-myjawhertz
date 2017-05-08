@@ -234,6 +234,7 @@ public class UI implements Observer {
 		
 		cp = new ComputePool();
 		cp.changePanel(fp);
+		
 
 	}
 
@@ -259,53 +260,62 @@ public class UI implements Observer {
 
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				wo = -1;
 				setTemp = 1;
 				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 					workers[workerNumber] =  new createWorkers();
 					
-				}cp.generateFractal(2048, workers);	
+				}
 				cp.clearPool();
+				cp.generateFractal(2048, workers);	
+				
+//				cp.clearPool();
 			}
+			
 		});
 
 		julia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				wo = -1;
 				setTemp = 2;
 				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 					workers[workerNumber] =  new createWorkers();
 				}
-				cp.generateFractal(2048, workers);
 				cp.clearPool();
+
+				cp.generateFractal(2048, workers);
 				
 			}
 		});
 		burningship.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				wo=-1;
 				setTemp = 3;
 				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 					workers[workerNumber] =  new createWorkers();
 				}
-				cp.generateFractal(2048, workers);
 				cp.clearPool();
+				cp.generateFractal(2048, workers);
 				
 			}
 		});
 		multibrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				wo=-1;
 				setTemp = 4;
 				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 					workers[workerNumber] =  new createWorkers();
 				}
-				cp.generateFractal(2048, workers);
 				cp.clearPool();
+				cp.generateFractal(2048, workers);
 			
 			}
 		});
