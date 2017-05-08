@@ -705,9 +705,9 @@ public class UI implements Observer {
 				if (setTemp == 2) {
 					wr = new WorkerResult(start , j.returnArrayWithPasses(start ,end));
 				}
-//				if (setTemp == 3) {
-//					wr = new WorkerResult(start , b.returnArrayWithPasses(start ,end));
-//				}
+				if (setTemp == 3) {
+					wr = new WorkerResult(start , b.returnArrayWithPasses(start ,end));
+				}
 				if (setTemp == 4) {
 					wr = new WorkerResult(start , multi.return2DArray(start ,end));
 				}			
