@@ -265,8 +265,7 @@ public class UI implements Observer {
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
 					workers[workerNumber] =  new createWorkers();
 					
-				}cp.generateFractal(2048, workers);
-				
+				}cp.generateFractal(2048, workers);	
 			}
 		});
 
