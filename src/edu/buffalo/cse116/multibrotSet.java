@@ -78,12 +78,11 @@ public class multibrotSet {
 	 * This method gives the escape-times of each pixel in a 2D array form.
 	 * @return A 2D Array of int containing the escape time of each pixel in the 2048 x 2048 array. 
 	 */
-	public int[][] return2DArray(){
-		int[][] array = new int[2048][2048];
-		for (int r = 0; r < 2048; r++){		//for each row in the array
-			for (int c = 0; c < 2048; c++) {		//for each column in the array
-				array[r][c] = mbSetETCalculation(XCoordTranslation(r),YCoordTranslation(c));
-//				System.out.println(array[r][c]);	//this line is for debugging purposes
+	public int[][] return2DArray(int a, int b){
+		int [][] array = new int[b - a + 1][2048];
+		for (int x = a; x <= b; x++) {
+			for (int y = 0; y < 2048; y++) {
+				array[x-a][y] = mbSetETCalculation(XCoordTranslation(x), YCoordTranslation(y));
 			}
 		}
 		return array;
