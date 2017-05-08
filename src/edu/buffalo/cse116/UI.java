@@ -266,6 +266,7 @@ public class UI implements Observer {
 					workers[workerNumber] =  new createWorkers();
 					
 				}cp.generateFractal(2048, workers);	
+				cp.clearPool();
 			}
 		});
 
@@ -278,6 +279,7 @@ public class UI implements Observer {
 					workers[workerNumber] =  new createWorkers();
 				}
 				cp.generateFractal(2048, workers);
+				cp.clearPool();
 				
 			}
 		});
@@ -290,6 +292,7 @@ public class UI implements Observer {
 					workers[workerNumber] =  new createWorkers();
 				}
 				cp.generateFractal(2048, workers);
+				cp.clearPool();
 				
 			}
 		});
@@ -302,6 +305,7 @@ public class UI implements Observer {
 					workers[workerNumber] =  new createWorkers();
 				}
 				cp.generateFractal(2048, workers);
+				cp.clearPool();
 			
 			}
 		});
@@ -701,19 +705,15 @@ public class UI implements Observer {
 				
 				if (setTemp == 1) {
 					wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
-					cp.clearPool();
 				}
 				if (setTemp == 2) {
 					wr = new WorkerResult(start , j.returnArrayWithPasses(start ,end));
-					cp.clearPool();
 				}
 				if (setTemp == 3) {
 					wr = new WorkerResult(start , b.returnArrayWithPasses(start ,end));
-					cp.clearPool();
 				}
 				if (setTemp == 4) {
 					wr = new WorkerResult(start , multi.return2DArray(start ,end));
-					cp.clearPool();
 				}			
 			
 			return wr;
