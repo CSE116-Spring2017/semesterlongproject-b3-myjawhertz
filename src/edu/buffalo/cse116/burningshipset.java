@@ -61,16 +61,17 @@ public class burningshipset {
 	 * 
 	 * @return 2D array with passes for each point
 	 */
-	public int[][] returnArrayWithPasses() {
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x][y] = burningShip(getXCord(x), getYCord(y));
-				// System.out.println(array[x][y]);
+	public int[][] returnArrayWithPasses(int a, int b) {
+		int[][] array = new int[b-a+1][2048];
+
+		for (int x = a; x <= b; x++){ 	
+			for (int y = 0; y < 2048; y++) {	
+				array[x-a][y] = burningShip(getXCord(x), getYCord(y));
 			}
 		}
 		return array;
 	}
+
 
 	/**
 	 * @param xCalc
