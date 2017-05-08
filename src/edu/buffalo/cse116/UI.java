@@ -109,8 +109,9 @@ public class UI implements Observer {
 	 */
 	public UI(Model m) {
 
-		// Keep a permanent reference to the Model in order to notify it of user
-		// input
+		/** Keep a permanent reference to the Model in order to notify it of user
+		 input
+		 */
 		_model = m;
 
 		/**
@@ -138,8 +139,8 @@ public class UI implements Observer {
 		// The main panel
 		_mainPanel = new JPanel();
 
-		// The panel that contains the function to re-calculate the
-		// fractal(Button) and input box
+		/** The panel that contains the function to re-calculate the
+		 fractal(Button) and input box */
 		_5thRowPanel = new JPanel();
 
 		_spacer = new JPanel();
@@ -247,7 +248,6 @@ public class UI implements Observer {
 		final JuliaSet juliaSet = new JuliaSet();
 		final burningshipset burningShip = new burningshipset();
 		final multibrotSet multibrotSet = new multibrotSet();
-		// fp.setOpaque(true);
 		fp.setPreferredSize(new Dimension(2048, 2048));
 		fp.setSize(2048, 2048);
 		fp.setMinimumSize(new Dimension(2048, 2048));
@@ -260,27 +260,12 @@ public class UI implements Observer {
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setTemp = 1;
-//				SwingWorker<WorkerResult, Void>[] a = new SwingWorker[thread2];
-//				for(int i = 0 ; i < 2048; i+=2048/thread2){
-//					a[i] = new WorkerResult(i, a.);
-//				}
 				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
-				//	SwingWorker<WorkerResult, Void> werod = new SwingWorker<WorkerResult, Void> ();
-//					SwingWorker<WorkerResult, Void> swing = new createWorkers();
 					workers[workerNumber] =  new createWorkers();
-//					System.out.println("worker's length " + workers.length);
-//					System.out.println(workerNumber);
 					
-				}
-				
-//				fp.updateImage(mandelbrot.returnArrayWithPasses());
-//				temp = mandelbrot.returnArrayWithPasses();
-				// JOptionPane.getRootFrame();
-//				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
-				cp.generateFractal(2048, workers);
-				
+				}cp.generateFractal(2048, workers);	
 			}
 		});
 
@@ -403,6 +388,7 @@ public class UI implements Observer {
 		});
 		
 		
+		
 		enter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFromBox = jt.getText();
@@ -475,7 +461,7 @@ public class UI implements Observer {
 		});
 
 		/**
-		 * Adds function to reset button
+		 * Adds function to reset to default fractal
 		 */
 		reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -493,7 +479,7 @@ public class UI implements Observer {
 
 				rectW = 0;
 				rectH = 0;
-				// if text in box is a valid number between 2 and 255
+				
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
 				}
@@ -508,7 +494,9 @@ public class UI implements Observer {
 				}
 			}
 		});
-		
+		/**
+		 * Gets the user input from text box
+		 */
 		userInputForThreads.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				textFromBox3 = textfieldforThread.getText();
@@ -532,6 +520,11 @@ public class UI implements Observer {
 		_window.pack();
 	}
 	
+	
+	/**
+	 * Divides the work amongst workerResult 
+	 * @return worker number it is on
+	 */
 	public int workNum(){
 		wo+=1;
 		return wo;
@@ -621,7 +614,6 @@ public class UI implements Observer {
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-//			System.out.println(e.getX());
 		}
 
 		@Override
@@ -705,27 +697,6 @@ public class UI implements Observer {
 		
 		@Override
 		protected WorkerResult doInBackground() throws Exception {
-////			int workerCount = tempCount - (thread2 - 1);
-//			int start = ((workerNumber-1)* 2048) / thread2;
-//			System.out.println(workerNumber);
-//			
-////			System.out.println("s " + start + "");
-//			
-//			int end = (workerNumber  ) * 2048 / thread2;
-////			System.out.println("e " + end + "");
-//			try {
-//			wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
-//			} finally {
-////			System.out.println(workerNumber);
-////			System.out.println(thread2);
-////			System.out.println("" + start + "");
-////			System.out.println("" + end + "");
-//			}
-////			cp.changePanel(fp);
-////			tempCount += 1;
-			
-//			for (int iCount = 0; iCount < thread2; iCount++) {
-//				System.out.println("wn : " + workNum());
 				int a = workNum();
 				int start = (a* 2048) / thread2;
 				System.out.println("start: " + start + "");
@@ -743,11 +714,7 @@ public class UI implements Observer {
 //				}
 				if (setTemp == 4) {
 					wr = new WorkerResult(start , multi.return2DArray(start ,end));
-				}
-				
-				
-//			}
-			
+				}			
 			
 			return wr;
 		}
