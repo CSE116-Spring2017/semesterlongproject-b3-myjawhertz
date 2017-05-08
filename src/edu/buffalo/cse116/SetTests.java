@@ -189,8 +189,8 @@ public class SetTests {
 	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray().length);
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray()[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray(0,2048).length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray(0,2048)[0].length);
 	}
 
 	/**

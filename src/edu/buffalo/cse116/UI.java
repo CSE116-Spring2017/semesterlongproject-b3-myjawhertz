@@ -259,6 +259,7 @@ public class UI implements Observer {
 
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setTemp = 1;
 //				SwingWorker<WorkerResult, Void>[] a = new SwingWorker[thread2];
 //				for(int i = 0 ; i < 2048; i+=2048/thread2){
 //					a[i] = new WorkerResult(i, a.);
@@ -279,36 +280,44 @@ public class UI implements Observer {
 				// JOptionPane.getRootFrame();
 //				fp.updateImage(mandelbrot.userInputEscapeTime(textFromBox2, textFromBox));
 				cp.generateFractal(2048, workers);
-				setTemp = 1;
+				
 			}
 		});
 
 		julia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fp.updateImage(juliaSet.returnArrayWithPasses());
-				temp = juliaSet.returnArrayWithPasses();
-				// JOptionPane.getRootFrame();
-				fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
 				setTemp = 2;
+				tempCount = thread2;
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers();
+				}
+				cp.generateFractal(2048, workers);
+				
 			}
 		});
 		burningship.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				fp.updateImage(burningShip.returnArrayWithPasses());
-				temp = burningShip.returnArrayWithPasses();
-				fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-				// JOptionPane.getRootFrame();
 				setTemp = 3;
+				tempCount = thread2;
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers();
+				}
+				cp.generateFractal(2048, workers);
+				
 			}
 		});
 		multibrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fp.updateImage(multibrotSet.return2DArray());
-				temp = multibrotSet.return2DArray();
-				fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-				// JOptionPane.getRootFrame();
 				setTemp = 4;
+				tempCount = thread2;
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers();
+				}
+				cp.generateFractal(2048, workers);
+			
 			}
 		});
 		ext.addActionListener(new ActionListener() {
@@ -722,7 +731,19 @@ public class UI implements Observer {
 				System.out.println("start: " + start + "");
 				int end = (((a  +1) * 2048 / thread2)) -1;
 				System.out.println("end: " + end + "");
-				wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
+				
+				if (setTemp == 1) {
+					wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
+				}
+				if (setTemp == 2) {
+					wr = new WorkerResult(start , j.returnArrayWithPasses(start ,end));
+				}
+//				if (setTemp == 3) {
+//					wr = new WorkerResult(start , b.returnArrayWithPasses(start ,end));
+//				}
+				if (setTemp == 4) {
+					wr = new WorkerResult(start , multi.return2DArray(start ,end));
+				}
 				
 				
 //			}
