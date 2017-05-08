@@ -13,7 +13,7 @@ public class multibrotSet {
 	 * @return new xCalc value for this set
 	 */
 	public double XCoordTranslation(int x){
-		double xCalc = -1 + (2.0 * x / 2048);
+		double xCalc = -1 + (2.0 * x / 2048); 
 		return xCalc; 
 	}
 	/**
