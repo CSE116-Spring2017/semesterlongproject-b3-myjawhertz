@@ -313,7 +313,6 @@ public class UI implements Observer {
 		color1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createBluesColorModel(8));
-				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
@@ -332,7 +331,6 @@ public class UI implements Observer {
 		color2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createGrayColorModel(8));
-				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
@@ -351,7 +349,6 @@ public class UI implements Observer {
 		color3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createRainbowColorModel(8));
-				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
@@ -370,7 +367,6 @@ public class UI implements Observer {
 		color4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createCrazyGoodColor(8));
-				fp.updateImage(temp);
 				JOptionPane.getRootFrame();
 				if (setTemp == 1) {
 					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
