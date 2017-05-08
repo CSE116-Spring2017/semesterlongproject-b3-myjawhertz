@@ -144,8 +144,8 @@ public class SetTests {
 	@Test
 	public void testBurningShipReturn() {
 		burningshipset returns2DArray = new burningshipset();
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses().length);
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses()[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses(0,2047).length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses(0,2047)[0].length);
 	}
 
 	/**

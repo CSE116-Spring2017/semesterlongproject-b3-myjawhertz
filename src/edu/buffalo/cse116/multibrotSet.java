@@ -13,9 +13,7 @@ public class multibrotSet {
 	 * @return new xCalc value for this set
 	 */
 	public double XCoordTranslation(int x){
-//		System.out.println("Original x-value is:" + x);
-		double xCalc = -1 + (2.0 * x / 2048);
-//		System.out.println("New x-value for " + x + " is: " + xCalc);
+		double xCalc = -1 + (2.0 * x / 2048); 
 		return xCalc; 
 	}
 	/**
@@ -24,9 +22,7 @@ public class multibrotSet {
 	 * @return new yCalc value for this set
 	 */
 	public double YCoordTranslation(int y){
-//		System.out.println("Original y-value is: " + y);
 		double yCalc = -1.3 + (2.6 * y / 2048);
-//		System.out.println("New y-value for " + y + " is: " + yCalc);
 		return yCalc;
 	}
 	
@@ -174,7 +170,6 @@ public class multibrotSet {
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 			passes++;
 		}
-
 		return passes;
 	}
 
@@ -192,7 +187,6 @@ public class multibrotSet {
 		for (int x = 0; x < 2048; x++) {
 			for (int y = 0; y < 2048; y++) {
 				array[x][y] = multibrotRealPasses(XCoordTranslation(x), YCoordTranslation(y), a, c);
-				// System.out.println(array[x][y]);
 			}
 		}
 		return array;
@@ -235,10 +229,8 @@ public class multibrotSet {
 		for (int x = 0; x < 2048; x++) {
 			for (int y = 0; y < 2048; y++) {
 				array[x][y] = multibrotRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
-				// System.out.println(array[x][y]);
 			} 
 		} 
 		return array;
 	}
-
 }
