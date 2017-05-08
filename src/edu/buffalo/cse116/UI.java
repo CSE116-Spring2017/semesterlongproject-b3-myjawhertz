@@ -63,7 +63,7 @@ public class UI implements Observer {
 	private JButton enterForTime = new JButton("Recaculate fractal with given escape time");
 	private String textFromBox = "2";
 	private String textFromBox2 = "255";
-	private String textFromBox3;
+	private String textFromBox3 = "4";
 	private int setTemp;
 
 	private int count;
@@ -720,7 +720,7 @@ public class UI implements Observer {
 				int a = workNum();
 				int start = (a* 2048) / thread2;
 				System.out.println("start: " + start + "");
-				int end = ((a  +1) * 2048 / thread2);
+				int end = (((a  +1) * 2048 / thread2)) -1;
 				System.out.println("end: " + end + "");
 				wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
 				

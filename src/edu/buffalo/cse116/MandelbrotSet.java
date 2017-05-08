@@ -55,14 +55,16 @@ public class MandelbrotSet {
 	 */
 	public int[][] returnArrayWithPasses(int a, int b) {
 		int i = -1;
-		int[][] array = new int[2048][b-a];
+		int[][] array = new int[b-a+1][2048];
 //		System.out.println(a);
-		for (int y = a; y < b; y++) {
+		for (int x = a; x <= b; x++) {
+		
 //		System.out.println(a);
-			//i+=1;
+//			i+=1;
 //			System.out.println(i);
-			for (int x = 0; x < 2048; x++) {
-				array[x][y] = mandelbrotSet(getXCord(x), getYCord(y));
+			for (int y = 0; y < 2048; y++) {
+				
+				array[x-a][y] = mandelbrotSet(getXCord(x), getYCord(y));
 				// System.out.println(array[x][y]);
 			}
 		}
