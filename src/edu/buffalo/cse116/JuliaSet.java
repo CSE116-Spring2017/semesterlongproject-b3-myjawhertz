@@ -75,17 +75,18 @@ public class JuliaSet {
 	 * @return array with all the passes
 	 */
 
-	public int[][] returnArrayWithPasses() {
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
+	public int[][] returnArrayWithPasses(int a, int b) {
+		int i = -1;
+		int[][] array = new int[b-a+1][2048];
+
+		for (int x = a; x <= b; x++) {
 			for (int y = 0; y < 2048; y++) {
-				array[x][y] = JuliaSet(getXCord(x), getYCord(y));
-				// System.out.println(array[x][y]);
+				
+				array[x-a][y] = JuliaSet(getXCord(x), getYCord(y));
 			}
 		}
 		return array;
 	}
-
 	/*
 	 * 
 	 * Takes in xCalc and YCalc and calculates the passes
