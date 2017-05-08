@@ -85,7 +85,7 @@ public class multibrotSet {
 				array[x-a][y] = mbSetETCalculation(XCoordTranslation(x), YCoordTranslation(y));
 			}
 		}
-		return array;
+		return array; 
 	}
 	
 	/**
