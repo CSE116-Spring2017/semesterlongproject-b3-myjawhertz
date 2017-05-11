@@ -62,46 +62,35 @@ public class SetTests {
 	 */
 
 	// Translate a pixel's row to the associated x-coordinate in the fractal
-	@Test
-	public void testJuliaXCoordinateTranslation() { // name of class: JuliaSet
-		JuliaSet xCoordTest = new JuliaSet();
-		assertEquals("X cordinate is -1.7", -1.7, xCoordTest.getXCord(0), 0.00001);
+		@Test
+		public void testJuliaXCoordinateTranslation() { // name of class: JuliaSet
+			JuliaSet xCoordTest = new JuliaSet();
+			assertEquals("X cordinate is -1.7", -1.7, xCoordTest.getXCordRect(0,0,0), 0.00001);
 
-	}
+		}
 
-	// Translate a pixel's column to the associated y-coordinate in the fractal
-	@Test
-	public void testJuliaYCoordinateTranslation() {
-		JuliaSet yCoordTest = new JuliaSet();
-		assertEquals("Y cordinate is -1.0", -1.0, yCoordTest.getYCord(0), 0.0001);
-	}
+		// Translate a pixel's column to the associated y-coordinate in the fractal
+		@Test
+		public void testJuliaYCoordinateTranslation() {
+			JuliaSet yCoordTest = new JuliaSet();
+			assertEquals("Y cordinate is -1.0", -1.0, yCoordTest.getYCordRect(0,0,0), 0.0001);
+		}
 
-	// Calculates the escape time for a coordinate whose distance from the
-	// origin never exceeds the escape distance
-	@Test
-	public void testJuliaETNeverExceedsED() {
-		JuliaSet neverExceedsED = new JuliaSet();
-		assertEquals("Excape time 255.", 255, neverExceedsED.JuliaSet(1.0492187499999897, -0.234375), 0.0001);
-	}
+		// Calculates the escape time for a coordinate whose distance from the
+		// origin never exceeds the escape distance
+		@Test
+		public void testJuliaETNeverExceedsED() {
+			JuliaSet neverExceedsED = new JuliaSet();
+			assertEquals("Escape time 255.", 255, neverExceedsED.juliaRealPasses(1.0492187499999897, -0.234375,255,2), 0.0001);
+		}
 
-	// Calculates the escape time for a coordinate whose distance from the
-	// origin exceeds the escape distance after a single loop pass
-	@Test
-	public void testJuliaETExceedsED() {
-		JuliaSet etExceedsED = new JuliaSet();
-		assertEquals("Excape time 1.", 1, etExceedsED.JuliaSet(1.6933593749999853, 0.9765625), 0.0001);
-	}
-
-	// The method called to calculate the fractal returns a 2-d array with 512
-	// rows and 512 columns
-	@Test
-	public void testJuliaReturn() {
-		JuliaSet returns2DArray = new JuliaSet();
-		int[][] arr = new int[512][512];
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.emptyArray().length);
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.emptyArray()[0].length);
-
-	}
+		// Calculates the escape time for a coordinate whose distance from the
+		// origin exceeds the escape distance after a single loop pass
+		@Test
+		public void testJuliaETExceedsED() {
+			JuliaSet etExceedsED = new JuliaSet();
+			assertEquals("Escape time 1.", 1, etExceedsED.juliaRealPasses(1.6933593749999853, 0.9765625,255,2), 0.0001);
+		}
 
 	/**
 	 * Burning Ship Set Tests
@@ -210,7 +199,7 @@ public class SetTests {
 	@Test
 	public void testJuliasetCalEsTime() {
 		JuliaSet juliaset = new JuliaSet();
-		assertEquals(10, juliaset.juliasetPass10(1.4538160469667272, -0.13502935420743645), 0.0001);
+		assertEquals(10, juliaset.juliaRealPasses(1.4538160469667272, -0.13502935420743645,255,2), 0.0001);
 	}
 
 	// When the escape distance is set to 3, calculates the escape time for a
@@ -250,7 +239,7 @@ public class SetTests {
 	@Test
 	public void testJuliaET135ED2() {
 		JuliaSet juliaset = new JuliaSet();
-		assertEquals("Escape time is 135.", 135, juliaset.juliaDist2Pass135(1.0492187499999897, -0.234375), 0.0001);
+		assertEquals("Escape time is 135.", 135, juliaset.juliaRealPasses(1.0492187499999897, -0.234375,135,2), 0.0001);
 	}
 	
 	// When the escape distance is set to 2, calculates the escape time for a
