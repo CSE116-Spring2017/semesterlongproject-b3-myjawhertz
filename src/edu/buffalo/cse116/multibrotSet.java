@@ -218,7 +218,7 @@ public class multibrotSet {
 	
 	/**
 	 * This method returns a 2D array of integers that represents a piece (or all) of escape-times
-	 * for the Multibrot Set
+	 * for the Multibrot Set 
 	 * @param i - escape distance
 	 * @param b - escape time
 	 * @param e - distance from -2.15
