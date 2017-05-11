@@ -108,21 +108,21 @@ public class burningshipset {
 	 * 
 	 * @return a boolean value
 	 */
-//	public boolean OnlyOneOrZero() {
-//		int[][] array = new int[2048][2048];
-//		for (int x = 0; x < 2048; x++) {
-//			for (int y = 0; y < 2048; y++) {
-//				if (array[x][y] <= 2) {
-//					return true;
-//				} else {
-//					return false;
-//				}
-//			}
-//
-//		}
-//		return false;
-//
-//	}
+	public boolean OnlyOneOrZero() {
+		int[][] array = new int[2048][2048];
+		for (int x = 0; x < 2048; x++) {
+			for (int y = 0; y < 2048; y++) {
+				if (array[x][y] <= 2) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+		}
+		return false;
+
+	}
 
 	/**
 	 * 
