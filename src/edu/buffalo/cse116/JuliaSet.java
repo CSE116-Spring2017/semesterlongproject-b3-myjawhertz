@@ -14,10 +14,10 @@ public class JuliaSet {
 	 *            takes in XCoord on 2048 by 2048 and
 	 * @return in pixel
 	 */
-	public double getXCord(int xRow) {
-		double xCord = -1.7 + (3.4 * xRow / 2048);
-		return xCord;
-	}
+//	public double getXCord(int xRow) {
+//		double xCord = -1.7 + (3.4 * xRow / 2048);
+//		return xCord;
+//	}
 
 	/**
 	 * The method below:
@@ -26,10 +26,10 @@ public class JuliaSet {
 	 *            takes in Y-Coordinate on 2048 by 2048 2D array
 	 * @return in Pixel
 	 */
-	public double getYCord(int yCol) {
-		double yCord = -1.0 + (2.0 * yCol / 2048);
-		return yCord;
-	}
+//	public double getYCord(int yCol) {
+//		double yCord = -1.0 + (2.0 * yCol / 2048);
+//		return yCord;
+//	}
 
 	/**
 	 * The method below:
@@ -42,51 +42,51 @@ public class JuliaSet {
 	 * 
 	 **/
 
-	public int JuliaSet(double xCalc, double yCalc) {
+//	public int JuliaSet(double xCalc, double yCalc) {
 
-		double dist = 0;
-		int passes = 0;
-		while (dist <= 2 && passes < 255) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-
-			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
-			yCalc = (2 * tempX * tempY) + 0.188887;
-
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-
-		}
-
-		return passes;
-
-	}
+//		double dist = 0;
+//		int passes = 0;
+//		while (dist <= 2 && passes < 255) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//
+//			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+//			yCalc = (2 * tempX * tempY) + 0.188887;
+//
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//
+//		}
+//
+//		return passes;
+//
+//	}
 	/*
 	 * @return empty array 2048 by 2048
 	 */
 
-	public int[][] emptyArray() {
-		emptyArray = new int[2048][2048];
-		return emptyArray;
-	}
+//	public int[][] emptyArray() {
+//		emptyArray = new int[2048][2048];
+//		return emptyArray;
+//	}
 	/*
 	 * Generates array with passes
 	 * 
 	 * @return array with all the passes
 	 */
 
-	public int[][] returnArrayWithPasses(int a, int b) {
-		int i = -1;
-		int[][] array = new int[b-a+1][2048];
-
-		for (int x = a; x <= b; x++) {
-			for (int y = 0; y < 2048; y++) {
-				
-				array[x-a][y] = JuliaSet(getXCord(x), getYCord(y));
-			}
-		}
-		return array;
-	}
+//	public int[][] returnArrayWithPasses(int a, int b) {
+//		int i = -1;
+//		int[][] array = new int[b-a+1][2048];
+//
+//		for (int x = a; x <= b; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				
+//				array[x-a][y] = JuliaSet(getXCord(x), getYCord(y));
+//			}
+//		}
+//		return array;
+//	}
 	/*
 	 * 
 	 * Takes in xCalc and YCalc and calculates the passes
@@ -94,25 +94,25 @@ public class JuliaSet {
 	 * @param yCalc takes in y Coordinate range
 	 * @return passes
 	 */
-	public int juliasetPass10(double xCalc, double yCalc) {
-
-		double dist = 0;
-		int passes = 0;
-		while (dist <= 3 && passes < 255) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-
-			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
-			yCalc = (2 * tempX * tempY) + 0.188887;
-
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-
-		}
-
-		return passes;
-
-	}
+//	public int juliasetPass10(double xCalc, double yCalc) {
+//
+//		double dist = 0;
+//		int passes = 0;
+//		while (dist <= 3 && passes < 255) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//
+//			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+//			yCalc = (2 * tempX * tempY) + 0.188887;
+//
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//
+//		}
+//
+//		return passes;
+//
+//	}
 
 	/*
 	 * Takes in user input for distance and returns passes
@@ -123,24 +123,24 @@ public class JuliaSet {
 	 * @return passes
 	 * 
 	 */
-	public int userInputPasses(double xCalc, double yCalc, double i) {
-
-		double dist = i;
-		int passes = 0;
-		while (dist <= i && passes < 255) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-
-			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
-			yCalc = (2 * tempX * tempY) + 0.188887;
-
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-
-		}
-
-		return passes;
-	}
+//	public int userInputPasses(double xCalc, double yCalc, double i) {
+//
+//		double dist = i;
+//		int passes = 0;
+//		while (dist <= i && passes < 255) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//
+//			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+//			yCalc = (2 * tempX * tempY) + 0.188887;
+//
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//
+//		}
+//
+//		return passes;
+//	}
 
 	/*
 	 * 
@@ -150,17 +150,17 @@ public class JuliaSet {
 	 * @return array with passes
 	 * 
 	 */
-	public int[][] userInputEscape(String i) {
-		int a = Integer.parseInt(i);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
-				// System.out.println(array[x][y]);
-			}
-		}
-		return array;
-	}
+//	public int[][] userInputEscape(String i) {
+//		int a = Integer.parseInt(i);
+//		int[][] array = new int[2048][2048];
+//		for (int x = 0; x < 2048; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
+//				// System.out.println(array[x][y]);
+//			}
+//		}
+//		return array;
+//	}
 	/*
 	 * Only called in a JUnit test to test if the set returns an escape time of 135 when
 	 * the distance is set to 2 given a certain x and y value.
@@ -168,25 +168,25 @@ public class JuliaSet {
 	 * @param yCalc - Y-Value given in the JUnit test case
 	 * @return the Escape-Time of the set == the number of passes done
 	 */
-	public int juliaDist2Pass135(double xCalc, double yCalc) {
-
-		double dist = 0;
-		int passes = 0;
-		while (dist <= 2 && passes < 135) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-
-			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
-			yCalc = (2 * tempX * tempY) + 0.188887;
-
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-
-		}
-
-		return passes;
-
-	}
+//	public int juliaDist2Pass135(double xCalc, double yCalc) {
+//
+//		double dist = 0;
+//		int passes = 0;
+//		while (dist <= 2 && passes < 135) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//
+//			xCalc = (tempX * tempX) - (tempY * tempY) - 0.72689;
+//			yCalc = (2 * tempX * tempY) + 0.188887;
+//
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//
+//		}
+//
+//		return passes;
+//
+//	}
 	/*
 	 * Calculates the Escape-Time using for the set using the custom distance and maximum number
 	 * of passes which are set by the user.
@@ -219,17 +219,17 @@ public class JuliaSet {
 	 * 		   String b entry from TextBox2: determines distance used for ET calculations
 	 * @return 2D array of int of Escape-Times for each pixel in 2048*2048 array
 	 */
-	public int[][] userInputEscapeTime(String i, String b) {
-		int a = Integer.parseInt(i);
-		int c = Integer.parseInt(b);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x][y] = juliaRealPasses(getXCord(x), getYCord(y), a, c);
-			}
-		}
-		return array;
-	}
+//	public int[][] userInputEscapeTime(String i, String b) {
+//		int a = Integer.parseInt(i);
+//		int c = Integer.parseInt(b);
+//		int[][] array = new int[2048][2048];
+//		for (int x = 0; x < 2048; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x][y] = juliaRealPasses(getXCord(x), getYCord(y), a, c);
+//			}
+//		}
+//		return array;
+//	}
 	/*@param int xRow
 	 * 		 int xStart
 	 * 		 int xWidth
@@ -259,13 +259,14 @@ public class JuliaSet {
 	 *        double gg rectangle height
 	 * @return array 
 	 */
-	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
+	public int[][] rectangle(String i, String b, double e, double r, double er, double gg, int a1, int b1) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
+		//int[][] array = new int[2048][2048];
+		int[][] array = new int[b1-a1 +1][2048];
+		for (int x = a1; x <= b1; x++) {
 			for (int y = 0; y < 2048; y++) {
-				array[x][y] = juliaRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
+				array[x-a1][y] = juliaRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 				// System.out.println(array[x][y]);
 			} 
 		}
