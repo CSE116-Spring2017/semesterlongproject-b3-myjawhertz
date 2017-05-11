@@ -7,20 +7,20 @@ public class MandelbrotSet {
 	 * @param xRow - row from 0 - 2048
 	 * @return y coordinate
 	 **/
-	public double getXCord(int xRow) {
-		double xCord = -2.15 + (2.75 * xRow / 2048);
-		return xCord;
-	}
+//	public double getXCord(int xRow) {
+//		double xCord = -2.15 + (2.75 * xRow / 2048);
+//		return xCord;
+//	}
 
 	/**
 	 * translate from 0-2048 row to yCord
 	 * @param yCol - column from 0 - 2048
 	 * @return y coordinate
 	 **/
-	public double getYCord(int yCol) {
-		double yCord = -1.3 + (2.6 * yCol / 2048);
-		return yCord;
-	}
+//	public double getYCord(int yCol) {
+//		double yCord = -1.3 + (2.6 * yCol / 2048);
+//		return yCord;
+//	}
 
 	/**
 	 * calculates passes
@@ -29,39 +29,39 @@ public class MandelbrotSet {
 	 * @param yCalc - Y-coordinate range from -1.3 to 1.3
 	 * @return number of passes for the inserted xCalc and yCalc
 	 **/
-	public int mandelbrotSet(double xCalc, double yCalc) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = 0;
-		int passes = 0;
-		while (dist <= 2 && passes < 255) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-
-			xCalc = (tempX * tempX) - (tempY * tempY) + x;
-			yCalc = (2 * (tempX * tempY)) + y;
-
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-
-			passes++;
-		}
-
-		return passes;
-	}
+//	public int mandelbrotSet(double xCalc, double yCalc) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = 0;
+//		int passes = 0;
+//		while (dist <= 2 && passes < 255) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//
+//			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+//			yCalc = (2 * (tempX * tempY)) + y;
+//
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//
+//			passes++;
+//		}
+//
+//		return passes;
+//	}
 
 	/**
 	 * creates a 2D array with passes for each point
 	 * @return 2D array with passes for each point
 	 */
-	public int[][] returnArrayWithPasses(int a, int b) {
-		int[][] array = new int[b-a+1][2048];
-		for (int x = a; x <= b; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x-a][y] = mandelbrotSet(getXCord(x), getYCord(y));
-			}
-		}
-		return array;
-	}
+//	public int[][] returnArrayWithPasses(int a, int b) {
+//		int[][] array = new int[b-a+1][2048];
+//		for (int x = a; x <= b; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x-a][y] = mandelbrotSet(getXCord(x), getYCord(y));
+//			}
+//		}
+//		return array;
+//	}
 
 	/**
 	 * Returns a single pass
@@ -71,21 +71,21 @@ public class MandelbrotSet {
 	 * @return - the number of passes
 	 */
 
-	public int userInputPasses(double xCalc, double yCalc, double i) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = i;
-		int passes = 0;
-		while (dist <= i && passes < 255) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-			xCalc = (tempX * tempX) - (tempY * tempY) + x;
-			yCalc = (2 * (tempX * tempY)) + y;
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-		}
-		return passes;
-	}
+//	public int userInputPasses(double xCalc, double yCalc, double i) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = i;
+//		int passes = 0;
+//		while (dist <= i && passes < 255) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+//			yCalc = (2 * (tempX * tempY)) + y;
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//		}
+//		return passes;
+//	}
 
 	/**
 	 * Return a 2D array of passes
@@ -93,17 +93,17 @@ public class MandelbrotSet {
 	 * @return- the number of passes
 	 */
 
-	public int[][] userInputEscape(String i) {
-		int a = Integer.parseInt(i);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
-				// System.out.println(array[x][y]);
-			}
-		}
-		return array;
-	}
+//	public int[][] userInputEscape(String i) {
+//		int a = Integer.parseInt(i);
+//		int[][] array = new int[2048][2048];
+//		for (int x = 0; x < 2048; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x][y] = userInputPasses(getXCord(x), getYCord(y), a);
+//				// System.out.println(array[x][y]);
+//			}
+//		}
+//		return array;
+//	}
 
 	/**
 	 * method to pass JUnit test
@@ -112,21 +112,21 @@ public class MandelbrotSet {
 	 * @return Number of passes
 	 */
 
-	public int mandelbrotsetPass10(double xCalc, double yCalc) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = 0;
-		int passes = 0;
-		while (dist <= 3 && passes < 255) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-			xCalc = (tempX * tempX) - (tempY * tempY) + x;
-			yCalc = (2 * (tempX * tempY)) + y;
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-		}
-		return passes;
-	}
+//	public int mandelbrotsetPass10(double xCalc, double yCalc) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = 0;
+//		int passes = 0;
+//		while (dist <= 3 && passes < 255) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+//			yCalc = (2 * (tempX * tempY)) + y;
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//		}
+//		return passes;
+//	}
 	
 	/**
 	 * method to pass JUnit test
@@ -135,21 +135,21 @@ public class MandelbrotSet {
 	 * @return Number of passes
 	 */
 
-	public int mandelbrotDist2Pass135(double xCalc, double yCalc) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = 0;
-		int passes = 0;
-		while (dist <= 2 && passes < 135) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-			xCalc = (tempX * tempX) - (tempY * tempY) + x;
-			yCalc = (2 * (tempX * tempY)) + y;
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-		}
-		return passes;
-	}
+//	public int mandelbrotDist2Pass135(double xCalc, double yCalc) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = 0;
+//		int passes = 0;
+//		while (dist <= 2 && passes < 135) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//			xCalc = (tempX * tempX) - (tempY * tempY) + x;
+//			yCalc = (2 * (tempX * tempY)) + y;
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//		}
+//		return passes;
+//	}
 	
 	/**
 	 * returns passes with given xcord, ycord, number of passes, and escape distance
@@ -174,8 +174,9 @@ public class MandelbrotSet {
 
 			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
 
-			passes++; 
+			passes++;
 		}
+		
 
 		return passes;
 	}
@@ -186,19 +187,19 @@ public class MandelbrotSet {
 	 * @param b - escape time
 	 * @return 2D array with escape time and passes
 	 */
-	public int[][] userInputEscapeTime(String i, String b) {
-		int a = Integer.parseInt(i);
-		int c = Integer.parseInt(b);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x][y] = holder(getXCord(x), getYCord(y), a, c);
-				// System.out.println(array[x][y]); 
-			} 
-		}
-		return array;
-
-	}
+//	public int[][] userInputEscapeTime(String i, String b) {
+//		int a = Integer.parseInt(i);
+//		int c = Integer.parseInt(b);
+//		int[][] array = new int[2048][2048];
+//		for (int x = 0; x < 2048; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x][y] = holder(getXCord(x), getYCord(y), a, c);
+//				// System.out.println(array[x][y]); 
+//			} 
+//		}
+//		return array;
+//
+//	}
 	
 	/**
 	 * @param xRow - goes from 0 to 2048
@@ -233,13 +234,26 @@ public class MandelbrotSet {
 	 * @return 2D array with passes
 	 */
 	
-	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
+//	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
+//		int a = Integer.parseInt(i);
+//		int c = Integer.parseInt(b);
+//		int[][] array = new int[2048][2048];
+//		for (int x = 0; x < 2048; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x][y] = holder(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
+//				// System.out.println(array[x][y]);
+//			} 
+//		}
+//		return array;
+//	}
+	
+	public int[][] rectangle(String i, String b, double e, double r, double er, double gg, int a1, int b1) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
+		int[][] array = new int[b1-a1 +1][2048];
+		for (int x = a1; x <= b1; x++) {
 			for (int y = 0; y < 2048; y++) {
-				array[x][y] = holder(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
+				array[x-a1][y] = holder(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 				// System.out.println(array[x][y]);
 			} 
 		}

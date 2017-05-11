@@ -21,14 +21,14 @@ public class SetTests {
 	@Test
 	public void testMandelbrotXCoordinateTranslation() {
 		MandelbrotSet xCoordTest = new MandelbrotSet();
-		assertEquals("X cordinate is -2.15", -2.15, xCoordTest.getXCord(0), 0.00001);
+		assertEquals("X cordinate is -2.15", -2.15, xCoordTest.getXCordRect(0, 0, 0), 0.00001);
 	}
 
 	// Translate a pixel's column to the associated y-coordinate in the fractal
 	@Test
 	public void testMandelbrotYCoordinateTranslation() {
 		MandelbrotSet yCoordTest = new MandelbrotSet();
-		assertEquals("Y cordinate is -1.3", -1.3, yCoordTest.getYCord(0), 0.0001);
+		assertEquals("Y cordinate is -1.3", -1.3, yCoordTest.getYCordRect(0, 0, 0), 0.0001);
 	}
 
 	// Calculates the escape time for a coordinate whose distance from the
@@ -37,7 +37,7 @@ public class SetTests {
 	public void testMandelbrotETNeverExceedsED() {
 		MandelbrotSet neverExceedsED = new MandelbrotSet();
 		assertEquals("Excape time is 255.", 255,
-				neverExceedsED.mandelbrotSet(0.3207031250000001, -0.07109374999999386));
+				neverExceedsED.holder(0.3207031250000001, -0.07109374999999386, 255, 2));
 	}
 
 	// Calculates the escape time for a coordinate whose distance from the
@@ -45,7 +45,7 @@ public class SetTests {
 	@Test
 	public void testMandelbrotETExceedsED() {
 		MandelbrotSet etExceedsED = new MandelbrotSet();
-		assertEquals("Excape time is 1.", 1, etExceedsED.mandelbrotSet(0.5946289062500001, 1.2949218750000122));
+		assertEquals("Excape time is 1.", 1, etExceedsED.holder(0.5946289062500001, 1.2949218750000122,255,2));
 	}
 
 	// The method called to calculate the fractal returns a 2-d array with 512
@@ -53,8 +53,8 @@ public class SetTests {
 	@Test
 	public void testMandelbrotReturn() {
 		MandelbrotSet returns2DArray = new MandelbrotSet();
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses(0,2047).length);
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.returnArrayWithPasses(0,2047)[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.rectangle("255", "2", 0, 0, 2047, 2047, 0, 2047).length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.rectangle("255", "2", 0, 0, 2047, 2047, 0, 2047)[0].length);
 	}
 
 	/**
@@ -202,7 +202,7 @@ public class SetTests {
 	@Test
 	public void testMandelbrotsetCalEsTime() {
 		MandelbrotSet mandelbrotset = new MandelbrotSet();
-		assertEquals(10, mandelbrotset.mandelbrotsetPass10(0.46007827788650374, -0.3383561643835661), 0.0001);
+		assertEquals(10, mandelbrotset.holder(0.46007827788650374, -0.3383561643835661, 255,2), 0.0001);
 	}
 
 	// When the escape distance is set to 3, calculates the escape time for a
@@ -242,7 +242,7 @@ public class SetTests {
 	@Test
 	public void testMandelbrotET135ED2() {
 		MandelbrotSet mandelbrotset = new MandelbrotSet();
-		assertEquals("Escape time is 135.", 135, mandelbrotset.mandelbrotDist2Pass135(0.3207031250000001, -0.07109374999999386), 0.0001);
+		assertEquals("Escape time is 135.", 135, mandelbrotset.holder(0.3207031250000001, -0.07109374999999386,135,2), 0.0001);
 	}
 	
 	// When the escape distance is set to 2, calculates the escape time for a

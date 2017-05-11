@@ -75,6 +75,7 @@ public class multibrotSet {
 	 * @return A 2D Array of int containing the escape time of each pixel in the 2048 x 2048 array. 
 	 */
 	public int[][] return2DArray(int a, int b){
+//		System.err.println(a + " -->" + b);
 		int [][] array = new int[b - a + 1][2048];
 		for (int x = a; x <= b; x++) {
 			for (int y = 0; y < 2048; y++) {

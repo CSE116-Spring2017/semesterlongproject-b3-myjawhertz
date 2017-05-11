@@ -52,11 +52,12 @@ public class UI implements Observer {
 	double widthHolder = 0;
 	double width2 = 2048;
 	double height2 = 2048;
-	double newW = 2048, newH = 2048;
+	double newW = 0, newH = 0;
+	double rectW = 2048;
+	double rectH = 2048;
 	private double newX, newY = 0;
 	int beginX, beginY, width, height;
-	double rectW = 0;
-	double rectH = 0;
+	
 	JPanel _buttonGrid;
 	private int[][] temp;
 	private JButton enter = new JButton("Recaculate fractal with given escape distance");
@@ -71,7 +72,6 @@ public class UI implements Observer {
 	// Class Object
 	private FractalPanel fp;
 	ComputePool cp;
-	WorkerResult wr;
 	MandelbrotSet m;
 	JuliaSet j;
 	burningshipset b;
@@ -97,7 +97,7 @@ public class UI implements Observer {
 	private JButton userInputForThreads;
 	private JMenu Threads;
 	private JMenuItem CalculatesThreads;
-	private int thread2 = 1;
+	private int thread2 = 4;
 	private int tempCount = 1;
 	
 	/**
@@ -185,11 +185,11 @@ public class UI implements Observer {
 		multibrot = new JMenuItem("Multibrot");
 		fractal.add(multibrot);
 		
-		Threads = new JMenu("Threads");
-		mb.add(Threads);
+//		Threads = new JMenu("Threads");
+//		mb.add(Threads);
 		
-		CalculatesThreads = new JMenuItem("Calculates the number of Threads used");
-		Threads.add(CalculatesThreads);
+//		CalculatesThreads = new JMenuItem("Calculates the number of Threads used");
+//		Threads.add(CalculatesThreads);
 		
 		// The Panel that holds the image
 		_buttonGrid = new JPanel();
@@ -260,12 +260,13 @@ public class UI implements Observer {
 
 		madelbrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				wo = -1;
+				
+				
 				setTemp = 1;
-				tempCount = thread2;
+//				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
-					workers[workerNumber] =  new createWorkers();
+					workers[workerNumber] =  new createWorkers(workerNumber);
 					
 				}
 				cp.clearPool();
@@ -278,12 +279,13 @@ public class UI implements Observer {
 
 		julia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				wo = -1;
+//				wo = -1;
+				
 				setTemp = 2;
-				tempCount = thread2;
+//				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
-					workers[workerNumber] =  new createWorkers();
+					workers[workerNumber] =  new createWorkers(workerNumber);
 				}
 				cp.clearPool();
 
@@ -293,12 +295,12 @@ public class UI implements Observer {
 		});
 		burningship.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				wo=-1;
+//				wo= -1;
 				setTemp = 3;
-				tempCount = thread2;
+//				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
-					workers[workerNumber] =  new createWorkers();
+					workers[workerNumber] =  new createWorkers(workerNumber);
 				}
 				cp.clearPool();
 				cp.generateFractal(2048, workers);
@@ -307,12 +309,12 @@ public class UI implements Observer {
 		});
 		multibrot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				wo=-1;
+//				wo = -1;
 				setTemp = 4;
-				tempCount = thread2;
+//				tempCount = thread2;
 				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
 				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
-					workers[workerNumber] =  new createWorkers();
+					workers[workerNumber] =  new createWorkers(workerNumber);
 				}
 				cp.clearPool();
 				cp.generateFractal(2048, workers);
@@ -328,72 +330,52 @@ public class UI implements Observer {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createBluesColorModel(8));
 				JOptionPane.getRootFrame();
-				if (setTemp == 1) {
-					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers(workerNumber);
+					
 				}
-				if (setTemp == 2) {
-					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 3) {
-					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 4) {
-					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-				}
+				cp.clearPool();
+				cp.generateFractal(2048, workers);	
 			}
 		});
 		color2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createGrayColorModel(8));
 				JOptionPane.getRootFrame();
-				if (setTemp == 1) {
-					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers(workerNumber);
+					
 				}
-				if (setTemp == 2) {
-					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 3) {
-					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 4) {
-					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-				}
+				cp.clearPool();
+				cp.generateFractal(2048, workers);	
 			}
 		});
 		color3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createRainbowColorModel(8));
 				JOptionPane.getRootFrame();
-				if (setTemp == 1) {
-					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers(workerNumber);
+					
 				}
-				if (setTemp == 2) {
-					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 3) {
-					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 4) {
-					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-				}
+				cp.clearPool();
+				cp.generateFractal(2048, workers);	
 			}
 		});
 		color4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fp.setIndexColorModel(ColorModel.createCrazyGoodColor(8));
 				JOptionPane.getRootFrame();
-				if (setTemp == 1) {
-					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers(workerNumber);
+					
 				}
-				if (setTemp == 2) {
-					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 3) {
-					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 4) {
-					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-				}
+				cp.clearPool();
+				cp.generateFractal(2048, workers);	
 			}
 		});
 		
@@ -410,27 +392,19 @@ public class UI implements Observer {
 				} else {
 					int a = Integer.parseInt(textFromBox);
 
-					if ((isNumber(textFromBox) == true) && (a > 0)) { // if text
-																		// in
-																		// box
-								 										// is a
-																		// valid
-																		// positive
-																		// number
-						if (setTemp == 1) {
-							fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+					if ((isNumber(textFromBox) == true) && (a > 0)) { 
+						
+						if(setTemp == 1 || setTemp ==2 || setTemp == 3 || setTemp ==4){
+							SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+							for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+								workers[workerNumber] =  new createWorkers(workerNumber);
+							}
+							cp.clearPool();
+							cp.generateFractal(2048, workers);	
 						}
-						if (setTemp == 2) {
-							fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-						}
-						if (setTemp == 3) {
-							fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-						}
-						if (setTemp == 4) {
-							fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
 						} else if ((isNumber(textFromBox) == false) || a < 0) {
 							ErrorBox("Please enter positive number", "ErrorBox");
-						}
+						
 
 					}
 				}
@@ -450,18 +424,16 @@ public class UI implements Observer {
 
 					if ((isNumber(textFromBox2) == true) && a >= 2 && a <= 255) {
 						// if text in box is a valid number between 2 and 255
-						if (setTemp == 1) {
-							fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+						
+						if(setTemp == 1 || setTemp ==2 || setTemp == 3 || setTemp==4){
+						SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+						for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+							workers[workerNumber] =  new createWorkers(workerNumber);
 						}
-						if (setTemp == 2) {
-							fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
+						cp.clearPool();
+						cp.generateFractal(2048, workers);	
 						}
-						if (setTemp == 3) {
-							fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-						}
-						if (setTemp == 4) {
-							fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-						}
+						
 					} else if ((isNumber(textFromBox2) == false) || a < 2 || a > 255) {
 						ErrorBox("Please enter numbers between 2 and 255", "ErrorBox");
 					}
@@ -482,26 +454,23 @@ public class UI implements Observer {
 				f = 0;
 				width2 = 2048;
 				height2 = 2048;
-				newW = 2048;
-				newH = 2048;
+				newW = 0;
+				newH = 0;
 				newX = 0;
+				
 				newY = 0;
 
-				rectW = 0;
-				rectH = 0;
+				rectW = 2048;
+				rectH = 2048;
 				
-				if (setTemp == 1) {
-					fp.updateImage(m.userInputEscapeTime(textFromBox2, textFromBox));
+				
+				SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+				for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+					workers[workerNumber] =  new createWorkers(workerNumber);
+					
 				}
-				if (setTemp == 2) {
-					fp.updateImage(j.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 3) {
-					fp.updateImage(b.userInputEscapeTime(textFromBox2, textFromBox));
-				}
-				if (setTemp == 4) {
-					fp.updateImage(multi.userInputEscapeTime(textFromBox2, textFromBox));
-				}
+				cp.clearPool();
+				cp.generateFractal(2048, workers);	
 			}
 		});
 		/**
@@ -535,10 +504,10 @@ public class UI implements Observer {
 	 * Divides the work amongst workerResult 
 	 * @return worker number it is on
 	 */
-	public int workNum(){
-		wo+=1;
-		return wo;
-	}
+//	public int workNum(){
+//		wo+=1;
+//		return wo;
+//	}
 
 	public void changed() {
 	}
@@ -677,18 +646,14 @@ public class UI implements Observer {
 			}
 			rectW = width1;
 			rectH = height1;
-			if (setTemp == 1) {
-				fp.updateImage(m.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
+			
+			
+			SwingWorker<WorkerResult, Void> workers[] = new createWorkers[thread2];
+			for (workerNumber = 0; workerNumber < thread2; workerNumber++) {
+				workers[workerNumber] =  new createWorkers(workerNumber);
 			}
-			if (setTemp == 2) {
-				fp.updateImage(j.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
-			}
-			if (setTemp == 3) {
-				fp.updateImage(b.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
-			}
-			if (setTemp == 4) {
-				fp.updateImage(multi.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH));
-			}
+			cp.clearPool();
+			cp.generateFractal(2048, workers);
 
 		}
 
@@ -705,16 +670,28 @@ public class UI implements Observer {
 	public class createWorkers extends SwingWorker<WorkerResult, Void> {
 		int a ;
 		
+		public createWorkers(int workerNumber) {
+			a = workerNumber;
+		}
+
 		@Override
 		protected WorkerResult doInBackground() throws Exception {
-				int a = workNum();
+//				int a = workNum();
 				int start = (a* 2048) / thread2;
 				System.out.println("start: " + start + "");
 				int end = (((a  +1) * 2048 / thread2)) -1;
 				System.out.println("end: " + end + "");
+				WorkerResult wr = null;
+				
+				
 				
 				if (setTemp == 1) {
-					wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
+//					wr = new WorkerResult(start , m.returnArrayWithPasses(start ,end));
+					wr = new WorkerResult(start, m.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH, start, end));
+//					System.out.println(newW);
+//					System.out.println(newH);
+//					System.out.println(rectW);
+//					System.out.println(rectH);
 				}
 				if (setTemp == 2) {
 					wr = new WorkerResult(start , j.returnArrayWithPasses(start ,end));
@@ -725,7 +702,7 @@ public class UI implements Observer {
 				if (setTemp == 4) {
 					wr = new WorkerResult(start , multi.return2DArray(start ,end));
 				}			
-			
+//			System.err.println(start + " " + wr.getFractalStartRow() + " " + wr.getNumberRows());
 			return wr;
 		}
 	}
