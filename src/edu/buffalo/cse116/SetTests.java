@@ -263,7 +263,7 @@ public class SetTests {
 	}
 	
 	// When the escape distance is set to 2, calculates the escape time for a
-	// coordinate whose distance from the origin exceeds the escape distance
+	// coordinate whose distance from the origin exceeds the escape distance 
 	// after 135 passes of a loop
 	@Test
 	public void testMultibrotET135ED2() {
