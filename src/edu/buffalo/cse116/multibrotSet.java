@@ -192,7 +192,8 @@ public class multibrotSet {
 //		}
 //		return array;
 //	}
-	/**
+	/** 
+	 * Translates x-coordinates from 0-2048 ----> -1 to 1
 	 * @param xRow - goes from 0 to 2048
 	 * @param xStart  0-2048 scale of new X starting part
 	 * @param xWidth 0-2048 scale of width
@@ -204,6 +205,7 @@ public class multibrotSet {
 	}
 	
 	/**
+	 * Translates y-coordinates from 0-2048 ----> -1 to 1
 	 * @param yCol - goes from 0 to 2048
 	 * @param yStart 0-2048 scale of new Y starting point
 	 * @param yWidth 0-2048 sale of height
@@ -215,6 +217,8 @@ public class multibrotSet {
 	}
 	
 	/**
+	 * This method returns a 2D array of integers that represents a piece (or all) of escape-times
+	 * for the Multibrot Set 
 	 * @param i - escape distance
 	 * @param b - escape time
 	 * @param e - distance from -2.15
