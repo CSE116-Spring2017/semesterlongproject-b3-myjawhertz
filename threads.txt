@@ -1,0 +1,4 @@
+Workers.txt
+In order to change the name of swing Workers, user can enter the worker Number
+in the box above "Number of threads" between the range of 1-128. If an illegal entry 
+is entered, an error will show in the console. 

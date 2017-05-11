@@ -1,0 +1,2 @@
+To verify that 2048*2048 pixel fractal is generated, you need to run driver 
+which will run the UI using the different set class methods to generate the fractal.
