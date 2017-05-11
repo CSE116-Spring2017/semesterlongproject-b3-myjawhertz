@@ -94,6 +94,15 @@ public class SetTests {
 		JuliaSet etExceedsED = new JuliaSet();
 		assertEquals("Escape time 1.", 1, etExceedsED.juliaRealPasses(1.6933593749999853, 0.9765625, 255, 2), 0.0001);
 	}
+	
+	@Test
+	public void testJuliaReturn() {
+		JuliaSet returns2DArray = new JuliaSet();
+		assertEquals("2D 2048 by 2048 array", 2048,
+				returns2DArray.rectangle("255", "2", 0, 0, 2047, 2047, 0, 2047).length);
+		assertEquals("2D 2048 by 2048 array", 2048,
+				returns2DArray.rectangle("255", "2", 0, 0, 2047, 2047, 0, 2047)[0].length);
+	}
 
 	/**
 	 * Burning Ship Set Tests
