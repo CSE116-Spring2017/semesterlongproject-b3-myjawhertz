@@ -697,7 +697,7 @@ public class UI implements Observer {
 					wr = new WorkerResult(start , j.returnArrayWithPasses(start ,end));
 				}
 				if (setTemp == 3) {
-					wr = new WorkerResult(start , b.returnArrayWithPasses(start ,end));
+					wr = new WorkerResult(start , b.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH, start, end));
 				}
 				if (setTemp == 4) {
 					wr = new WorkerResult(start , multi.return2DArray(start ,end));
