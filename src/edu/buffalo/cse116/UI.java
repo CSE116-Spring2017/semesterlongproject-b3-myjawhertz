@@ -692,9 +692,10 @@ public class UI implements Observer {
 //					System.out.println(newH);
 //					System.out.println(rectW);
 //					System.out.println(rectH);
-				} 
+				}
 				if (setTemp == 2) {
 					wr = new WorkerResult(start , j.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH, start, end));
+				}
 				if (setTemp == 3) {
 					wr = new WorkerResult(start , b.rectangle(textFromBox2, textFromBox, newW, newH, rectW, rectH, start, end));
 				}
