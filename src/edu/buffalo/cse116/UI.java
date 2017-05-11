@@ -481,16 +481,19 @@ public class UI implements Observer {
 				textFromBox3 = textfieldforThread.getText();
 				textfieldforThread.setText("");
 				
-				int numFromBox = Integer.parseInt(textFromBox3);
-				if((isNumber(textFromBox3) ==true) && numFromBox > 0 && numFromBox < 129){
-					// use #userInput of swingworker to do the background work
-					thread2 = numFromBox;
-				}
-				else if(ErrorBoxNotNumber(textFromBox3) == true){
-					ErrorBox("Please enter numbers only!","ErrorBox");
-				}
-				else{
-					ErrorBox("Please enter number between 1 to 128","Errorbox");
+				if (ErrorBoxNotNumber(textFromBox3) == true) {
+					ErrorBox("Please insert numbers only!", "ErrorBox");
+
+				} else {
+					int numFromBox = Integer.parseInt(textFromBox3);	
+
+					if ((isNumber(textFromBox3) == true) && numFromBox >= 1 && numFromBox <= 128) {
+						// use #userInput of swingworker to do the background work
+						
+						thread2 = numFromBox;
+					} else if ((isNumber(textFromBox3) == false) || numFromBox < 1 || numFromBox > 128) {
+						ErrorBox("Please enter numbers between 1 and 128", "ErrorBox");
+					}
 				}
 			}
 			
