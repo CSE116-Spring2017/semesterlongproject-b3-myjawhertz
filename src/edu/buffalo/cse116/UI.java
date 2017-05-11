@@ -101,7 +101,7 @@ public class UI implements Observer {
 	private int tempCount = 1;
 	
 	/**
-	 * Calls the methods to generate a new UI for the program when booting up�
+	 * Calls the methods to generate a new UI for the program when booting up
 	 * 
 	 * @param m
 	 *            The model used for the UI that contains observers
