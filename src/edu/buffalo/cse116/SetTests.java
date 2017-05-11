@@ -156,23 +156,22 @@ public class SetTests {
 	@Test
 	public void testMultibrotXCoordinateTranslation() {
 		multibrotSet xCoordTest = new multibrotSet();
-		assertEquals("X cordinate is -1", -1, xCoordTest.XCoordTranslation(0), 0.00001);
+		assertEquals("X cordinate is -1", -1, xCoordTest.getXCordRect(0, 0, 0), 0.00001);
 	}
 
 	// Translate a pixel's column to the associated x-coordinate in the fractal
 	@Test
 	public void testMultibrotYCoordinateTranslation() {
 		multibrotSet yCoordTest = new multibrotSet();
-		assertEquals("X cordinate is -1.3", -1.3, yCoordTest.YCoordTranslation(0), 0.00001);
+		assertEquals("X cordinate is -1.3", -1.3, yCoordTest.getYCordRect(0, 0, 0), 0.00001);
 	}
 
 	// Calculates the escape time for a coordinate whose distance from the
 	// origin never exceeds the escape distance
 	@Test
 	public void testMultibrotETNeverExceedsED() {
-		multibrotSet neverExceedsED = new multibrotSet();
-		assertEquals("Excape time 255.", 255, neverExceedsED.mbSetETCalculation(0.5859375, 0.24375000000000108),
-				0.0001);
+		multibrotSet neverExceedsED = new multibrotSet();		// 0.5859375 , 0.24375000000000108
+		assertEquals("Excape time 255.", 255, neverExceedsED.multibrotRealPasses(0.5859375, 0.24375000000000108, 255, 2), 0.0001);
 	}
 
 	// Calculates the escape time for a coordinate whose distance from the
@@ -180,7 +179,7 @@ public class SetTests {
 	@Test
 	public void testMultibrotETExceedsED() {
 		multibrotSet etExceedsED = new multibrotSet();
-		assertEquals("Excape time 1.", 1, etExceedsED.mbSetETCalculation(0.9921875, 1.05625), 0.0001);
+		assertEquals("Excape time 1.", 1, etExceedsED.multibrotRealPasses(0.9921875, 1.05625, 255, 2), 0.0001);
 	}
 
 	// The method called to calculate the fractal returns a 2-d array with 512
@@ -189,8 +188,8 @@ public class SetTests {
 	@Test
 	public void testMultibrotReturn() {
 		multibrotSet returns2DArray = new multibrotSet();
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray(0,2047).length);
-		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.return2DArray(0,2047)[0].length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.rectangle("255","2", 0.0, 0.0, 2047, 2047, 0, 2047).length);
+		assertEquals("2D 2048 by 2048 array", 2048, returns2DArray.rectangle("255","2", 0.0, 0.0, 2047, 2047, 0, 2047)[0].length);
 	}
 
 	/**
@@ -229,7 +228,7 @@ public class SetTests {
 	@Test
 	public void testMultibrotsetCalEsTime() {
 		multibrotSet multibrotset = new multibrotSet();
-		assertEquals(10, multibrotset.multibrotsetPass10(0.7025440313111545, -0.5520547945205528), 0.0001);
+		assertEquals(10, multibrotset.multibrotRealPasses(0.7025440313111545, -0.5520547945205528, 255, 3), 0.0001);
 	}
 	
 	/**
@@ -269,6 +268,6 @@ public class SetTests {
 	@Test
 	public void testMultibrotET135ED2() {
 		multibrotSet multibrotset = new multibrotSet();
-		assertEquals("Escape time is 135.", 135, multibrotset.multibrotsetDist2Pass135(0.5859375, 0.24375000000000108), 0.0001);
+		assertEquals("Escape time is 135.", 135, multibrotset.multibrotRealPasses(0.5859375, 0.24375000000000108, 135, 2), 0.0001);
 	}
 }
