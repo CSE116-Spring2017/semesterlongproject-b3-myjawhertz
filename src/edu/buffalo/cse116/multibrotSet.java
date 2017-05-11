@@ -12,19 +12,19 @@ public class multibrotSet {
 	 * @param x original x-coordinate in 2048 x 2048 array
 	 * @return new xCalc value for this set
 	 */
-	public double XCoordTranslation(int x){
-		double xCalc = -1 + (2.0 * x / 2048); 
-		return xCalc; 
-	}
+//	public double XCoordTranslation(int x){
+//		double xCalc = -1 + (2.0 * x / 2048); 
+//		return xCalc; 
+//	}
 	/**
 	 * Translates y-coordinates from 0-2048 ----> -1.3 to 1.3 
 	 * @param y original y-coordinate in 2048 x 2048 array
 	 * @return new yCalc value for this set
 	 */
-	public double YCoordTranslation(int y){
-		double yCalc = -1.3 + (2.6 * y / 2048);
-		return yCalc;
-	}
+//	public double YCoordTranslation(int y){
+//		double yCalc = -1.3 + (2.6 * y / 2048);
+//		return yCalc;
+//	}
 	
 	/**
 	 * This method does the Escape-Time Calculations for the MultiBrot Set
@@ -32,21 +32,21 @@ public class multibrotSet {
 	 * @param yCalc - a translated y-Coordinate in the MultiBrot Set
 	 * @return the Escape Time for the set == number of passes done
 	 */
-	public int mbSetETCalculation(double xCalc, double yCalc) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-		int passes = 0;
-		while (dist <= 2 && passes < 255) {
-			double tempX = xCalc;	
-			double tempY = yCalc;
-			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
-			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-		}
-		return passes;
-	}
+//	public int mbSetETCalculation(double xCalc, double yCalc) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//		int passes = 0;
+//		while (dist <= 2 && passes < 255) {
+//			double tempX = xCalc;	
+//			double tempY = yCalc;
+//			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
+//			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//		}
+//		return passes;
+//	}
 	
 	/**
 	 * This class insures that the Escape-Time calculations work when distance = 3.
@@ -55,35 +55,35 @@ public class multibrotSet {
 	 * @param yCalc - a translated y-Coordinate in the MultiBrot Set
 	 * @return the Escape Time for the set == number of passes done
 	 */
-	public int multibrotsetPass10(double xCalc, double yCalc) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-		int passes = 0;
-		while (dist <= 3 && passes < 255) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
-			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-		}
-		return passes;
-	}
+//	public int multibrotsetPass10(double xCalc, double yCalc) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//		int passes = 0;
+//		while (dist <= 3 && passes < 255) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
+//			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//		}
+//		return passes;
+//	}
 	/**
 	 * This method gives the escape-times of each pixel in a 2D array form.
 	 * @return A 2D Array of int containing the escape time of each pixel in the 2048 x 2048 array. 
 	 */
-	public int[][] return2DArray(int a, int b){
-//		System.err.println(a + " -->" + b);
-		int [][] array = new int[b - a + 1][2048];
-		for (int x = a; x <= b; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x-a][y] = mbSetETCalculation(XCoordTranslation(x), YCoordTranslation(y));
-			}
-		}
-		return array; 
-	}
+//	public int[][] return2DArray(int a, int b){
+////		System.err.println(a + " -->" + b);
+//		int [][] array = new int[b - a + 1][2048];
+//		for (int x = a; x <= b; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x-a][y] = mbSetETCalculation(XCoordTranslation(x), YCoordTranslation(y));
+//			}
+//		}
+//		return array; 
+//	}
 	
 	/**
 	 * This method does the Escape-Time Calculations for the MultiBrot Set with a new distance
@@ -93,21 +93,21 @@ public class multibrotSet {
 	 * @param i - the new distance to be used for Escape-Time calculations
 	 * @return the Escape Time for the set == number of passes done
 	 */
-	public int userInputPasses(double xCalc, double yCalc, double i) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = i;
-		int passes = 0;
-		while (dist <= i && passes < 255) {
-			double tempX = xCalc;	
-			double tempY = yCalc;
-			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
-			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-		}
-		return passes; 
-	}
+//	public int userInputPasses(double xCalc, double yCalc, double i) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = i;
+//		int passes = 0;
+//		while (dist <= i && passes < 255) {
+//			double tempX = xCalc;	
+//			double tempY = yCalc;
+//			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
+//			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//		}
+//		return passes; 
+//	}
 	
 	/** 
 	 * Returns a 2D array of int with the Escape-Times for every single pixel for the
@@ -115,17 +115,17 @@ public class multibrotSet {
 	 * @param i - User input for distance in Escape-Time calculations
 	 * @return 2d array of int
 	 */
-	public int[][] userInputEscape(String i){
-		int a = Integer.parseInt(i);
-		int[][] array = new int[2048][2048];
-		for (int r = 0; r < 2048; r++){		//for each row in the array
-			for (int c = 0; c < 2048; c++) {		//for each column in the array
-				array[r][c] = userInputPasses(XCoordTranslation(r),YCoordTranslation(c), a);
+//	public int[][] userInputEscape(String i){
+//		int a = Integer.parseInt(i);
+//		int[][] array = new int[2048][2048];
+//		for (int r = 0; r < 2048; r++){		//for each row in the array
+//			for (int c = 0; c < 2048; c++) {		//for each column in the array
+//				array[r][c] = userInputPasses(XCoordTranslation(r),YCoordTranslation(c), a);
 //				System.out.println(array[r][c]);	//this line is for debugging purposes
-			}
-		}
-		return array;
-	}
+//			}
+//		}
+//		return array;
+//	}
 	/**
 	 * Only called in a JUnit test to test if the set returns an escape time of 135 when
 	 * the distance is set to 2 given a certain x and y value.
@@ -133,21 +133,21 @@ public class multibrotSet {
 	 * @param yCalc - Y-Value given in the JUnit test case
 	 * @return the Escape-Time of the set == the number of passes done
 	 */
-	public int multibrotsetDist2Pass135(double xCalc, double yCalc) {
-		double x = xCalc;
-		double y = yCalc;
-		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); 
-		int passes = 0;
-		while (dist <= 2 && passes < 135) {
-			double tempX = xCalc;
-			double tempY = yCalc;
-			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
-			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
-			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
-			passes++;
-		}
-		return passes;
-	}
+//	public int multibrotsetDist2Pass135(double xCalc, double yCalc) {
+//		double x = xCalc;
+//		double y = yCalc;
+//		double dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); 
+//		int passes = 0;
+//		while (dist <= 2 && passes < 135) {
+//			double tempX = xCalc;
+//			double tempY = yCalc;
+//			xCalc = (tempX * tempX * tempX) - (3 * tempX * (tempY * tempY)) + x;
+//			yCalc = (3 * (tempX * tempX) * tempY) - (tempY * tempY * tempY) + y;
+//			dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));
+//			passes++;
+//		}
+//		return passes;
+//	}
 	
 	/**
 	 * Calculates the Escape-Time using for the set using the custom distance and maximum number
@@ -181,17 +181,17 @@ public class multibrotSet {
 	 * @param b - entry from TextBox2: determines distance used for ET calculations
 	 * @return 2D array of int of Escape-Times for each pixel in the 2048x2048 array
 	 */
-	public int[][] userInputEscapeTime(String i, String b) {
-		int a = Integer.parseInt(i);
-		int c = Integer.parseInt(b);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
-			for (int y = 0; y < 2048; y++) {
-				array[x][y] = multibrotRealPasses(XCoordTranslation(x), YCoordTranslation(y), a, c);
-			}
-		}
-		return array;
-	}
+//	public int[][] userInputEscapeTime(String i, String b) {
+//		int a = Integer.parseInt(i);
+//		int c = Integer.parseInt(b);
+//		int[][] array = new int[2048][2048];
+//		for (int x = 0; x < 2048; x++) {
+//			for (int y = 0; y < 2048; y++) {
+//				array[x][y] = multibrotRealPasses(XCoordTranslation(x), YCoordTranslation(y), a, c);
+//			}
+//		}
+//		return array;
+//	}
 	/**
 	 * @param xRow - goes from 0 to 2048
 	 * @param xStart  0-2048 scale of new X starting part
@@ -223,13 +223,13 @@ public class multibrotSet {
 	 * @param gg - height of dragged area
 	 * @return 2D array with passes
 	 */
-	public int[][] rectangle(String i, String b, double e, double r, double er, double gg) {
+	public int[][] rectangle(String i, String b, double e, double r, double er, double gg, int a1, int b1) {
 		int a = Integer.parseInt(i);
 		int c = Integer.parseInt(b);
-		int[][] array = new int[2048][2048];
-		for (int x = 0; x < 2048; x++) {
+		int[][] array = new int[b1-a1 + 1][2048];
+		for (int x = a1; x <= b1; x++) {
 			for (int y = 0; y < 2048; y++) {
-				array[x][y] = multibrotRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
+				array[x-a1][y] = multibrotRealPasses(getXCordRect(x,e, er), getYCordRect(y, r, gg), a, c);
 			} 
 		} 
 		return array;
